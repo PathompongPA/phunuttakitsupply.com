@@ -1,4 +1,4 @@
-name: Deploy Next.js
+name: Deploy
 
 on:
   push:
@@ -10,19 +10,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy via SSH
-        uses: appleboy/ssh-action@v1.0.3
+      - name: Deploy
+        uses: appleboy/ssh-action@v1.2.0
+
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
+
           script: |
-            cd /var/www/myapp
-
+            cd ~/phunuttakitsupply.com
             git pull origin main
-
-            npm install
-
-            npm run build
-
-            pm2 restart myapp
+            docker compose down
+            docker compose up -d --build
