@@ -1,0 +1,13 @@
+
+services:
+  next-app:
+    build: .
+    container_name: next-app-phunuttakit
+
+    ports:
+      - "3000:3000"
+
+    restart: always
+
+    env_file:
+      - .env
