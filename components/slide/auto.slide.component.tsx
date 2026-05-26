@@ -15,7 +15,7 @@ export default function AutoSlide({ children, interval = 5000 }: prop) {
         return () => clearInterval(timer);
     }, [items.length, interval]);
     return (
-        <div className="flex justify-center items-center w-screen h-screen bg-gray-2 ">
+        <div className="flex justify-center items-center w-full h-screen bg-gray-2 ">
             {items[counterNumber]}
         </div>
     )
