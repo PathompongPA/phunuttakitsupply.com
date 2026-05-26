@@ -1,5 +1,5 @@
-import { getDate } from "./directus/directus.utility"
+import { getData } from "./directus/directus.utility"
 
 export {
-    getDate
+    getData
 }

@@ -1,9 +1,9 @@
-import { getDate } from "@/utility";
+import { getData } from "@/utility";
 import Detail from "./detail.menu.component"
 import Item from "./item.component";
 
 export default async function ItemMenu() {
-    const category = await getDate("category", {})
+    const category = await getData("category", {})
     return (
         <div className="relative overflow-visible group">
             <input type="checkbox" className="peer/category" id="category" defaultChecked hidden />
