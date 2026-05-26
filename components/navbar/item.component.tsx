@@ -11,7 +11,7 @@ type prop = {
     dropdown?: boolean
 } & VariantProps<typeof style>;
 
-const style = cva("text-end p-4 px-8  flex justify-end items-center ", {
+const style = cva("text-end p-4 px-8  flex flex-col justify-end items-end  lg:items-center text-nowrap group ", {
     variants: {
         variant: {
             primary: "text-[14px] font-semibold text-gray-4",
@@ -25,18 +25,21 @@ const style = cva("text-end p-4 px-8  flex justify-end items-center ", {
 export default async function Item({ children, dropdown = false, className, pathname, hash, query, variant }: prop) {
     return (
         <li className={style({ variant, className })}>
-            <Link
-                className=""
-                href={{ pathname, hash, query }}
-                scroll={true}
-            >
-                {children}
-            </Link>
-            {dropdown &&
-                <label className=" flex h-fit w-fit *:w-fit *:h-fit *:p-0 " htmlFor="category">
-                    <ChevronDown size={16} strokeWidth={4} />
-                </label>
-            }
+            <div className="flex items-center">
+                <Link
+                    className=""
+                    href={{ pathname, hash, query }}
+                    scroll={true}
+                >
+                    {children}
+                </Link>
+                {dropdown &&
+                    <label className=" flex h-fit w-fit *:w-fit *:h-fit *:p-0 hover:cursor-pointer" htmlFor="category">
+                        <ChevronDown className="" size={16} strokeWidth={4} />
+                    </label>
+                }
+            </div>
+            <div className="border-b-4 w-full ease-in-out border-transparent scale-0  origin-left group-hover:scale-100 group-hover:border-orange duration-500"></div>
         </li>
     )
 

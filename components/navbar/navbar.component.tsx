@@ -5,10 +5,9 @@ import HamburgerMenu from "./hamburger.menu.component";
 import { X } from "lucide-react";
 import Detail from "./detail.menu.component";
 import { getDate } from "@/utility";
+import ItemMenu from "./item.detail.menu.component";
 
 export default async function Navbar() {
-    const category = await getDate("category", {})
-    console.log(category);
     return (
         <nav className="fixed top-0 left-0 w-full flex justify-center lg:bg-gray-1" aria-label="main navigation">
             <div className="flex flex-col lg:flex-row justify-between lg:items-center w-full max-w-7xl lg:px-8 relative ">
@@ -19,12 +18,8 @@ export default async function Navbar() {
                     <HamburgerMenu />
                 </div>
                 <Menu>
-                    <input type="checkbox" className="peer/category" id="category" defaultChecked hidden />
                     <Item pathname="/">หน้าหลัก</Item>
-                    <Item pathname="/products" dropdown={true}>สินค้า</Item>
-                    <Detail >
-                        {category?.map(({ name }) => <Item pathname={`/products/${name}`} variant={"secondary"} key={name}> {name}</Item>)}
-                    </Detail>
+                    <ItemMenu />
                     <Item pathname="/catalogs">แคตตาล็อค</Item>
                     <Item pathname="/blogs">บทความ</Item>
                     <Item pathname="/blogs">เกี่ยวกับเรา</Item>
