@@ -1,1 +1,24 @@
 @import "tailwindcss";
+
+@theme {
+  --color-orange: #FF8800;
+  --color-gray-1: #F4F4F4;
+  --color-gray-2: #D4D4D4;
+  --color-gray-3: #A6A6A6;
+  --color-gray-4: #636363;
+  --color-gray-5: #2A2A2A;
+  --color-gray-6: #202020;
+  --animate-open-down: open-down 3s ease-in;
+
+  @keyframes open-down {
+    0% {
+      height: 0;
+      padding: 0;
+    }
+
+    ,
+    100% {
+      height: fit-content;
+    }
+  }
+}
