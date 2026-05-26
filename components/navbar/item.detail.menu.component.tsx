@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { getData } from "@/utility";
 import Detail from "./detail.menu.component"
 import Item from "./item.component";
