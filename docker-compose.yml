@@ -1,7 +1,12 @@
 
 services:
   next-app:
-    build: .
+    build:
+      context: .
+      dockerfile: dockerfile
+      args:
+        NEXT_PUBLIC_URL_HOST: ${NEXT_PUBLIC_URL_HOST}
+
     container_name: next-app-phunuttakit
 
     ports:
