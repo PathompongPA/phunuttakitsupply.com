@@ -1,3 +1,4 @@
 import Navbar from "./navbar/navbar.component";
+import SearchProduct from "./search/search.component";
 
-export { Navbar };
+export { Navbar, SearchProduct };
