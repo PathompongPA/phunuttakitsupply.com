@@ -1,5 +1,5 @@
 import { getData } from "@/utility"
-import { ArrowDown, ChevronDown, Download, FileDown } from "lucide-react"
+import { ChevronDown, Download, } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 

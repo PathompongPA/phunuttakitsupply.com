@@ -6,7 +6,7 @@ type prop = {
 }
 export default function Layout({ children }: prop) {
     return (
-        <div className=" w-full pt-24">
+        <div className=" flex flex-col w-full pt-20">
             <Navbar />
             <NavigationBar />
             {children}

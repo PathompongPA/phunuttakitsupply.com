@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import SearchKeyword from '../search/search.keyword.component'
 
 export default function NavigationBar() {
     const pathname = usePathname()
@@ -14,8 +13,8 @@ export default function NavigationBar() {
     }
 
     return (
-        <nav className="flex gap-2 text-[16px] text-white bg-orange p-4 items-center justify-between sticky top-24 z-40">
-            <div className=" flex gap-2">
+        <nav className="flex gap-2 text-[16px] lg:text-[12px] text-white bg-orange p-2 items-center justify-center lg:px-16 sticky top-22 z-40">
+            <div className=" flex gap-2 lg:max-w-7xl w-full lg:px-8">
                 <Link className=" font-semibold underline" href="/">หน้าหลัก</Link>
                 {segments.map((segment, index) => {
                     const href = buildHref(index)

@@ -5,8 +5,8 @@ export default async function SearchTypeProduct() {
 
     return (
         <div className=" flex flex-col gap-4 px-4 py-2 " >
-            <h2 className=" text-gray-5 text-[16px] underline">ประเภท</h2>
-            <div className=" flex gap-4">
+            <h2 className=" text-gray-5 text-[16px] lg:text-[12px] underline">ประเภท</h2>
+            <div className=" flex gap-4 lg:flex-col">
                 {typeProduct?.map(({ name }) =>
                     <label className=" flex gap-2 items-center active:scale-90 duration-300 " key={name} htmlFor={name}>
                         <input className=" peer/type" id={name} type="checkbox" hidden />
