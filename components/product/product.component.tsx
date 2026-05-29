@@ -15,15 +15,16 @@ export default async function Product({ product_name }: prop) {
         fields: ["brand.name", "category.name", "thumbnail", "name", "description"]
     }
     const [product] = await getData("product", option)
-    const { thumbnail } = product
-    const thumbnailUrl = process.env.NEXT_PUBLIC_URL_HOST + "assets/" + thumbnail
-    const brand = product.brand.name
-    const category = product.category.name
-    const name = product.name
-    const description = product.description
+    const thumbnailUrl = process.env.NEXT_PUBLIC_URL_HOST + "assets/" + product?.thumbnail
+    const brand = product?.brand?.name
+    const category = product?.category?.name
+    const name = product?.name
+    const description = product?.description
     return (
-        <div className=" p-4 py-8 flex flex-col gap-4 h-fit ">
-            <Image className="w-full aspect-square " src={thumbnailUrl} alt="" width={0} height={0} unoptimized />
+        <div className=" p-4 py-8 flex flex-col lg:grid lg:grid-cols-2  gap-4 lg:gap-8 lg:py-4 lg:px-8 h-fit max-w-7xl ">
+            <div className=" w-full">
+                <Image className="w-full border " src={thumbnailUrl} alt="" width={0} height={0} unoptimized />
+            </div>
             <div className="flex flex-col gap-4">
                 <div className=" flex w-full justify-between  *:text-gray-4 *:text-[14px]">
                     <div className=""> Brand :
@@ -50,11 +51,13 @@ export default async function Product({ product_name }: prop) {
                     </div>
                 </div>
                 <div className=" flex flex-col gap-4">
-                    <h1 className="text-[32px] font-extrabold text-gray-5" >{name}</h1>
-                    <button className=" text-[12px] w-fit font-normal bg-orange text-white p-1 flex items-center gap-1 rounded-lg active:scale-90 duration-300 ease-in-out" type="button">
-                        ข้อมูลสินค้าฉบับเต็ม
-                        <Download className="font-bold" width={15} />
-                    </button>
+                    <div className=" flex flex-col lg:flex-row justify-between">
+                        <h1 className="text-[32px] font-extrabold text-gray-5" >{name}</h1>
+                        <button className=" text-[12px] w-fit h-fit font-normal bg-orange text-white p-1 flex items-center gap-1 rounded-lg active:scale-90 duration-300 ease-in-out" type="button">
+                            ข้อมูลสินค้าฉบับเต็ม
+                            <Download className="font-bold" width={15} />
+                        </button>
+                    </div>
                     <input className="peer/description" type="checkbox" id="description" hidden />
                     <section
                         className=" 
