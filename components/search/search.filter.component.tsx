@@ -13,7 +13,7 @@ export default function SearchFilter() {
             <div className=" flex flex-col max-h-0 scale-y-0  origin-bottom ease-in-out peer-checked/filter:max-h-125 peer-checked/filter:scale-y-100 overflow-hidden duration-700 ">
                 <SearchTypeProduct />
                 <SearchBrand />
-                <button className=" active:scale-90 active:bg-gray-1 duration-300 ease-out w-full bg-orange text-white rounded-lg py-2 text-[20px] font-bold">ค้าหา</button>
+                <button className=" active:scale-90 active:bg-gray-1 duration-300 ease-out w-full bg-orange text-white rounded-lg py-2 text-[20px] font-bold">ค้นหา</button>
             </div>
         </div >
     )

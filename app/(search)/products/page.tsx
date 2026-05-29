@@ -2,10 +2,8 @@ import { SearchProduct } from "@/components";
 
 export default function Page() {
     return (
-        <div className=" w-full">
+        <div className=" flex w-full">
             <SearchProduct />
-            <div className=" h-screen w-full bg-gray-2 "></div>
-            asdf
         </div>
     )
 
