@@ -20,7 +20,7 @@ export default async function Navbar() {
                     <ItemMenu />
                     <Item pathname="/catalogs">แคตตาล็อค</Item>
                     <Item pathname="/blogs">บทความ</Item>
-                    <Item pathname="/blogs">เกี่ยวกับเรา</Item>
+                    <Item pathname="/about">เกี่ยวกับเรา</Item>
                     <label className="w-full flex justify-center p-8 lg:hidden" htmlFor="hamburger">
                         <X className="text-gray-4 bg-gray-1 p-1 rounded-xl" size={32} strokeWidth={4} />
                     </label>
