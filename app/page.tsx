@@ -1,3 +1,4 @@
+import { Category } from "@/components";
 import AutoSlide from "@/components/slide/auto.slide.component"
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
         <div className=" flex justify-center items-center text-4xl">Content Slide 1</div>
         <div className=" flex justify-center items-center text-4xl">Content Slide 2</div>
       </AutoSlide>
+      <Category />
     </div>
   );
 }

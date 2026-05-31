@@ -11,7 +11,7 @@ type prop = {
     dropdown?: boolean
 } & VariantProps<typeof style>;
 
-const style = cva("text-end  px-8 gap-1 flex flex-col lg:items-end text-nowrap group/item ", {
+const style = cva("text-end h-fit  gap-1 flex flex-col lg:items-end text-nowrap group/item ", {
     variants: {
         variant: {
             primary: "text-[14px] font-semibold text-gray-4",
