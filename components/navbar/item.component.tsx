@@ -2,11 +2,14 @@ import { cva, VariantProps } from "class-variance-authority";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { ReactNode } from "react";
+type query = {
+    category?: string,
+}
 type prop = {
     children?: ReactNode,
     pathname?: string,
     hash?: string,
-    query?: string
+    query?: query
     className?: string,
     dropdown?: boolean
 } & VariantProps<typeof style>;

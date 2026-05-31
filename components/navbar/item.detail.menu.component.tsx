@@ -10,7 +10,7 @@ export default async function ItemMenu() {
             <input type="checkbox" className="peer/category" id="category" hidden />
             <Item pathname="/products" dropdown={true}>สินค้า</Item>
             <Detail>
-                {category?.map(({ name }) => <Item pathname={`/products`} query={{ "category": name }} variant={"secondary"} key={name}> {name}</Item>)}
+                {category?.map(({ name }) => <Item pathname={`/products`} query={{ category: name }} variant={"secondary"} key={name}> {name}</Item>)}
             </Detail>
         </div >
     )
