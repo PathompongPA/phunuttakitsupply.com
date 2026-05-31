@@ -1,4 +1,4 @@
-import { About, Category } from "@/components";
+import { About, Category, LinkToUs } from "@/components";
 import AutoSlide from "@/components/slide/auto.slide.component"
 
 export default function Home() {
@@ -10,6 +10,7 @@ export default function Home() {
       </AutoSlide>
       <Category />
       <About />
+      <LinkToUs />
     </div>
   );
 }
