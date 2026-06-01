@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import "./globals.css";
-import { Navbar } from "@/components";
+import { Footer, Navbar } from "@/components";
 import { getData } from "@/utility";
 
 export const metadata: Metadata = {
@@ -23,6 +23,7 @@ export default async function RootLayout({
       <body className={`min-h-full flex flex-col items-center overflow-y-scroll z-10 `}>
         <Navbar category={category} />
         {children}
+        <Footer />
       </body>
     </html>
   );
