@@ -1,7 +1,18 @@
-export default function Page() {
+import BlogCard from "@/components/blogs/blog.card.component";
+import Title from "@/components/material/title.component";
+import { getData } from "@/utility";
+
+export default async function Page() {
+    const blogs = await getData("blogs", {})
+
     return (
-        <div className="">
-            blogs
+        <div className=" w-full flex justify-center min-h-screen">
+            <div className="w-full max-w-7xl flex flex-col gap-4 p-4 lg:px-16 lg:py-4">
+                <Title>บทความทั้งหมด</Title>
+                <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
+                    {blogs?.map(({ id, title, subtitle, img }) => <BlogCard id={id} title={title} subtitle={subtitle} img={img} key={id} />)}
+                </div>
+            </div>
         </div>
     )
 
