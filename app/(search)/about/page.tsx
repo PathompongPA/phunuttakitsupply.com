@@ -2,17 +2,17 @@ import Title from "@/components/material/title.component";
 
 export default function Page() {
     return (
-        <div className=" p-4 py-8 gap-4 lg:p-16 lg:gap-8 max-w-7xl flex flex-col items-center w-full border *:border ">
+        <div className=" p-4 py-8 gap-4 lg:p-16 lg:gap-8 max-w-7xl flex flex-col items-center w-full ">
             <Title className=" text-gray-5">บริษัท ภูณัฐกิจซัพพลายส์ จำกัด </Title>
             <p className=" indent-8 text-justify text-[16px] text-gray-4">
                 เรามุ่งมั่นสู่การเป็นผู้นำด้านการจัดจำหน่ายอะไหล่อุตสาหกรรม ชิ้นส่วนเครื่องจักร และอุปกรณ์สำหรับโรงงานอุตสาหกรรม โดยพร้อมรองรับการเติบโตของภาคอุตสาหกรรมในประเทศไทยอย่างครบวงจร ครอบคลุมตั้งแต่อุตสาหกรรมเกษตรและอาหาร อุตสาหกรรมยานยนต์ ไปจนถึงอุตสาหกรรมอิเล็กทรอนิกส์และระบบการผลิตสมัยใหม่ เราพิถีพิถันในการคัดสรรสินค้า Industrial Supply และ Machine Parts ที่ได้มาตรฐาน เพื่อมอบทั้งคุณภาพ ความคุ้มค่า และประสิทธิภาพสูงสุดให้แก่ลูกค้าและคู่ค้าทางธุรกิจ พร้อมตอบโจทย์งานซ่อมบำรุง งานระบบ และสายการผลิตในทุกระดับด้วยความเชื่อมั่นในคุณภาพการบริการ บริษัทฯ ยังคงยึดมั่นในแนวทางการดำเนินธุรกิจที่คำนึงถึงความยั่งยืนและความเป็นมิตรต่อสิ่งแวดล้อมเพื่อสร้างความไว้วางใจ และเติบโตเคียงข้างภาคอุตสาหกรรมไทยอย่างมั่นคงในระยะยาว       เรามุ่งมั่นสู่การเป็นผู้นำด้านการจัดจำหน่ายอะไหล่อุตสาหกรรม ชิ้นส่วนเครื่องจักร และอุปกรณ์สำหรับโรงงานอุตสาหกรรม โดยพร้อมรองรับการเติบโตของภาคอุตสาหกรรมในประเทศไทยอย่างครบวงจร ครอบคลุมตั้งแต่อุตสาหกรรมเกษตรและอาหาร อุตสาหกรรมยานยนต์ ไปจนถึงอุตสาหกรรมอิเล็กทรอนิกส์และระบบการผลิตสมัยใหม่ เราพิถีพิถันในการคัดสรรสินค้า Industrial Supply และ Machine Parts ที่ได้มาตรฐาน เพื่อมอบทั้งคุณภาพ ความคุ้มค่า และประสิทธิภาพสูงสุดให้แก่ลูกค้าและคู่ค้าทางธุรกิจ พร้อมตอบโจทย์งานซ่อมบำรุง งานระบบ และสายการผลิตในทุกระดับด้วยความเชื่อมั่นในคุณภาพการบริการ บริษัทฯ ยังคงยึดมั่นในแนวทางการดำเนินธุรกิจที่คำนึงถึงความยั่งยืนและความเป็นมิตรต่อสิ่งแวดล้อมเพื่อสร้างความไว้วางใจ และเติบโตเคียงข้างภาคอุตสาหกรรมไทยอย่างมั่นคงในระยะยาว
             </p>
             <div className=" flex flex-col gap-8 justify-center items-center px-16 w-full">
                 <Title className=" text-gray-5">ข้อมูลติดต่อ</Title>
-                <div className=" flex justify-center items gap-8 flex-wrap ">
+                <div className=" flex justify-center items gap-8 lg:gap-16 flex-wrap ">
                     <div className="flex flex-col *:w-full max-w-125 gap-2 *:flex *:justify-between *:gap-8 *:text-wrap flex-wrap">
                         <div className="">
-                            <span className=" w-fit  border  text-nowrap font-semibold">ที่อยู่</span>
+                            <span className=" w-fit  text-nowrap font-semibold">ที่อยู่</span>
                             <span className=" text-end text-[12px]">  xxxxxxxxxxxx xxxxxxxx xxxxxx xxxxxxxxxxxx </span>
                         </div>
                         <div className="">
