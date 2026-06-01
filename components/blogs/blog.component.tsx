@@ -13,7 +13,7 @@ export default async function Blog() {
                     <Button pathname="/blogs">ทั้งหมด</Button>
                 </div>
                 <div className="overflow-hidden ">
-                    <div className=" flex flex-row gap-4 overflow-x-scroll lg:overflow-x-hidden snap-x snap-mandatory *:snap-center lg:grid lg:grid-cols-4 ">
+                    <div className="grid  grid-cols-1 p-4 gap-8 overflow-x-scroll lg:overflow-x-hidden snap-x snap-mandatory *:snap-center lg:grid lg:grid-cols-4 ">
                         {blogs?.map(({ id, title, subtitle, img }) =>
                             <BlogCard key={id} title={title} subtitle={subtitle} img={img} id={id} />
                         )}
