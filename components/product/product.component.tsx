@@ -23,7 +23,7 @@ export default async function Product({ product_name }: prop) {
     return (
         <div className=" p-4 py-8 flex flex-col lg:grid lg:grid-cols-2  gap-4 lg:gap-8 lg:py-8 lg:px-8 h-fit max-w-7xl ">
             <div className=" w-full">
-                <Image className="w-full aspect-square object-cover " src={thumbnailUrl} alt="" width={0} height={0} unoptimized />
+                <Image className="w-full border aspect-square object-cover " src={thumbnailUrl} alt="" width={0} height={0} unoptimized />
             </div>
             <div className="flex flex-col gap-4">
                 <div className=" flex w-full justify-between  *:text-gray-4 *:text-[14px]">
