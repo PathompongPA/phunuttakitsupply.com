@@ -4,14 +4,11 @@ import ProductCard from "./product.card.component";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default async function ProductMore() {
-    const page = 3
-    const limit = 3
-    const offset = (page - 1) * limit
+    // const page = 3
+    // const limit = 3
+    // const offset = (page - 1) * limit
     const product = await getData("product", {
         fields: ["name", "thumbnail", "brand.name", "category.name", "type.name"],
-        limit,
-        offset,
-
     })
     return (
         <div className=" w-full flex flex-col items-center ">
