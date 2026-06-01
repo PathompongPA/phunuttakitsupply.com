@@ -5,9 +5,7 @@ import Link from "next/link";
 // }
 export default function Logo() {
     return (
-        <label className="" htmlFor="hamburger" >
-            <Link href={{ pathname: "/" }}>LOGO</Link>
-        </label>
+        <Link className="" href={{ pathname: "/" }}>LOGO</Link>
     )
 
 };

@@ -4,7 +4,7 @@ type prop = {
     children: ReactNode
 }
 
-export default async function Detail({ children }: prop) {
+export default function Detail({ children }: prop) {
     return (
         <div className="
         ease-out

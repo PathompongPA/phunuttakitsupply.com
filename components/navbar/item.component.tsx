@@ -25,7 +25,7 @@ const style = cva("text-end h-fit  gap-1 flex flex-col lg:items-end text-nowrap 
     }
 })
 
-export default async function Item({ children, dropdown = false, className, pathname, hash, query, variant }: prop) {
+export default function Item({ children, dropdown = false, className, pathname, hash, query, variant }: prop) {
     return (
         <li className={style({ variant, className })}>
             <div className="flex justify-end items-center gap-2 ">
