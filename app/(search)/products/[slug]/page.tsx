@@ -7,9 +7,8 @@ type Props = {
 }
 export default async function Page({ params }: Props) {
     const { slug } = await params
-    console.log("slug : ", typeof slug);
     return (
-        <div className=" flex justify-center h-screen">
+        <div className=" flex justify-center">
             <Product product_name={slug} />
         </div>
     )

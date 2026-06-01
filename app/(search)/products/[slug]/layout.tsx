@@ -1,4 +1,4 @@
-import { Blog } from "@/components"
+import { ProductMore } from "@/components"
 import { ReactNode } from "react"
 
 type prop = {
@@ -8,7 +8,7 @@ export default function Layout({ children }: prop) {
     return (
         <div className="">
             {children}
-            <Blog />
+            <ProductMore />
         </div>
     )
 };

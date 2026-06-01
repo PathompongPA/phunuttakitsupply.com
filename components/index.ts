@@ -6,9 +6,10 @@ import LoadingComponent from "./loading/loading.component";
 import Navbar from "./navbar/navbar.component";
 import NavigationBar from "./navbar/navigation.component";
 import Product from "./product/product.component";
+import ProductMore from "./product/product.more.component";
 import SearchProduct from "./search/search.component";
-
 export {
+  ProductMore,
   LoadingComponent,
   Blog,
   Navbar,

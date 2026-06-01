@@ -1,10 +1,9 @@
-import { Blog, SearchProduct } from "@/components";
+import { SearchProduct } from "@/components";
 
 export default function Page() {
     return (
-        <div className=" flex w-full flex-col border *:border">
+        <div className=" flex w-full flex-col">
             <SearchProduct />
-            <Blog />
         </div>
     )
 
