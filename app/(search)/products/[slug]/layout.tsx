@@ -1,4 +1,4 @@
-import { NavigationBar } from "@/components"
+import { Blog } from "@/components"
 import { ReactNode } from "react"
 
 type prop = {
@@ -6,10 +6,9 @@ type prop = {
 }
 export default function Layout({ children }: prop) {
     return (
-        <div className=" flex flex-col w-full pt-20">
-            <NavigationBar />
+        <div className="">
             {children}
+            <Blog />
         </div>
     )
-
 };

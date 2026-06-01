@@ -14,7 +14,7 @@ export default function NavigationBar() {
 
     return (
         <nav className="flex gap-2 text-[16px] lg:text-[12px] text-white bg-orange p-2 items-center justify-center lg:px-16 z-40">
-            <div className=" flex gap-2 lg:max-w-7xl w-full lg:px-8">
+            <div className=" flex gap-2 lg:max-w-7xl w-full lg:px-16">
                 <Link className=" font-semibold underline" href="/">หน้าหลัก</Link>
                 {segments.map((segment, index) => {
                     const href = buildHref(index)
