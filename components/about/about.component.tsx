@@ -6,7 +6,7 @@ import Title from "../material/title.component";
 export default function About() {
     return (
         <div className=" relative overflow-hidden w-full flex justify-center ">
-            <div className=" grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl md:gap-4 lg:gap-8 p-4 py-8 lg:p-16 ">
+            <div className=" grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl md:gap-4 lg:gap-8 p-4 py-8 lg:p-16 lg:px-36 ">
                 <Image className=" rounded-2xl z-10 " src={image} alt="" />
                 <div className=" flex flex-col justify-center items-end gap-8 z-10 ">
                     <Title>ขับเคลื่อนทุกโรงงานไปกับอะไหล่ที่พร้อมใช้งาน</Title>
