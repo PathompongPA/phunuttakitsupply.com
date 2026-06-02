@@ -1,4 +1,3 @@
-import { Blog, BlogContent } from "@/components"
 
 type Props = {
     params: Promise<{

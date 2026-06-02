@@ -3,7 +3,6 @@ import Title from "../material/title.component";
 import Button from "../material/button.component";
 import { getData } from "@/utility";
 import CategoryCard from "./category.card.component";
-import Link from "next/link";
 
 const styleCategory = cva(" flex flex-col px-4 py-8 gap-8 bg-gray-1 lg:gap-8 lg:p-16 lg:px-36 max-w-7xl",)
 
