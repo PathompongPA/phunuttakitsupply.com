@@ -9,7 +9,7 @@ export default async function Page() {
         <div className=" w-full flex justify-center min-h-screen">
             <div className="w-full max-w-7xl flex flex-col gap-4 p-4 lg:px-16 lg:py-4">
                 <Title>บทความทั้งหมด</Title>
-                <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
+                <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
                     {blogs?.map(({ id, title, subtitle, img }) => <BlogCard id={id} title={title} subtitle={subtitle} img={img} key={id} />)}
                 </div>
             </div>
