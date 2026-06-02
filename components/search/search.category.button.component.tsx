@@ -48,12 +48,12 @@ export default function SearchCategoryButton({ name }: prop) {
                 text-[16px]
                 lg:px-4
                 p-2
-                rounded-lg
+                rounded-3xl
                 font-semibold
-                lg:text-xs
+                md:text-xs
                 ${isActive
                     ? "bg-orange text-white"
-                    : "bg-gray-1 text-gray-4"}
+                    : "bg-gray-1 text-gray-5"}
             `}
             onClick={() => toggleCategory(name)}
         >

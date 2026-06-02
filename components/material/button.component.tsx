@@ -12,7 +12,7 @@ type prop = {
     pathname?: string,
     query?: query
 }
-const style = cva("p-3 bg-orange text-white rounded-3xl active:scale-90 duration-300 ease-out cursor-pointer w-fit h-fit text-[10px] lg:text-[14px] font-semibold")
+const style = cva("p-3 bg-orange text-white rounded-3xl active:scale-80  hover:scale-90 active:md:scale-75 duration-300 ease-out cursor-pointer w-fit h-fit text-[16px] lg:text-[14px] font-semibold")
 
 export default function Button({ children, className, pathname, query }: prop) {
     return <Link className={style({ className })} href={{ pathname, query }}>{children}</Link>

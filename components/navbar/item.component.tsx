@@ -1,6 +1,8 @@
+"use client"
 import { cva, VariantProps } from "class-variance-authority";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
 type query = {
     category?: string,
@@ -14,7 +16,7 @@ type prop = {
     dropdown?: boolean
 } & VariantProps<typeof style>;
 
-const style = cva("text-end h-fit  gap-1 flex flex-col lg:items-end text-nowrap group/item ", {
+const style = cva("text-end h-fit font-semibold gap-1 flex flex-col lg:items-end text-nowrap group/item  cursor-pointer", {
     variants: {
         variant: {
             primary: "text-[14px] font-semibold text-gray-4",
@@ -26,9 +28,10 @@ const style = cva("text-end h-fit  gap-1 flex flex-col lg:items-end text-nowrap 
 })
 
 export default function Item({ children, dropdown = false, className, pathname, hash, query, variant }: prop) {
+    const path = usePathname()
     return (
         <li className={style({ variant, className })}>
-            <div className="flex justify-end items-center gap-2 ">
+            <div className="flex justify-end items-center gap-2 px-1">
                 <Link
                     className=""
                     href={{ pathname, hash, query }}
@@ -37,13 +40,13 @@ export default function Item({ children, dropdown = false, className, pathname, 
                     {children}
                 </Link>
                 {dropdown &&
-                    <label className=" ease-in-out flex h-fit w-fit *:w-fit *:h-fit *:p-0 hover:cursor-pointer hover:rotate-180 group-hover/item:lg:rotate-180  duration-700 " htmlFor="category">
+                    <label className=" ease-in-out flex h-fit w-fit *:w-fit *:h-fit *:p-0 hover:rotate-180 group-hover:lg:rotate-180  duration-700 " htmlFor="category">
                         <ChevronDown className="" size={16} strokeWidth={4} />
                     </label>
                 }
             </div>
-            <div className="border-b-4 rounded-lg w-full ease-out border-transparent scale-0  origin-left group-hover/item:scale-100 
-            group-hover/item:lg:border-orange duration-500"></div>
+            <div className={`border-b-4 rounded-lg w-full ease-in-out border-transparent origin-bottom-left group-hover/item:scale-100  ${!query?.category && path === pathname ? "scale-100 lg:border-orange" : "scale-0"}
+            group-hover/item:border-orange duration-300`}></div>
         </li>
     )
 

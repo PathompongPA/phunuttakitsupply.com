@@ -21,9 +21,9 @@ export default async function Product({ product_name }: prop) {
     const name = product?.name
     const description = product?.description
     return (
-        <div className=" p-4 py-8 flex flex-col lg:grid lg:grid-cols-2  gap-4 lg:gap-8 lg:py-8 lg:px-8 h-fit max-w-7xl ">
+        <div className=" p-4 py-8 flex flex-col lg:grid lg:grid-cols-2  gap-4 lg:gap-8 lg:pt-16 lg:pb-8 lg:px-32 h-fit max-w-7xl ">
             <div className=" w-full">
-                <Image className="w-full border aspect-square object-cover " src={thumbnailUrl} alt="" width={0} height={0} unoptimized />
+                <Image className="w-full aspect-square object-cover " src={thumbnailUrl} alt="" width={0} height={0} unoptimized />
             </div>
             <div className="flex flex-col gap-4">
                 <div className=" flex w-full justify-between  *:text-gray-4 *:text-[14px]">
@@ -53,9 +53,9 @@ export default async function Product({ product_name }: prop) {
                 <div className=" flex flex-col gap-4">
                     <div className=" flex flex-col lg:flex-row justify-between">
                         <h1 className="text-[32px] font-extrabold text-gray-5" >{name}</h1>
-                        <button className=" text-[12px] w-fit h-fit font-normal bg-orange text-white p-1 flex items-center gap-1 rounded-lg active:scale-90 duration-300 ease-in-out" type="button">
+                        <button className=" text-[12px] w-fit h-fit font-normal bg-orange cursor-pointer hover:scale-95 text-white p-1 flex items-center gap-1 rounded-3xl px-2 active:scale-90 duration-300 ease-in-out" type="button">
                             ข้อมูลสินค้าฉบับเต็ม
-                            <Download className="font-bold" width={15} />
+                            <Download className="font-bold" width={15} strokeWidth={3} />
                         </button>
                     </div>
                     <input className="peer/description" type="checkbox" id="description" hidden />
@@ -69,16 +69,16 @@ export default async function Product({ product_name }: prop) {
                         {description}
                     </section>
                     <label
-                        className="flex w-full items-center justify-center text-gray-4 active:scale-90 duration-300 ease-in-out "
+                        className="flex w-full items-center justify-center text-gray-3 text-sm active:scale-90 duration-300 ease-in-out hover:scale-95 hover:text-gray-5 cursor-pointer "
                         htmlFor="description"
                     >
-                        <span className=" underline ">ข้อมูลสินค้าเพิ่มเติม</span>
+                        <span className=" underline  ">ข้อมูลสินค้าเพิ่มเติม</span>
                         <ChevronDown className=" peer-checked/description:rotate-180" />
                     </label>
                 </div>
                 <div className=" w-full flex flex-col gap-4">
-                    <button className="text-[20px] w-full rounded-lg font-bold p-4 bg-orange text-white active:scale-90 duration-300 ease-in-out" type="button"> ขอใบเสนอราคา</button>
-                    <button className="active:scale-90 duration-300 ease-in-out underline text-[16px] text-gray-3" type="button">สอบถามเพิ่มเติม</button>
+                    <button className="text-[18px] w-full rounded-3xl font-bold p-4 bg-orange text-white active:scale-75 cursor-pointer hover:scale-95 duration-300 ease-in-out" type="button"> ขอใบเสนอราคา</button>
+                    <button className="active:scale-75 duration-300 ease-in-out underline text-[16px] text-gray-4 lg:text-gray-3 hover:text-gray-5 cursor-pointer hover:scale-90" type="button">สอบถามเพิ่มเติม</button>
                 </div>
             </div>
         </div>

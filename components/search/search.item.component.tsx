@@ -60,12 +60,12 @@ export default async function ItemSearch({ searchParams }: Props) {
     const title = `ผลลัพธ์ ${items?.length ?? 0} รายการ`
 
     return (
-        <div className="flex flex-col gap-2 w-full">
-            <h2 className="text-gray-3 text-[14px] lg:text-[12px] w-full text-end">
+        <div className="flex flex-col gap-4 md:gap-2 w-full">
+            <h2 className="text-gray-3 text-[14px] font-thin md:text-[12px] w-full text-end">
                 {title}
             </h2>
 
-            <div className="grid grid-cols-2 lg:grid-cols-6 h-fit gap-2 w-full">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 h-fit gap-2 lg:gap-4 w-full">
                 {items?.map(({ name, thumbnail, brand, category, type }) => (
                     <Link
                         href={`/products/${name}`}

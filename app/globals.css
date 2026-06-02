@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+* {
+  /* @apply grayscale */
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -76,7 +80,7 @@ html {
 @theme {
   --color-orange: #FF8800;
   --color-gray-1: #F4F4F4;
-  --color-gray-2: #D4D4D4;
+  --color-gray-2: #F1F1F1;
   --color-gray-3: #A6A6A6;
   --color-gray-4: #636363;
   --color-gray-5: #2A2A2A;

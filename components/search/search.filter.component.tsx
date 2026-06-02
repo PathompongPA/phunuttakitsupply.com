@@ -1,19 +1,20 @@
 import { ChevronDown } from "lucide-react";
 import SearchTypeProduct from "./search.type.component";
 import SearchBrand from "./search.brand.component";
+import Link from "next/link";
 
 export default function SearchFilter() {
     return (
-        <div className=" flex flex-col select-none ">
+        <div className=" flex flex-col select-none p-4 rounded-3xl bg-gray-2 md:bg-transparent lg:h-fit">
             <input className="peer/filter" type="checkbox" id="filter" hidden defaultChecked />
-            <label className=" flex items-center gap-2 justify-between w-full active:scale-95 duration-300 rounded-lg active group " htmlFor="filter">
-                <h2 className="text-2xl hover:cursor-pointer  lg:text-[16px] text-nowrap font-bold text-gray-5 group-active:text-gray-4 ease-out"> ตัวกรองข้อมูล </h2>
+            <label className=" flex items-center hover:cursor-pointer  gap-2 justify-between w-full active:scale-95 duration-300 rounded-lg active group " htmlFor="filter">
+                <h2 className="text-xl  md:text-[16px] text-nowrap font-bold text-gray-5 group-active:text-gray-4 ease-out"> ตัวกรองข้อมูล </h2>
                 <ChevronDown className=" peer-checked:rotate-180  w-6 lg:w-4" strokeWidth={4} />
             </label>
-            <div className=" flex flex-col max-h-0 scale-y-0  origin-bottom ease-in-out peer-checked/filter:max-h-125 peer-checked/filter:scale-y-100 overflow-hidden duration-700 ">
+            <div className=" flex flex-col max-h-0 scale-y-0 gap-2  origin-bottom ease-in-out peer-checked/filter:max-h-125 peer-checked/filter:scale-y-100 overflow-hidden duration-700 ">
                 <SearchTypeProduct />
                 <SearchBrand />
-                <button className=" active:scale-90 active:bg-gray-1 duration-300 ease-out w-full bg-orange text-white rounded-lg py-2 text-[20px] lg:py-1 lg:text-[10px] font-bold">ค้นหา</button>
+                <Link className=" active:scale-90  duration-300 ease-out w-full  text-gray-4 md:text-gray-5 rounded-3xl py-2 text-center text-[16px] underline lg:py-1 md:text-[10px] font-bold" href={{ pathname: "/products" }}>ล้างการค้นหา</Link>
             </div>
         </div >
     )

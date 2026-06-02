@@ -6,7 +6,7 @@ type prop = {
 }
 export default function Layout({ children }: prop) {
     return (
-        <div className=" flex flex-col w-full pt-24 lg:pt-22 items-center">
+        <div className=" flex flex-col pt-24 lg:pt-22 items-center w-full overflow-x-hidden">
             <NavigationBar />
             {children}
         </div>

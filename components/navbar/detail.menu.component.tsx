@@ -1,24 +1,33 @@
 import { ReactNode } from "react"
 
 type prop = {
-    children: ReactNode
+    children: ReactNode,
+    isOpen: boolean
 }
 
-export default function Detail({ children }: prop) {
+export default function Detail({ children, isOpen }: prop) {
     return (
-        <div className="
+        <div className={`
         ease-out
-        duration-700
+        duration-300
         overflow-hidden
         max-h-0
-        peer-checked/category:max-h-125
+         rounded-lg
+        border-gray-2
+        ${isOpen && "max-h-125 lg:max-h-0 lg:p-0 "}
+            group-hover:border group-hover:border-gray-2
         lg:group-hover:max-h-125
+        lg:group-hover:lg:p-4
       lg:bg-white
         lg:absolute
         lg:right-0
+        lg:top-10
+        lg:origin-top
+        lg:px-4
         flex flex-col 
-        *:p-2 *:px-8  
-        "
+        *:lg:p-2
+        *:py-1  
+        `}
         >
             {children}
         </div>

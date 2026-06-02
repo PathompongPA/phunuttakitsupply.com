@@ -19,7 +19,6 @@ export default function Navbar({ category }: prop) {
     const [hamberger, setHamberger] = useState(false);
     const toggleHamberger = () => { setHamberger(!hamberger) }
     useEffect(() => {
-        console.log("use effect");
         const handleScroll = () => {
             const current = window.scrollY;
             // eslint-disable-next-line @typescript-eslint/no-unused-expressions
