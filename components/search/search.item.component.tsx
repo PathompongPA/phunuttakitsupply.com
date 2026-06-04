@@ -7,6 +7,7 @@ type Props = {
         category?: string | string[]
         brand?: string | string[]
         type?: string | string[]
+        search?: string
     }
 }
 
@@ -20,6 +21,7 @@ export default async function ItemSearch({ searchParams }: Props) {
     const categories = toArray(searchParams?.category)
     const brands = toArray(searchParams?.brand)
     const types = toArray(searchParams?.type)
+    const search = searchParams?.search ?? ""
 
     if (categories.length) {
         filter.category = {
@@ -53,7 +55,8 @@ export default async function ItemSearch({ searchParams }: Props) {
             "category.name",
             "type.name"
         ],
-        filter
+        filter,
+        search: search
     })
 
     const url = process.env.NEXT_PUBLIC_URL_HOST + "assets/"

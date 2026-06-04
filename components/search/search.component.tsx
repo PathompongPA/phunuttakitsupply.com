@@ -6,6 +6,7 @@ type Props = {
         category?: string | string[]
         brand?: string | string[]
         type?: string | string[]
+        search?: string
     }>
 }
 export default async function SearchProduct({ searchParams }: Props) {

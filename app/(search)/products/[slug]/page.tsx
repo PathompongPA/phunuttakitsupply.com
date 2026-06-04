@@ -1,4 +1,4 @@
-import { Product } from "@/components"
+import { NavigationBar, Product } from "@/components"
 
 type Props = {
     params: Promise<{
@@ -8,7 +8,8 @@ type Props = {
 export default async function Page({ params }: Props) {
     const { slug } = await params
     return (
-        <div className=" flex justify-center">
+        <div className=" flex justify-center flex-col items-center">
+            <NavigationBar />
             <Product product_name={slug} />
         </div>
     )
