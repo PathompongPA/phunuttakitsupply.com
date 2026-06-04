@@ -16,7 +16,7 @@ export default function ItemMenu({ category }: prop) {
     return (
         <div className="relative overflow-visible group ">
             <div className=" cursor-pointer" onClick={toggleOpen}>
-                <Item pathname="/products" dropdown={true}>สินค้า</Item>
+                <Item pathname="/products" dropdown={true} onClick={toggleOpen}>สินค้า</Item>
             </div>
             <Detail isOpen={open}>
                 {category?.map(({ name }) => <Item pathname={`/products`} query={{ category: name }} variant={"secondary"} key={name}> {name}</Item>)}

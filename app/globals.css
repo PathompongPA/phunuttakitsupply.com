@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
-* {
-  /* @apply grayscale */
+html,
+body {
+  overscroll-behavior: none;
 }
 
 .no-scrollbar::-webkit-scrollbar {

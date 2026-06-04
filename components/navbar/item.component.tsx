@@ -7,7 +7,10 @@ import { ReactNode } from "react";
 type query = {
     category?: string,
 }
+type func = () => void
+
 type prop = {
+    onClick?: func
     children?: ReactNode,
     pathname?: string,
     hash?: string,
@@ -27,7 +30,7 @@ const style = cva("text-end h-fit font-semibold gap-1 flex flex-col lg:items-end
     }
 })
 
-export default function Item({ children, dropdown = false, className, pathname, hash, query, variant }: prop) {
+export default function Item({ children, dropdown = false, className, pathname, hash, query, variant, onClick }: prop) {
     const path = usePathname()
     return (
         <li className={style({ variant, className })}>
@@ -40,7 +43,11 @@ export default function Item({ children, dropdown = false, className, pathname, 
                     {children}
                 </Link>
                 {dropdown &&
-                    <label className=" ease-in-out flex h-fit w-fit *:w-fit *:h-fit *:p-0 hover:rotate-180 group-hover:lg:rotate-180  duration-700 " htmlFor="category">
+                    <label
+                        className=" ease-in-out flex h-fit w-fit *:w-fit *:h-fit *:p-0 hover:rotate-180 group-hover:lg:rotate-180  duration-700 "
+                        htmlFor="category"
+                        onClick={(e) => { e.stopPropagation(); onClick(); }}
+                    >
                         <ChevronDown className="" size={16} strokeWidth={4} />
                     </label>
                 }

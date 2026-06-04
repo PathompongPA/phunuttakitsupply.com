@@ -8,8 +8,8 @@ type prop = {
 export default function Detail({ children, isOpen }: prop) {
     return (
         <div className={`
-        ease-out
-        duration-300
+        ease-in-out
+        duration-700
         overflow-hidden
         max-h-0
          rounded-lg

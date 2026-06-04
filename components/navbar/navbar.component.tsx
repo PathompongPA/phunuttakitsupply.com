@@ -27,33 +27,50 @@ export default function Navbar({ category }: prop) {
     }, [pathname])
 
     useEffect(() => {
+        const body = document.body
+        const html = document.documentElement
+
         if (hamberger) {
             const scrollY = window.scrollY
 
-            document.body.dataset.scrollY = String(scrollY)
+            body.dataset.scrollY = String(scrollY)
 
-            document.body.style.position = "fixed"
-            document.body.style.top = `-${scrollY}px`
-            document.body.style.left = "0"
-            document.body.style.right = "0"
-            document.body.style.width = "100%"
-            document.body.style.overflow = "hidden"
+            body.style.position = "fixed"
+            body.style.top = `-${scrollY}px`
+            body.style.left = "0"
+            body.style.right = "0"
+            body.style.width = "100%"
+            body.style.overflowY = "hidden"
+
+            html.style.overflowY = "hidden"
         } else {
-            const scrollY = Number(document.body.dataset.scrollY || 0)
+            const scrollY = Number(body.dataset.scrollY || 0)
 
-            document.body.style.position = ""
-            document.body.style.top = ""
-            document.body.style.left = ""
-            document.body.style.right = ""
-            document.body.style.width = ""
-            document.body.style.overflow = ""
+            body.style.position = ""
+            body.style.top = ""
+            body.style.left = ""
+            body.style.right = ""
+            body.style.width = ""
+            body.style.overflowY = ""
 
-            window.scrollTo({
-                top: scrollY,
+            html.style.overflowY = ""
+
+            requestAnimationFrame(() => {
+                window.scrollTo(0, scrollY)
             })
         }
-    }, [hamberger])
 
+        return () => {
+            body.style.position = ""
+            body.style.top = ""
+            body.style.left = ""
+            body.style.right = ""
+            body.style.width = ""
+            body.style.overflowY = ""
+
+            html.style.overflowY = ""
+        }
+    }, [hamberger])
     useEffect(() => {
         const handleScroll = () => {
             const current = window.scrollY
@@ -66,17 +83,17 @@ export default function Navbar({ category }: prop) {
         })
 
         return () => window.removeEventListener("scroll", handleScroll)
-    }, [lastScrollY])
+    }, [])
 
     return (
-        <nav className={`fixed top-0 left-0 w-screen flex justify-center duration-300 ease-out   ${hamberger || lastScrollY > 0 ? "bg-white" : "bg-transparent"} data-[hidden=true]:-top-full z-50 `} aria-label="main navigation" data-hidden={hidden} data-position={lastScrollY}>
+        <nav className={`fixed top-0 left-0 w-screen flex justify-center duration-300 ease-out   ${hamberger || lastScrollY > 0 ? "bg-white" : "bg-transparent"} data-[hidden=true]:-top-full z-50 `} aria-label="main navigation" data-hidden={hidden} data-position={lastScrollY} onClick={toggleHamberger}>
             <div className="flex flex-col lg:flex-row justify-between lg:items-center w-full max-w-7xl lg:px-8 relative ">
-                <div className=" data-[hidden=true]:hidden hidden md:block md:bg-black/50  lg:hidden fixed w-screen h-screen z-0" data-hidden={hamberger} onClick={toggleHamberger} > </div>
+                <div className=" touch-none data-[hidden=true]:hidden hidden md:block md:bg-black/50 top-0 left-0  lg:hidden fixed w-screen h-screen z-0" data-hidden={!hamberger} onClick={toggleHamberger} > </div>
                 <div className="flex justify-between p-8 text-black">
                     <Logo />
                     <HamburgerMenu onClick={toggleHamberger} />
                 </div>
-                <Menu isHidden={hamberger}>
+                <Menu isHidden={!hamberger}>
                     <Item pathname="/">หน้าหลัก</Item>
                     <ItemMenu category={category} />
                     <Item pathname="/catalogs">แคตตาล็อค</Item>
