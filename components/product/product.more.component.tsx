@@ -1,5 +1,4 @@
 import { getData } from "@/utility";
-import Title from "../material/title.component";
 import ProductCard from "./product.card.component";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 

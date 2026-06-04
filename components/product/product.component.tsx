@@ -21,6 +21,12 @@ export default async function Product({ product_name }: prop) {
     const category = product?.category?.name
     const name = product?.name
     const description = product?.description
+    const email = "test@example.com"
+    const subject = encodeURIComponent("สอบถามสินค้า")
+    const body = encodeURIComponent(`สวัสดีครับ ผมสนใจสินค้า รบกวนติดต่อกลับด้วยครับ`)
+    const urlEmail = `mailto:${email}?subject=${subject}&body=${body}`
+    const urlLine = "https://youtube.com"
+
     return (
         <div className=" p-4 py-8 flex flex-col lg:grid lg:grid-cols-2  gap-4 lg:gap-8 lg:pt-16 lg:pb-8 lg:px-32 h-fit max-w-7xl ">
             <div className=" w-full">
@@ -82,8 +88,8 @@ export default async function Product({ product_name }: prop) {
                     </label>
                 </div>
                 <div className=" w-full flex flex-col gap-4">
-                    <button className="text-[18px] w-full rounded-3xl font-bold p-4 bg-orange text-white active:scale-75 cursor-pointer hover:scale-95 duration-300 ease-in-out" type="button"> ขอใบเสนอราคา</button>
-                    <button className="active:scale-75 duration-300 ease-in-out underline text-[16px] text-gray-4 lg:text-gray-3 hover:text-gray-5 cursor-pointer hover:scale-90" type="button">สอบถามเพิ่มเติม</button>
+                    <a className="text-[18px] text-center w-full rounded-3xl font-bold p-4 bg-orange text-white active:scale-75 cursor-pointer hover:scale-95 duration-300 ease-in-out" type="button" href={urlEmail} > ขอใบเสนอราคา</a>
+                    <a className="active:scale-75 text-center duration-300 ease-in-out underline text-[16px] text-gray-4 lg:text-gray-3 hover:text-gray-5 cursor-pointer hover:scale-90" type="button" href={urlLine}>สอบถามเพิ่มเติม</a>
                 </div>
             </div>
         </div>
