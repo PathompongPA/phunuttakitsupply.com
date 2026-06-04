@@ -22,7 +22,7 @@ export default function ProductCard({ name, thumbnail, brand, category, type }: 
                     <div className="">{category}</div>
                     <div className="">{type}</div>
                 </div>
-                <div className=" my-2 p-2 text-[14px] lg:text-[10px] font-semibold text-center rounded-lg bg-orange text-white">รายละเอียด</div>
+                <div className=" my-2 p-2 text-[14px] lg:text-[10px] font-semibold text-center rounded-3xl bg-orange text-white">รายละเอียด</div>
             </div>
         </Link>
     )

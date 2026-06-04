@@ -13,7 +13,7 @@ export default async function Blog() {
                     <Button pathname="/blogs">ทั้งหมด</Button>
                 </div>
                 <div className="overflow-hidden lg:overflow-visible ">
-                    <div className="grid  grid-cols-1 md:grid-cols-2 p-4 gap-8 md:gap-4 overflow-x-scroll lg:overflow-visible no-scrollbar snap-x snap-mandatory *:snap-center lg:grid lg:grid-cols-4 ">
+                    <div className="grid  grid-cols-1 md:grid-cols-2 p-4 gap-8 md:gap-4 lg:gap-8 overflow-x-scroll lg:overflow-visible no-scrollbar snap-x snap-mandatory *:snap-center lg:grid lg:grid-cols-4 ">
                         {blogs?.map(({ id, title, subtitle, img, date_created }) =>
                             <BlogCard key={id} title={title} subtitle={subtitle} img={img} create_date={date_created} id={id} />
                         )}
