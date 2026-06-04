@@ -46,7 +46,7 @@ export default function Item({ children, dropdown = false, className, pathname, 
                     <label
                         className=" ease-in-out flex h-fit w-fit *:w-fit *:h-fit *:p-0 hover:rotate-180 group-hover:lg:rotate-180  duration-700 "
                         htmlFor="category"
-                        onClick={(e) => { e.stopPropagation(); onClick(); }}
+                        onClick={(e) => { e.stopPropagation(); onClick?.(); }}
                     >
                         <ChevronDown className="" size={16} strokeWidth={4} />
                     </label>
