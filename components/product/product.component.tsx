@@ -12,10 +12,11 @@ export default async function Product({ product_name }: prop) {
         filter: {
             name: product_name
         },
-        fields: ["brand.name", "category.name", "thumbnail", "name", "description"]
+        fields: ["brand.name", "category.name", "thumbnail", "name", "description", "doc"]
     }
     const [product] = await getData("product", option)
     const thumbnailUrl = process.env.NEXT_PUBLIC_URL_HOST + "assets/" + product?.thumbnail
+    const docPath = process.env.NEXT_PUBLIC_URL_HOST + "assets/" + product?.doc
     const brand = product?.brand?.name
     const category = product?.category?.name
     const name = product?.name
@@ -53,10 +54,14 @@ export default async function Product({ product_name }: prop) {
                 <div className=" flex flex-col gap-4">
                     <div className=" flex flex-col lg:flex-row justify-between">
                         <h1 className="text-[32px] font-extrabold text-gray-5" >{name}</h1>
-                        <button className=" text-[12px] w-fit h-fit font-normal bg-orange cursor-pointer hover:scale-95 text-white p-1 flex items-center gap-1 rounded-3xl px-2 active:scale-90 duration-300 ease-in-out" type="button">
-                            ข้อมูลสินค้าฉบับเต็ม
-                            <Download className="font-bold" width={15} strokeWidth={3} />
-                        </button>
+                        {product?.doc &&
+                            <a href={docPath} download target="_blank">
+                                <button className=" text-[12px] w-fit h-fit font-normal bg-orange cursor-pointer hover:scale-95 text-white p-1 flex items-center gap-1 rounded-3xl px-2 active:scale-90 duration-300 ease-in-out" type="button">
+                                    ข้อมูลสินค้าฉบับเต็ม
+                                    <Download className="font-bold" width={15} strokeWidth={3} />
+                                </button>
+                            </a>
+                        }
                     </div>
                     <input className="peer/description" type="checkbox" id="description" hidden />
                     <section
