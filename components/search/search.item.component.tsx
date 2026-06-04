@@ -1,6 +1,7 @@
 import { getData } from "@/utility"
 import Image from "next/image"
 import Link from "next/link"
+import NotFoundItem from "../material/not.found.item"
 
 type Props = {
     searchParams?: {
@@ -52,6 +53,7 @@ export default async function ItemSearch({ searchParams }: Props) {
             "name",
             "thumbnail",
             "brand.name",
+            "brand.brand_img",
             "category.name",
             "type.name"
         ],
@@ -69,41 +71,51 @@ export default async function ItemSearch({ searchParams }: Props) {
             </h2>
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 h-fit gap-2 lg:gap-4 w-full">
-                {items?.map(({ name, thumbnail, brand, category, type }) => (
-                    <Link
-                        href={`/products/${name}`}
-                        className="aspect-square rounded-lg"
-                        key={name}
-                    >
-                        <Image
-                            className="w-full h-full object-cover"
-                            src={url + thumbnail}
-                            width={0}
-                            height={0}
-                            alt={name}
-                            unoptimized
-                        />
+                {items?.length <= 0 ?
+                    <NotFoundItem />
+                    : items?.map(({ name, thumbnail, brand, category, type }) => (
+                        <Link
+                            href={`/products/${name}`}
+                            className="aspect-square h-fit rounded-lg relative  border border-gray-2"
+                            key={name}
+                        >
+                            <Image
+                                className="w-full h-full object-cover"
+                                src={url + thumbnail}
+                                width={0}
+                                height={0}
+                                alt={name}
+                                unoptimized
+                            />
+                            <Image
+                                className=" h-full max-h-6.25 w-fit aspect-video border-gray-2 bg-white rounded-xs object-contain  border absolute top-2 left-2 "
+                                src={url + brand?.brand_img}
+                                width={0}
+                                height={0}
+                                alt=""
+                                unoptimized
+                            />
 
-                        <div className="flex flex-col gap-0 p-2">
-                            <div className="font-semibold text-[12px] lg:text-[10px] text-gray-3">
-                                {brand?.name}
+                            <div className="flex flex-col gap-0 p-2">
+                                <div className="font-semibold text-[12px] lg:text-[10px] text-gray-3">
+                                    {brand?.name}
+                                </div>
+
+                                <span className="font-bold text-[16px] text-gray-5">
+                                    {name}
+                                </span>
+
+                                <div className="*:text-[12px] *:lg:text-[10px] text-gray-3 *:truncate font-light flex flex-row justify-between">
+                                    <div>{category?.name}</div>
+                                    <div>{type?.name}</div>
+                                </div>
+
+                                <div className="my-2 p-2 text-[14px] lg:text-[10px] font-semibold text-center rounded-3xl bg-orange text-white">
+                                    รายละเอียด
+                                </div>
                             </div>
-
-                            <span className="font-bold text-[16px] text-gray-5">
-                                {name}
-                            </span>
-
-                            <div className="*:text-[12px] *:lg:text-[10px] text-gray-3 *:truncate font-light flex flex-row justify-between">
-                                <div>{category?.name}</div>
-                                <div>{type?.name}</div>
-                            </div>
-
-                            <div className="my-2 p-2 text-[14px] lg:text-[10px] font-semibold text-center rounded-lg bg-orange text-white">
-                                รายละเอียด
-                            </div>
-                        </div>
-                    </Link>
-                ))}
+                        </Link>
+                    ))}
             </div>
         </div>
     )
