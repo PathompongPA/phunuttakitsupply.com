@@ -6,6 +6,7 @@ import HamburgerMenu from "./hamburger.menu.component";
 import { X } from "lucide-react";
 import ItemMenu from "./item.detail.menu.component";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 type categoryType = { name?: string, name_en?: string, }
 
 type prop = {
@@ -18,7 +19,10 @@ export default function Navbar({ category }: prop) {
     const [lastScrollY, setLastScrollY] = useState(0);
     const [hamberger, setHamberger] = useState(false);
     const toggleHamberger = () => { setHamberger(!hamberger) }
+    const pathname = usePathname()
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setHamberger(false)
         const handleScroll = () => {
             const current = window.scrollY;
             // eslint-disable-next-line @typescript-eslint/no-unused-expressions
@@ -27,7 +31,7 @@ export default function Navbar({ category }: prop) {
         };
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
-    }, [lastScrollY]);
+    }, [lastScrollY, pathname]);
 
     return (
         <nav className="fixed top-0 left-0 w-screen flex justify-center duration-300 ease-out  data-[position=0]:bg-transparent data-[hidden=false]:bg-white data-[hidden=true]:-top-full z-50 " aria-label="main navigation" data-hidden={hidden} data-position={lastScrollY}>
