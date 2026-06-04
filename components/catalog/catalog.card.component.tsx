@@ -6,7 +6,7 @@ type prop = {
     thumbnail?: string,
     file: string
 }
-export default function CatalogCard({ id, name, thumbnail, file }: prop) {
+export default function CatalogCard({ name, thumbnail, file }: prop) {
     const urlImage = process.env.NEXT_PUBLIC_URL_HOST + "assets/" + thumbnail
     const urlFile = process.env.NEXT_PUBLIC_URL_HOST + "assets/" + file
     return (
