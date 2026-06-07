@@ -11,7 +11,7 @@ type prop = {
     index?: number
 }
 export default async function CategoryCard({ name, name_en, img, query, index }: prop) {
-    const imageUrl = process.env.NEXT_PUBLIC_URL_HOST + "assets/" + img || ""
+    const imageUrl = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/" + img || ""
     const pathname = "/products"
     return (
         <Link className={` w-full h-full  relative *:w-full font-bold aspect-square rounded-3xl bg-white p-8 ${index === 0 ? "col-span-4 row-span-2 md:col-span-2  text-[24px]" : " col-span-2 md:col-span-1 text-[16px]"}`} href={{ pathname, query }}>

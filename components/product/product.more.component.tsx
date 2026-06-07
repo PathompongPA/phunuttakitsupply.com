@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default async function ProductMore() {
     const product = await getData("product", {
-        fields: ["name", "thumbnail", "brand.name", "category.name", "type.name"],
+        fields: ["name", "thumbnail", "brand_id.name", "category_id.name", "type_id.name"],
     })
     return (
         <div className=" w-screen flex flex-col items-center justify-center">
@@ -18,14 +18,14 @@ export default async function ProductMore() {
                 </div>
                 <div className="w-full overflow-hidden ">
                     <div className=" flex gap-4  lg:gap-6  *:min-w-50 w-full snap-x *:snap-center *:max-w-75 *:h-fit overflow-x-scroll lg:overflow-x-hidden select-none snap-center">
-                        {product?.map(({ name, thumbnail, brand, category, type }) =>
+                        {product?.map(({ name, thumbnail, brand_id, category_id, type_id }) =>
                             <ProductCard
                                 key={name}
                                 name={name}
                                 thumbnail={thumbnail}
-                                brand={brand?.name}
-                                category={category?.name}
-                                type={type.name}
+                                brand={brand_id?.name}
+                                category={category_id?.name}
+                                type={type_id?.name}
                             />
                         )}
                     </div>

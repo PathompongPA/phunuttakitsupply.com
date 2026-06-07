@@ -11,7 +11,7 @@ type prop = {
 
 export default function ProductCard({ name, thumbnail, brand, category, type }: prop) {
     const pathname = "/products/" + name
-    const urlThumbnail = process.env.NEXT_PUBLIC_URL_HOST + "assets/" + thumbnail
+    const urlThumbnail = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/" + thumbnail
     return (
         <Link href={{ pathname }}>
             <Image className=" aspect-square object-cover w-full" src={urlThumbnail} alt="" width={0} height={0} unoptimized />

@@ -5,7 +5,7 @@ type prop = {
     id: string
 }
 export default async function BlogContent({ id }: prop) {
-    const [blog] = await getData("blogs", {
+    const [blog] = await getData("blog", {
         filter: {
             id: {
                 _eq: id

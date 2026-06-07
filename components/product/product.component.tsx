@@ -12,13 +12,13 @@ export default async function Product({ product_name }: prop) {
         filter: {
             name: product_name
         },
-        fields: ["brand.name", "category.name", "thumbnail", "name", "description", "doc"]
+        fields: ["brand_id.name", "category_id.name", "thumbnail", "name", "description", "document"]
     }
     const [product] = await getData("product", option)
-    const thumbnailUrl = process.env.NEXT_PUBLIC_URL_HOST + "assets/" + product?.thumbnail
-    const docPath = process.env.NEXT_PUBLIC_URL_HOST + "assets/" + product?.doc
-    const brand = product?.brand?.name
-    const category = product?.category?.name
+    const thumbnailUrl = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/" + product?.thumbnail
+    const docPath = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/" + product?.doc
+    const brand = product?.brand_id?.name
+    const category = product?.category_id?.name
     const name = product?.name
     const description = product?.description
     const email = "test@example.com"

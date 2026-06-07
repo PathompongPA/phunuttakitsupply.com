@@ -4,7 +4,7 @@ import Title from "../material/title.component";
 import Button from "../material/button.component";
 
 export default async function Blog() {
-    const blogs = await getData("blogs", {})
+    const blogs = await getData("blog", {})
     return (
         <div className=" w-full flex justify-center lg:overflow-visible">
             <div className=" w-full max-w-7xl flex flex-col p-2 py-8 gap-4 lg:p-16 lg:gap-8 ">

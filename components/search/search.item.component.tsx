@@ -25,7 +25,7 @@ export default async function ItemSearch({ searchParams }: Props) {
     const search = searchParams?.search ?? ""
 
     if (categories.length) {
-        filter.category = {
+        filter.category_id = {
             name: {
                 _in: categories
             }
@@ -33,7 +33,7 @@ export default async function ItemSearch({ searchParams }: Props) {
     }
 
     if (brands.length) {
-        filter.brand = {
+        filter.brand_id = {
             name: {
                 _in: brands
             }
@@ -41,7 +41,7 @@ export default async function ItemSearch({ searchParams }: Props) {
     }
 
     if (types.length) {
-        filter.type = {
+        filter.type_id = {
             name: {
                 _in: types
             }
@@ -52,16 +52,16 @@ export default async function ItemSearch({ searchParams }: Props) {
         fields: [
             "name",
             "thumbnail",
-            "brand.name",
-            "brand.brand_img",
-            "category.name",
-            "type.name"
+            "brand_id.name",
+            "brand_id.image",
+            "category_id.name",
+            "type_id.name"
         ],
         filter,
         search: search
     })
 
-    const url = process.env.NEXT_PUBLIC_URL_HOST + "assets/"
+    const url = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/"
     const title = `ผลลัพธ์ ${items?.length ?? 0} รายการ`
 
     return (
@@ -73,7 +73,7 @@ export default async function ItemSearch({ searchParams }: Props) {
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 h-fit gap-2 lg:gap-4 w-full">
                 {items?.length <= 0 ?
                     <NotFoundItem />
-                    : items?.map(({ name, thumbnail, brand, category, type }) => (
+                    : items?.map(({ name, thumbnail, brand_id, category, type }) => (
                         <Link
                             href={`/products/${name}`}
                             className="aspect-square h-fit rounded-lg relative  border border-gray-2"
@@ -89,7 +89,7 @@ export default async function ItemSearch({ searchParams }: Props) {
                             />
                             <Image
                                 className=" h-full max-h-6.25 w-fit aspect-video border-gray-2 bg-white rounded-xs object-contain  border absolute top-2 left-2 "
-                                src={url + brand?.brand_img}
+                                src={url + brand_id?.image}
                                 width={0}
                                 height={0}
                                 alt=""
@@ -98,7 +98,7 @@ export default async function ItemSearch({ searchParams }: Props) {
 
                             <div className="flex flex-col gap-0 p-2">
                                 <div className="font-semibold text-[12px] lg:text-[10px] text-gray-3">
-                                    {brand?.name}
+                                    {brand_id?.name}
                                 </div>
 
                                 <span className="font-bold text-[16px] text-gray-5">

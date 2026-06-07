@@ -1,18 +1,78 @@
-
 services:
+  nginx: 
+    image: nginx:alpine 
+    container_name: nginx 
+    ports: 
+      - "80:80" 
+      # - "443:443"
+    volumes: 
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf 
+      # SSL CERT 
+      # - ./certbot/conf:/etc/letsencrypt 
+      # - ./certbot/www:/var/www/certbot 
+    depends_on: 
+      - next-app 
+      - directus 
+  # certbot: 
+  #   image: certbot/certbot 
+  #   container_name: certbot 
+  #   volumes: 
+  #     - ./certbot/conf:/etc/letsencrypt 
+  #     - ./certbot/www:/var/www/certbot
+
   next-app:
     build:
       context: .
       dockerfile: dockerfile
       args:
         NEXT_PUBLIC_URL_HOST: ${NEXT_PUBLIC_URL_HOST}
-
-    container_name: next-app-phunuttakit
-
+    container_name: ${NEXT_CONTAINER_NAME}
     ports:
-      - "3001:3000"
-
+      - "${NEXT_PORT}:3000"
     restart: always
-
     env_file:
       - .env
+    depends_on:
+      - directus
+
+  directus:
+    image: directus/directus:latest
+    container_name: ${DIRECTUS_CONTAINER_NAME}
+    ports:
+      - "${DIRECTUS_PORT}:8055"
+    restart: always
+    depends_on:
+      - mysql
+    volumes:
+      - ./uploads:/directus/uploads
+      - ./extensions:/directus/extensions
+      - ./snapshots:/directus/snapshots
+      - ./scripts:/scripts 
+    environment:
+      KEY: ${DIRECTUS_KEY}
+      SECRET: ${DIRECTUS_SECRET}
+      ADMIN_EMAIL: ${DIRECTUS_ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${DIRECTUS_ADMIN_PASSWORD}
+      DB_CLIENT: mysql
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_DATABASE: ${MYSQL_DATABASE}
+      DB_USER: ${MYSQL_USER}
+      DB_PASSWORD: ${MYSQL_PASSWORD}
+      PUBLIC_URL: ${DIRECTUS_PUBLIC_URL}
+      CORS_ENABLED: "false"
+      CORS_ORIGIN: "*"
+
+  mysql:
+    image: mysql:8
+    container_name: ${MYSQL_CONTAINER_NAME}
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - ./mysql:/var/lib/mysql
+    ports:
+      - "${MYSQL_PORT}:3306"
