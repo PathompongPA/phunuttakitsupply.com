@@ -5,7 +5,7 @@ type prop = {
 }
 export default function Layout({ children }: prop) {
     return (
-        <div className=" flex flex-col pt-24 lg:pt-22 items-center w-full overflow-x-hidden">
+        <div className=" flex flex-col pt-22 lg:pt-21 items-center w-full ">
             {children}
         </div>
     )

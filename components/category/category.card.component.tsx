@@ -1,25 +1,86 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
-type queryType = {
+import { motion } from "framer-motion"
+import { motionVariant } from "@/motion/motion"
+
+type QueryType = {
     category?: string
 }
-type prop = {
-    name?: string,
-    name_en?: string,
-    img?: string,
-    query?: queryType,
+
+type Props = {
+    name?: string
+    name_en?: string
+    img?: string
+    query?: QueryType
     index?: number
 }
-export default async function CategoryCard({ name, name_en, img, query, index }: prop) {
-    const imageUrl = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/" + img || ""
+
+const MotionLink = motion(Link)
+
+export default function CategoryCard({
+    name,
+    name_en,
+    img,
+    query,
+    index = 0,
+}: Props) {
+
     const pathname = "/products"
+
+    const imageUrl = img
+        ? `${process.env.NEXT_PUBLIC_URL_HOST_CLIENT}assets/${img}`
+        : ""
+
     return (
-        <Link className={` w-full h-full  relative *:w-full font-bold aspect-square rounded-3xl bg-white p-8 ${index === 0 ? "col-span-4 row-span-2 md:col-span-2  text-[24px]" : " col-span-2 md:col-span-1 text-[16px]"}`} href={{ pathname, query }}>
-            <Image className=" w-full aspect-square object-cover" src={imageUrl} alt="" width={0} height={0} unoptimized />
-            <div className=" flex flex-col justify-center items-center *:truncate overflow-hidden absolute bottom-2 left-1/2 -translate-x-1/2 ">
-                <span>{name}</span>
-                <span className="text-orange">{name_en}</span>
+        <MotionLink
+            href={{ pathname, query }}
+            className={`
+                origin-center
+                 ease-out
+                 group
+                  duration-300
+                  hover:scale-97
+        relative overflow-hidden
+        w-full aspect-square rounded-3xl bg-white p-4
+        transition-all
+
+        ${index === 0
+                    ? "col-span-4 row-span-2 md:col-span-2 text-[24px]"
+                    : "col-span-2 md:col-span-1 text-[16px]"
+                }
+      `}
+            variants={motionVariant.scale_up(0)}
+        >
+            <div className="flex h-full flex-col">
+
+                {/* image */}
+                <div className="flex-1 overflow-hidden flex items-center justify-center duration-300">
+                    {imageUrl && (
+                        <Image
+                            className="h-full w-full object-contain group-hover:lg:scale-125 duration-300 group-hover:delay-200"
+                            src={imageUrl}
+                            alt={name || ""}
+                            width={500}
+                            height={500}
+                            unoptimized
+                        />
+                    )}
+                </div>
+
+                {/* text */}
+                <div className="shrink-0 pt-3 text-center overflow-hidden  group-hover:scale-duration-300 group-hover:font-">
+                    <p className="truncate font-bold">
+                        {name}
+                    </p>
+
+                    <p className="truncate text-orange">
+                        {name_en}
+                    </p>
+                </div>
+
             </div>
-        </Link>
+        </MotionLink>
     )
-};
+}

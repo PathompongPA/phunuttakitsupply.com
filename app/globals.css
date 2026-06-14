@@ -3,6 +3,7 @@
 html,
 body {
   overscroll-behavior: none;
+  @apply snap-y scroll-smooth
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -15,6 +16,24 @@ body {
   scrollbar-width: none;
   /* Firefox */
 }
+
+html {
+  font-family: 'Inter', sans-serif;
+
+  /* font-family: 'IBM Plex Sans Thai', sans-serif; */
+  h1 {
+    @apply text-2xl lg:text-[32px] font-bold
+  }
+
+  h2 {
+    @apply text-[16px] lg:text-[20px] font-semibold
+  }
+
+  h3 {
+    @apply text-[12px] lg:text-[16px] font-semibold
+  }
+}
+
 
 @font-face {
   font-family: 'IBM Plex Sans Thai';
@@ -73,10 +92,6 @@ body {
   font-style: normal;
 }
 
-html {
-  font-family: 'Inter', sans-serif;
-  /* font-family: 'IBM Plex Sans Thai', sans-serif; */
-}
 
 @theme {
   --color-orange: #FF8800;
@@ -87,6 +102,14 @@ html {
   --color-gray-5: #2A2A2A;
   --color-gray-6: #202020;
   --animate-open-down: open-down 3s ease-in;
+  --animate-wiggle: wiggle 2s ease-in-out;
+  --animate-fade: fade .5s ease-in-out;
+  --animate-fade-up: fade-up .5s ease-out;
+  --animate-fade-left: fade-left .3s ease-in-out;
+  --animate-fade-up-infinite: fade-up .7s ease-out 2s infinite;
+  --animate-fade-down: fade-down .3s ease-out;
+  --animate-open: ani-open .3s ease-out;
+  --animate-loading: loading 6s ease-out;
 
   @keyframes open-down {
     0% {
@@ -99,4 +122,83 @@ html {
       height: fit-content;
     }
   }
+
+  @keyframes loading {
+    0% {
+      transform: ScaleX(0);
+      opacity: 1;
+    }
+
+    100% {
+      transform: ScaleX(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes wiggle {
+    0% {
+      transform: rotate(-3deg);
+    }
+
+    100% {
+      transform: rotate(3deg);
+    }
+  }
+
+  @keyframes ani-open {
+    0% {
+      transform: Scale(0)
+    }
+
+    100% {
+      transform: Scale(1)
+    }
+  }
+
+  @keyframes fade {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-left {
+    0% {
+      opacity: 0;
+      transform: translateX(100%)
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0)
+    }
+  }
+
+  @keyframes fade-up {
+    0% {
+      opacity: 0;
+      transform: translateY(100%)
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0)
+    }
+  }
+
+  @keyframes fade-down {
+    0% {
+      opacity: 0;
+      transform: translateY(-100%)
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0)
+    }
+  }
+
 }

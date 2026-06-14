@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import {
     usePathname,
     useRouter,
@@ -28,9 +29,9 @@ export default function NotFoundItem() {
                 {`ไม่พบ '${searchParams.get("search")}' ในการค้นหา`}
             </span>
 
-            <button className=" underline cursor-pointer text-gray-5 font-semibold " onClick={clearQuery}>
+            <Link className=" underline cursor-pointer text-gray-5 font-semibold " href={{ pathname: "/products" }}>
                 ล้างการค้นหา
-            </button>
+            </Link>
         </div>
     )
 }

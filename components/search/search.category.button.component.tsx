@@ -45,7 +45,7 @@ export default function SearchCategoryButton({ name }: prop) {
                 min-w-fit
                 ease-out
                 duration-300
-                text-[16px]
+                text-[12px]
                 lg:px-4
                 p-2
                 rounded-3xl

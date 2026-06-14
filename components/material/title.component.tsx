@@ -5,7 +5,7 @@ type prop = {
     children?: ReactNode,
     className?: string
 }
-const style = cva(" text-3xl lg:text-[32px] font-bold")
+const style = cva("")
 export default function Title({ children, className }: prop) {
-    return <h2 className={style({ className })}>{children}</h2>
+    return <h1 className={style({ className })}>{children}</h1>
 };

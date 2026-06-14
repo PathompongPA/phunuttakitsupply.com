@@ -33,13 +33,13 @@ export default function SearchKeyword() {
 
     };
     return (
-        <form className=" flex flex-row w-fit bg-white rounded-lg" onSubmit={onSubmit} >
-            <input className=" px-2 w-fit text-gray-4 max-w-30" type="text"
+        <form className=" flex flex-row w-fit bg-white rounded-2xl" onSubmit={onSubmit} >
+            <input className=" pl-3 rounded-2xl text-gray-4 w-12.5 md:w-full md:min-w-20 max-w-37.5" type="text"
                 placeholder="ค้นหา"
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
             />
-            <button className=" border-white border-3 w-8 aspect-square flex justify-center items-center rounded-lg bg-orange" type="submit">
+            <button className=" border-white border-3 w-8 aspect-square flex justify-center items-center rounded-full bg-orange" type="submit">
                 <Search className="text-white" width={16} strokeWidth={3} />
             </button>
         </form>

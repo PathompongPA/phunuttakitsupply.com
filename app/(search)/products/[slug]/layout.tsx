@@ -6,7 +6,7 @@ type prop = {
 }
 export default function Layout({ children }: prop) {
     return (
-        <div className="">
+        <div className=" w-full">
             {children}
             <ProductMore />
         </div>

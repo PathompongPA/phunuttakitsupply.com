@@ -28,69 +28,20 @@ export default function Navbar({ category }: prop) {
     }, [pathname])
 
     useEffect(() => {
-        const body = document.body
-        const html = document.documentElement
-
-        if (hamberger) {
-            const scrollY = window.scrollY
-
-            body.dataset.scrollY = String(scrollY)
-
-            body.style.position = "fixed"
-            body.style.top = `-${scrollY}px`
-            body.style.left = "0"
-            body.style.right = "0"
-            body.style.width = "100%"
-            body.style.overflowY = "hidden"
-
-            html.style.overflowY = "hidden"
-        } else {
-            const scrollY = Number(body.dataset.scrollY || 0)
-
-            body.style.position = ""
-            body.style.top = ""
-            body.style.left = ""
-            body.style.right = ""
-            body.style.width = ""
-            body.style.overflowY = ""
-
-            html.style.overflowY = ""
-
-            requestAnimationFrame(() => {
-                window.scrollTo(0, scrollY)
-            })
-        }
-
-        return () => {
-            body.style.position = ""
-            body.style.top = ""
-            body.style.left = ""
-            body.style.right = ""
-            body.style.width = ""
-            body.style.overflowY = ""
-
-            html.style.overflowY = ""
-        }
-    }, [hamberger])
-    useEffect(() => {
         const handleScroll = () => {
-            const current = window.scrollY
-            setHidden(current > lastScrollY)
-            setLastScrollY(current)
-        }
-
-        window.addEventListener("scroll", handleScroll, {
-            passive: true,
-        })
-
-        return () => window.removeEventListener("scroll", handleScroll)
-    }, [])
-
+            const current = window.scrollY;
+            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+            current > lastScrollY ? setHidden(true) : setHidden(false)
+            setLastScrollY(current);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [lastScrollY]);
     return (
-        <nav className={`fixed top-0 left-0 w-screen flex justify-center duration-300 ease-out   ${hamberger || lastScrollY > 0 ? "bg-white" : "bg-transparent"} data-[hidden=true]:-top-full z-50 `} aria-label="main navigation" data-hidden={hidden} data-position={lastScrollY} onClick={toggleHamberger}>
+        <nav className={`fixed lg:py-2 top-0 left-0 w-screen flex justify-center duration-600 ease-out ${lastScrollY === 0 ? " bg-white lg:bg-transparent " : "bg-white"}   data-[hidden=true]:-top-full z-50 `} aria-label="main navigation" data-hidden={hidden} data-position={lastScrollY} >
             <div className="flex flex-col lg:flex-row justify-between lg:items-center w-full max-w-7xl lg:px-8 relative ">
                 <div className=" touch-none data-[hidden=true]:hidden hidden md:block md:bg-black/50 top-0 left-0  lg:hidden fixed w-screen h-screen z-0" data-hidden={!hamberger} onClick={toggleHamberger} > </div>
-                <div className="flex justify-between p-8 text-black">
+                <div className="flex justify-between items-center py-6 px-4 lg:p-4 text-black">
                     <Logo />
                     <HamburgerMenu onClick={toggleHamberger} />
                 </div>

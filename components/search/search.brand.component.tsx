@@ -5,8 +5,8 @@ export default async function SearchBrand() {
     const brand = await getData("brand", {})
     return (
         <div className=" flex flex-col gap-4 px-4 py-2 ">
-            <h2 className=" underline text-[16px] md:text-[12px] text-gray-5">แบรนด์</h2>
-            <div className=" flex gap-4  md:flex-col items-start">
+            <span className=" underline text-[12px] md:text-[12px] text-gray-5">แบรนด์</span>
+            <div className=" flex gap-4  md:flex-col items-start flex-wrap">
                 {brand?.map(({ name }) =>
                     <SearchBrandButton key={name} name={name} />
                 )}

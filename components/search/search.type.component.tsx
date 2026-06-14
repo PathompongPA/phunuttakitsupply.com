@@ -6,8 +6,8 @@ export default async function SearchTypeProduct() {
 
     return (
         <div className=" flex flex-col gap-4 px-4 py-2 " >
-            <h2 className=" text-gray-5 text-[16px] md:text-[12px] underline">ประเภท</h2>
-            <div className=" flex gap-4 md:flex-col">
+            <span className=" text-gray-5 text-[12px] md:text-[12px] underline">ประเภท</span>
+            <div className=" flex gap-4 md:flex-col flex-wrap">
                 {typeProduct?.map(({ name }) =>
                     <SearchTypeButton key={name} name={name} />
                 )}

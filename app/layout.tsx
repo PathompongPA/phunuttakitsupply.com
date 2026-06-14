@@ -5,8 +5,8 @@ import { Footer, Navbar } from "@/components";
 import { getData } from "@/utility";
 
 export const metadata: Metadata = {
-  title: "Phunuttakit Supply Co., Ltd",
-  description: "จัดจำหน่ายอะไหล่อตสาหกรรม",
+  title: "ภูณัฐกิจ ซัพพลายส์ จำกัด",
+  description: " บริษัท ภูณัฐกิจ ซัพพลายส์ จำกัด จัดจำหน่าย สินค้าอะไหล่อตสาหกรรม",
 };
 
 export default async function RootLayout({
@@ -20,7 +20,7 @@ export default async function RootLayout({
       lang="en"
       className={`h-full antialiased`}
     >
-      <body className={`min-h-full flex flex-col items-center overflow-y-scroll z-10 `}>
+      <body className={`min-h-full flex flex-col items-center scroll z-10 `}>
         <Navbar category={category} />
         {children}
         <Footer />

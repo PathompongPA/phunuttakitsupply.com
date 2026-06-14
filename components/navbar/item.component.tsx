@@ -52,7 +52,7 @@ export default function Item({ children, dropdown = false, className, pathname, 
                     </label>
                 }
             </div>
-            <div className={`border-b-4 rounded-lg w-full ease-in-out border-transparent origin-bottom-left group-hover/item:scale-100  ${!query?.category && path === pathname ? "scale-100 lg:border-orange" : "scale-0"}
+            <div className={`border-b-4 rounded-lg w-full ease-out border-transparent origin-left group-hover/item:scale-100  ${!query?.category && path === pathname ? "scale-100 lg:border-orange" : "scale-0"}
             group-hover/item:border-orange duration-300`}></div>
         </li>
     )

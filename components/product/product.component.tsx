@@ -8,32 +8,71 @@ type prop = {
 
 }
 export default async function Product({ product_name }: prop) {
+    const _name = decodeURIComponent(product_name)
+
     const option = {
         filter: {
-            name: product_name
+            name:
+            {
+                _icontains: _name
+            }
         },
-        fields: ["brand_id.name", "category_id.name", "thumbnail", "name", "description", "document"]
+        fields: [
+            "*",
+            {
+                images: [
+                    "*",
+                    {
+                        directus_files_id: [
+                            "id",
+                            "title",
+                            "filename_download"
+                        ]
+                    }
+                ],
+                type_id: ["name"],
+                category_id: ["name"],
+                brand_id: ["name"],
+            }
+        ]
     }
     const [product] = await getData("product", option)
+    const images = product.images
+    console.log("iamges :", product);
     const thumbnailUrl = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/" + product?.thumbnail
     const docPath = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/" + product?.doc
     const brand = product?.brand_id?.name
     const category = product?.category_id?.name
     const name = product?.name
     const description = product?.description
-    const email = "test@example.com"
-    const subject = encodeURIComponent("สอบถามสินค้า")
-    const body = encodeURIComponent(`สวัสดีครับ ผมสนใจสินค้า รบกวนติดต่อกลับด้วยครับ`)
-    const urlEmail = `mailto:${email}?subject=${subject}&body=${body}`
     const urlLine = "https://youtube.com"
+    const email = "sales@example.com"
+    const subject = encodeURIComponent(
+        `Request for Quotation (RFQ) - ${product?.name ?? ""}`
+    )
+
+    const body = encodeURIComponent(`
+        เรียน ฝ่ายขาย
+
+ขอใบเสนอราคาสำหรับสินค้ารายการดังต่อไปนี้
+
+ชื่อสินค้า: ${product?.name ?? "-"}
+รายละเอียดสินค้า: ${product?.description ?? "-"}
+
+กรุณาส่งใบเสนอราคา พร้อมรายละเอียดเงื่อนไขการชำระเงิน ระยะเวลาจัดส่ง และข้อมูลที่เกี่ยวข้องกลับมายังอีเมลนี้
+
+ขอแสดงความนับถือ
+`.trim())
+
+    const urlEmail = `mailto:${email}?subject=${subject}&body=${body}`
 
     return (
-        <div className=" p-4 py-8 flex flex-col lg:grid lg:grid-cols-2  gap-4 lg:gap-8 lg:pt-16 lg:pb-8 lg:px-32 h-fit max-w-7xl ">
+        <div className=" p-4 py-8 flex flex-col lg:grid lg:grid-cols-2  gap-4 lg:gap-8 lg:pt-16 lg:pb-8 lg:px-32 h-fit w-full max-w-7xl ">
             <div className=" w-full">
                 <Image className="w-full aspect-square object-cover " src={thumbnailUrl} alt="" width={0} height={0} unoptimized />
             </div>
             <div className="flex flex-col gap-4">
-                <div className=" flex w-full justify-between  *:text-gray-4 *:text-[14px]">
+                <div className=" flex w-full justify-between  *:text-gray-4 *:text-[10px]">
                     <div className=""> Brand :
                         <Link
                             className="font-bold underline active:scale-90 duration-300 ease-in-out"
@@ -57,9 +96,9 @@ export default async function Product({ product_name }: prop) {
                         </Link>
                     </div>
                 </div>
-                <div className=" flex flex-col gap-4">
+                <div className=" flex flex-col gap-8">
                     <div className=" flex flex-col lg:flex-row justify-between">
-                        <h1 className="text-[32px] font-extrabold text-gray-5" >{name}</h1>
+                        <h1 className="text-[24px] font-extrabold text-gray-5" >{name}</h1>
                         {product?.doc &&
                             <a href={docPath} download target="_blank">
                                 <button className=" text-[12px] w-fit h-fit font-normal bg-orange cursor-pointer hover:scale-95 text-white p-1 flex items-center gap-1 rounded-3xl px-2 active:scale-90 duration-300 ease-in-out" type="button">
@@ -72,10 +111,10 @@ export default async function Product({ product_name }: prop) {
                     <input className="peer/description" type="checkbox" id="description" hidden />
                     <section
                         className=" 
-                         duration-700
-                          ease-out
-                        max-h-25 
-                        overflow-hidden text-[14px] text-gray-4 relative peer-checked/description:max-h-screen"
+                         duration-300
+                          ease-in-out
+                        max-h-10 
+                        overflow-hidden text-[12px] lg:text-[12px] text-gray-4 relative peer-checked/description:max-h-screen"
                     >
                         {description}
                     </section>
@@ -83,13 +122,13 @@ export default async function Product({ product_name }: prop) {
                         className="flex w-full items-center justify-center text-gray-3 text-sm active:scale-90 duration-300 ease-in-out hover:scale-95 hover:text-gray-5 cursor-pointer "
                         htmlFor="description"
                     >
-                        <span className=" underline  ">ข้อมูลสินค้าเพิ่มเติม</span>
-                        <ChevronDown className=" peer-checked/description:rotate-180" />
+                        <span className=" text-[12px] underline  ">ข้อมูลสินค้าเพิ่มเติม</span>
+                        <ChevronDown className=" peer-checked/description:rotate-180" size={15} />
                     </label>
                 </div>
                 <div className=" w-full flex flex-col gap-4">
-                    <a className="text-[18px] text-center w-full rounded-3xl font-bold p-4 bg-orange text-white active:scale-75 cursor-pointer hover:scale-95 duration-300 ease-in-out" type="button" href={urlEmail} > ขอใบเสนอราคา</a>
-                    <a className="active:scale-75 text-center duration-300 ease-in-out underline text-[16px] text-gray-4 lg:text-gray-3 hover:text-gray-5 cursor-pointer hover:scale-90" type="button" href={urlLine}>สอบถามเพิ่มเติม</a>
+                    <a className="text-[14px]  text-center w-full rounded-3xl font-bold p-4 bg-orange text-white active:scale-75 cursor-pointer hover:scale-95 duration-300 ease-in-out" type="button" href={urlEmail} > ขอใบเสนอราคา</a>
+                    <a className=" text-[14px] active:scale-75 text-center duration-300 ease-in-out underline text-gray-4 lg:text-gray-3 hover:text-gray-5 cursor-pointer hover:scale-90" type="button" href={urlLine}>สอบถามเพิ่มเติม</a>
                 </div>
             </div>
         </div>
