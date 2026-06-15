@@ -1,5 +1,4 @@
 import Image from "next/image"
-import Link from "next/link"
 
 type prop = {
     id?: string,
@@ -11,7 +10,7 @@ export default function CatalogCard({ name, thumbnail, file }: prop) {
     const urlImage = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/" + thumbnail
     return (
         <a className=" p-1 lg:p-2 flex flex-col gap-2 w-full border-gray-2 border-2  aspect-3/4 rounded-lg"
-            href={`${process.env.NEXT_PUBLIC_URL_HOST}assets/${file}`}
+            href={`${process.env.NEXT_PUBLIC_URL_HOST_CLIENT}assets/${file}`}
             target="_blank"
             rel="noopener noreferrer"
         >
