@@ -36,11 +36,11 @@ export default async function Category() {
                     {category?.map(({ name, image, name_en }, index) =>
                         <CategoryCard
                             index={index}
-                            key={name}
                             img={image}
                             name={name}
                             name_en={name_en}
                             query={{ category: name }}
+                            key={index + name}
                         />
                     )}
                 </div>

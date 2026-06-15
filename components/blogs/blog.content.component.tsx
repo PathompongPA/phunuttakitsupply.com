@@ -16,7 +16,6 @@ export default async function BlogContent({ id }: prop) {
             "user_updated.first_name",
         ]
     })
-    console.log(blog);
     const createAt = dayjs(blog?.data_create).format("MMMM YYYY")
     return (
         <div className=" w-screen min-h-screen  flex flex-col items-center ">

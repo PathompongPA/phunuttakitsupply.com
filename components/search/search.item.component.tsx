@@ -62,9 +62,8 @@ export default async function ItemSearch({ searchParams }: Props) {
         search: search
     })
 
-    const url = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/"
+    // const url = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/"
     const title = `ผลลัพธ์ ${items?.length ?? 0} รายการ`
-    console.log(items);
 
     return (
         <div className="flex flex-col gap-4 md:gap-2 w-full">

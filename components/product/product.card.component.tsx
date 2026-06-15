@@ -14,7 +14,6 @@ export default function ProductCard({ name, thumbnail, brand, category, type, br
     const pathname = "/products/" + name
     const urlThumbnail = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/" + thumbnail
     const urlBrand = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/" + brandImage
-    console.log(urlBrand);
     return (
         <Link href={{ pathname }} className="flex flex-col justify-between border border-gray-2 rounded-lg relative  ">
             <div className=" absolute top-0 right-2 bg-white border aspect-square h-10 border-gray-2 border-t-0 rounded-b-lg">

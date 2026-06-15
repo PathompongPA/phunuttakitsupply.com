@@ -37,8 +37,6 @@ export default async function Product({ product_name }: prop) {
         ]
     }
     const [product] = await getData("product", option)
-    const images = product.images
-    console.log("iamges :", product);
     const thumbnailUrl = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/" + product?.thumbnail
     const docPath = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/" + product?.doc
     const brand = product?.brand_id?.name

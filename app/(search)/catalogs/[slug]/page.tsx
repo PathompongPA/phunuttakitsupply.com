@@ -10,7 +10,6 @@ type Props = {
 export default async function Page({ params }: Props) {
     const { slug } = await params
     const [catalog] = await getData("catalog", { search: (await slug).search })
-    console.log("catalog : ", catalog);
     return (
         <div className=" flex flex-col items-center w-full *:w-full h-screen" >
             <NavigationBar />
