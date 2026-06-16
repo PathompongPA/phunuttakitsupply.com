@@ -36,4 +36,11 @@ jobs:
               echo "waiting directus..."
               sleep 3
             done
+
+            # echo "🔁 Verify Directus still running"
+            # curl -f http://localhost:8055/server/ping || (echo "❌ Directus down after deploy" && exit 1)
+
+            # echo "🧹 Clean unused docker resources"
+            # docker system prune -f || true
+
             echo "✅ Deploy completed safely"
