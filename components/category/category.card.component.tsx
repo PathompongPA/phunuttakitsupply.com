@@ -28,8 +28,9 @@ export default function CategoryCard({
 }: Props) {
 
     const pathname = "/products"
-
-    const imageUrl = `${process.env.NEXT_PUBLIC_URL_HOST_CLIENT}assets/${img}`
+    const base = process.env.NEXT_PUBLIC_URL_HOST_CLIENT ?? ""
+    const imageUrl = `${base}assets/${img}`
+    console.log(imageUrl);
     return (
         <MotionLink
             href={{ pathname, query }}
@@ -67,14 +68,9 @@ export default function CategoryCard({
                 </div>
 
                 {/* text */}
-                <div className="shrink-0 pt-3 text-center overflow-hidden  group-hover:scale-duration-300 group-hover:font-">
-                    <p className="truncate font-bold">
-                        {name}
-                    </p>
-
-                    <p className="truncate text-orange">
-                        {name_en}
-                    </p>
+                <div className="shrink-0 pt-3 text-center overflow-hidden  group-hover:scale-duration-300 font-semibold *:truncate">
+                    <p className=""> {name} </p>
+                    <p className="text-orange "> {name_en} </p>
                 </div>
 
             </div>
