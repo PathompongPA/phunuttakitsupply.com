@@ -1,43 +1,45 @@
 "use client"
-import { useRouter, useSearchParams } from "next/navigation"
+import Link from "next/link"
+import { useSearchParams } from "next/navigation"
 
 type prop = {
     name: string
 }
 
 export default function SearchCategoryButton({ name }: prop) {
-    const router = useRouter()
+    // const router = useRouter()
     const searchParams = useSearchParams()
 
     const categories = searchParams.getAll("category")
     const isActive = categories.includes(name)
 
-    const toggleCategory = (value: string) => {
-        const params = new URLSearchParams(searchParams)
-        const categories = params.getAll("category")
-        const exists = categories.includes(value)
+    // const toggleCategory = (value: string) => {
+    //     const params = new URLSearchParams(searchParams)
+    //     const categories = params.getAll("category")
+    //     const exists = categories.includes(value)
 
-        params.delete("category")
+    //     params.delete("category")
 
-        if (exists) {
-            const filtered = categories.filter((item) => item !== value)
+    //     if (exists) {
+    //         const filtered = categories.filter((item) => item !== value)
 
-            filtered.forEach((item) => {
-                params.append("category", item)
-            })
-        } else {
-            categories.forEach((item) => {
-                params.append("category", item)
-            })
+    //         filtered.forEach((item) => {
+    //             params.append("category", item)
+    //         })
+    //     } else {
+    //         categories.forEach((item) => {
+    //             params.append("category", item)
+    //         })
 
-            params.append("category", value)
-        }
+    //         params.append("category", value)
+    //     }
 
-        router.push(`/products?${params.toString()}`)
-    }
+    //     router.push(`/products?${params.toString()}`)
+    // }
 
     return (
-        <button
+        <Link
+            href={{ query: { category: name } }}
             className={`
                  cursor-pointer
                 active:scale-90
@@ -55,9 +57,9 @@ export default function SearchCategoryButton({ name }: prop) {
                     ? "bg-orange text-white"
                     : "bg-gray-1 text-gray-5"}
             `}
-            onClick={() => toggleCategory(name)}
+        // onClick={() => toggleCategory(name)}
         >
             {name}
-        </button>
+        </Link>
     )
 }

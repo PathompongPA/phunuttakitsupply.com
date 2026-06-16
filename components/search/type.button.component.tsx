@@ -1,54 +1,52 @@
 "use client"
 
-import { useRouter, useSearchParams } from "next/navigation"
+import Link from "next/link"
+import { useSearchParams } from "next/navigation"
 
 type Props = {
     name: string
 }
 
 export default function SearchTypeButton({ name }: Props) {
-    const router = useRouter()
+    // const router = useRouter()
     const searchParams = useSearchParams()
 
     const brands = searchParams.getAll("type")
     const isActive = brands.includes(name)
 
-    const toggleBrand = () => {
-        const params = new URLSearchParams(window.location.search)
+    // const toggleBrand = () => {
+    //     const params = new URLSearchParams(window.location.search)
 
-        const currentBrands = params.getAll("type")
-        const exists = currentBrands.includes(name)
+    //     const currentBrands = params.getAll("type")
+    //     const exists = currentBrands.includes(name)
 
-        params.delete("type")
+    //     params.delete("type")
 
-        if (exists) {
-            currentBrands
-                .filter((item) => item !== name)
-                .forEach((item) => {
-                    params.append("type", item)
-                })
-        } else {
-            currentBrands.forEach((item) => {
-                params.append("type", item)
-            })
+    //     if (exists) {
+    //         currentBrands
+    //             .filter((oldname) => oldname !== name)
+    //             .forEach((item) => {
+    //                 params.append("type", item)
+    //             })
+    //     } else {
+    //         currentBrands.forEach((item) => {
+    //             params.append("type", item)
+    //         })
 
-            params.append("type", name)
-        }
+    //         params.append("type", name)
+    //     }
 
-        router.push(`/products?${params.toString()}`)
-    }
+    //     router.push(`/products?${params.toString()}`)
+    // }
 
     return (
-        <button
-            onClick={toggleBrand}
+        <Link href={{ query: { type: name } }}
+
             className="flex items-center gap-2 cursor-pointer  active:scale-90 duration-300 "
             type="button"
         >
             <div
-                className={`
-                     w-3 h-3 md:w-2.5 md:h-2.5 border-2 border-gray-2 peer-checked/type:bg-orange  ease-in-out
-          ${isActive ? "bg-orange" : "border-gray-300"}
-        `}
+                className={` w-3 h-3 md:w-2.5 md:h-2.5 border-2 border-gray-2 peer-checked/type:bg-orange  ease-in-out ${isActive ? "bg-orange" : "border-gray-300"} `}
             />
 
             <span
@@ -59,7 +57,7 @@ export default function SearchTypeButton({ name }: Props) {
             >
                 {decodeURIComponent(name).replace(/\s+/g, " ").trim()}
             </span>
-        </button>
+        </Link>
     )
 }
 

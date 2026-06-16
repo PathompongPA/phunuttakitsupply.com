@@ -1,46 +1,47 @@
 "use client"
 
-import { useRouter, useSearchParams } from "next/navigation"
+import Link from "next/link"
+import { useSearchParams } from "next/navigation"
 
 type Props = {
     name: string
 }
 
 export default function SearchBrandButton({ name }: Props) {
-    const router = useRouter()
+    // const router = useRouter()
     const searchParams = useSearchParams()
 
     const brands = searchParams.getAll("brand")
     const isActive = brands.includes(name)
 
-    const toggleBrand = () => {
-        const params = new URLSearchParams(window.location.search)
+    // const toggleBrand = () => {
+    //     const params = new URLSearchParams(window.location.search)
 
-        const currentBrands = params.getAll("brand")
-        const exists = currentBrands.includes(name)
+    //     const currentBrands = params.getAll("brand")
+    //     const exists = currentBrands.includes(name)
 
-        params.delete("brand")
+    //     params.delete("brand")
 
-        if (exists) {
-            currentBrands
-                .filter((item) => item !== name)
-                .forEach((item) => {
-                    params.append("brand", item)
-                })
-        } else {
-            currentBrands.forEach((item) => {
-                params.append("brand", item)
-            })
+    //     if (exists) {
+    //         currentBrands
+    //             .filter((item) => item !== name)
+    //             .forEach((item) => {
+    //                 params.append("brand", item)
+    //             })
+    //     } else {
+    //         currentBrands.forEach((item) => {
+    //             params.append("brand", item)
+    //         })
 
-            params.append("brand", name)
-        }
+    //         params.append("brand", name)
+    //     }
 
-        router.push(`/products?${params.toString()}`)
-    }
+    //     router.push(`/products?${params.toString()}`)
+    // }
 
     return (
-        <button
-            onClick={toggleBrand}
+        <Link href={{ query: { brand: name } }}
+            // onClick={toggleBrand}
             className="flex items-center gap-2 cursor-pointer  active:scale-90 duration-300 "
             type="button"
         >
@@ -59,6 +60,6 @@ export default function SearchBrandButton({ name }: Props) {
             >
                 {name}
             </span>
-        </button>
+        </Link>
     )
 }

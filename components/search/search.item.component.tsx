@@ -3,6 +3,8 @@ import Image from "next/image"
 import Link from "next/link"
 import NotFoundItem from "../material/not.found.item"
 import ProductCard from "../product/product.card.component"
+import { Suspense } from "react"
+import LoadingComponent from "../loading/loading.component"
 
 type Props = {
     searchParams?: {
@@ -75,15 +77,16 @@ export default async function ItemSearch({ searchParams }: Props) {
                 {items?.length <= 0 ?
                     <NotFoundItem />
                     : items?.map(({ name, thumbnail, brand_id, category_id, type_id }) =>
-                        <ProductCard
-                            key={name}
-                            name={name}
-                            thumbnail={thumbnail}
-                            brand={brand_id?.name}
-                            category={category_id?.name}
-                            type={type_id?.name}
-                            brandImage={brand_id.image}
-                        />
+                        <Suspense key={name} fallback={<LoadingComponent />} >
+                            <ProductCard
+                                name={name}
+                                thumbnail={thumbnail}
+                                brand={brand_id?.name}
+                                category={category_id?.name}
+                                type={type_id?.name}
+                                brandImage={brand_id.image}
+                            />
+                        </Suspense>
                     )}
             </div>
         </div>
