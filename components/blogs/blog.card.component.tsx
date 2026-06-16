@@ -26,7 +26,7 @@ export default function BlogCard({ id, title, subtitle, img, create_date, index 
             <Link className="" href={{ pathname }}>
                 <div className="absolute z-30 bottom-0 left-1/2 -translate-x-1/2 w-full p-6  md:p-4 lg:p-6 text-white truncate flex flex-col *:w-full justify-end items-end gap-2 ">
                     <span className=" pt-8 text-wrap font-semibold  md:text-[12px] lg:text-[18px] transition-all origin-top duration-300 group-hover:overflow-visible group-hover:whitespace-normal group-hover:text-clip " >{title}</span>
-                    <span className=" max-h-[80px] md:max-h-[60px] lg:max-h-12.5 group-hover:max-h-37.5 transition-all text-wrap text-[12px] md:text-[8px] lg:text-[14px] ease-in-out duration-500  overflow-hidden  text-gray-3 flex flex-col gap-4 ">
+                    <span className=" max-h-20 md:max-h-15 lg:max-h-12.5 group-hover:max-h-37.5 transition-all text-wrap text-[12px] md:text-[8px] lg:text-[14px] ease-in-out duration-500  overflow-hidden  text-gray-3 flex flex-col gap-4 ">
                         {subtitle}
                     </span>
                     <span className=" text-white text-[14px] md:text-[10px] lg:text-[14px]  w-full uppercase"> วันที่เผยแพร่เมื่อ : {posted}</span>
