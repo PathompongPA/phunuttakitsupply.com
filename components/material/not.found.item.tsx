@@ -1,17 +1,17 @@
 "use client"
 
 import Link from "next/link"
-import {
-    usePathname,
-    useRouter,
-    useSearchParams,
-} from "next/navigation"
+// import {
+//     usePathname,
+//     useRouter,
+//     useSearchParams,
+// } from "next/navigation"
 
 export default function NotFoundItem() {
-    const router = useRouter()
-    const pathname = usePathname()
-    const searchParams = useSearchParams()
-    const query = decodeURIComponent(searchParams.toString())
+    // const router = useRouter()
+    // const pathname = usePathname()
+    // const searchParams = useSearchParams()
+    // const query = decodeURIComponent(searchParams.toString())
     return (
         <div className=" col-span-full flex justify-center items-center h-full gap-6 flex-col p-4 md:p-16 ">
             <span className=" text-gray-4">

@@ -1,6 +1,6 @@
 import { getData } from "@/utility"
-import Image from "next/image"
-import Link from "next/link"
+// import Image from "next/image"
+// import Link from "next/link"
 import NotFoundItem from "../material/not.found.item"
 import ProductCard from "../product/product.card.component"
 import { Suspense } from "react"
