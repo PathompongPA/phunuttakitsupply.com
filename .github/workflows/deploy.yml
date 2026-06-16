@@ -26,10 +26,10 @@ jobs:
             git pull origin main
 
             echo "🏗 Build containers"
-            docker compose build
+            docker compose down
 
             echo "🚀 Start containers (no downtime down)"
-            docker compose up -d
+            docker compose up -d --build
 
             # echo "🧹 Clean unused docker resources"
             # docker system prune -f || true
