@@ -33,7 +33,7 @@ export default async function ProductMore() {
                                 brand={brand_id?.name}
                                 category={category_id?.name}
                                 type={type_id?.name}
-                                brandImage={brand_id.image}
+                                brandImage={brand_id?.image}
                             />
                         )}
                     </div>
