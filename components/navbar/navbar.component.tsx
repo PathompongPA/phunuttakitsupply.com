@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 "use client"
 import Menu from "./menu.component";
 import Item from "./item.component";

@@ -6,19 +6,20 @@ import Link from "next/link";
 import * as motion from "motion/react-client"
 import { motionVariant } from "@/motion/motion";
 
+const Card = ({ title, subtitle, children, delay = 0 }: { title: string, subtitle: string, children: ReactNode, delay?: number }) =>
+    <motion.div
+        className=" flex flex-row gap-4 items-center text-inherit"
+        variants={motionVariant.fade_up(delay, 50)}
+    >
+        {children}
+        <div className=" flex flex-col">
+            <span className=" font-bold text-gray-5 text-[10px] lg:text-[12px]">{title}</span>
+            <span className=" text-gray-4  text-[8px] lg:text-[12px]">{subtitle}</span>
+        </div>
+    </motion.div>
+
 export default function Slide1() {
     const amount = .1
-    const Card = ({ title, subtitle, children, delay = 0 }: { title: string, subtitle: string, children: ReactNode, delay?: number }) =>
-        <motion.div
-            className=" flex flex-row gap-4 items-center text-inherit"
-            variants={motionVariant.fade_up(delay, 50)}
-        >
-            {children}
-            <div className=" flex flex-col">
-                <span className=" font-bold text-gray-5 text-[10px] lg:text-[12px]">{title}</span>
-                <span className=" text-gray-4  text-[8px] lg:text-[12px]">{subtitle}</span>
-            </div>
-        </motion.div>
     return (
         <motion.div
             className=" flex w-full justify-center bg-gray-2 relative overflow-hidden select-none p-8 pt-4  md:p-8 lg:py-8 lg:px-16 h-full md:items-center "
