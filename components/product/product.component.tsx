@@ -96,7 +96,7 @@ export default async function Product({ product_name }: prop) {
                 </div>
                 <div className=" flex flex-col gap-8">
                     <div className=" flex flex-col lg:flex-row justify-between">
-                        <h1 className="text-[24px] font-extrabold text-gray-5" >{name}</h1>
+                        <h1 className="  font-extrabold text-gray-5" >{name}</h1>
                         {product?.doc &&
                             <a href={docPath} download target="_blank">
                                 <button className=" text-[12px] w-fit h-fit font-normal bg-orange cursor-pointer hover:scale-95 text-white p-1 flex items-center gap-1 rounded-3xl px-2 active:scale-90 duration-300 ease-in-out" type="button">

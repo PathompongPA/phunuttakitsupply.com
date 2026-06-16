@@ -6,20 +6,21 @@ import CategoryCard from "./category.card.component";
 import * as motion from "motion/react-client"
 import { motionVariant } from "@/motion/motion";
 
-const styleCategory = cva(" flex flex-col p-4 gap-4 lg:gap-8 lg:pt-22 lg:p-16 lg:px-36 max-w-7xl",)
+const styleCategory = cva(" flex flex-col p-4 gap-8 lg:gap-8 lg:pt-22 lg:p-16 lg:px-36 max-w-7xl",)
 
 export default async function Category() {
     const category = await getData("category", { sort: ["sort"] })
     return (
-        <div className=" w-full flex justify-center bg-gray-1 ">
+        <div className=" w-full flex justify-center bg-gray-1 p-4 ">
             <motion.div
                 className={styleCategory()}
                 variants={motionVariant.container()}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ amount: .3, once: false }}
+                whileTap="tap"
+                viewport={{ amount: .2, once: false }}
             >
-                <div className=" flex justify-between gap-4 ">
+                <div className=" flex justify-between gap-8 ">
                     <motion.div
                         // className=" origin-left"
                         variants={motionVariant.fade_down(0, 20)}

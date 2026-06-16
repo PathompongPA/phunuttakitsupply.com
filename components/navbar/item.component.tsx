@@ -22,8 +22,8 @@ type prop = {
 const style = cva("text-end h-fit font-semibold gap-1 flex flex-col lg:items-end text-nowrap group/item  cursor-pointer", {
     variants: {
         variant: {
-            primary: "text-[14px] font-semibold text-gray-4",
-            secondary: "text-[12px] font-normal text-gray-4"
+            primary: "text-[14px]  text-gray-4",
+            secondary: "text-[12px] text-gray-4"
         }
     }, defaultVariants: {
         variant: "primary"
@@ -34,9 +34,9 @@ export default function Item({ children, dropdown = false, className, pathname, 
     const path = usePathname()
     return (
         <li className={style({ variant, className })}>
-            <div className="flex justify-end items-center gap-2 px-1">
+            <div className="flex justify-end items-center gap-2 px-1 font-bold">
                 <Link
-                    className=""
+                    className=" font-medium"
                     href={{ pathname, hash, query }}
                     scroll={true}
                 >

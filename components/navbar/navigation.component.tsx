@@ -17,7 +17,7 @@ export default function NavigationBar({ search = false }: prop) {
     }
 
     return (
-        <nav className="flex gap-2 text-[10px] md:text-[10px] lg:text-[10px] w-full text-white bg-orange px-4 py-2 items-center justify-center lg:px-16 z-30 ">
+        <nav className="flex gap-2 text-[10px] md:text-[10px] lg:text-[12px] w-full text-white bg-orange px-4 py-2 items-center justify-center lg:px-16 z-30 ">
             <div className="lg:max-w-7xl lg:px-16 flex w-full gap-2 ">
                 <div className=" flex gap-2  w-full  overflow-hidden justify-start  items-center ">
                     <Link className=" font-semibold underline text-nowrap" href="/">หน้าหลัก</Link>

@@ -21,13 +21,13 @@ export default function Slide1() {
         </motion.div>
     return (
         <motion.div
-            className=" flex w-full justify-center bg-gray-2 relative overflow-hidden select-none p-8  md:p-8 lg:py-8 lg:px-16 h-full md:items-center "
+            className=" flex w-full justify-center bg-gray-2 relative overflow-hidden select-none p-8 pt-4  md:p-8 lg:py-8 lg:px-16 h-full md:items-center "
             variants={motionVariant.container()}
             initial="hidden"
             whileInView="show"
             viewport={{ amount, once: true }}
         >
-            <Link className=" flex flex-col md:flex-row max-w-7xl w-full gap-8 md:gap-8 lg:gap-8 z-10 lg:justify-center md:items-center h-fit " href={{ pathname: "/products" }} >
+            <Link className=" flex flex-col md:flex-row max-w-7xl w-full gap-8 md:gap-8 lg:gap-8 z-10 lg:justify-center md:items-center h-full" href={{ pathname: "/products" }} >
                 <div className=" flex flex-col gap-4 lg:gap-8 w-full md:w-fit ">
                     <motion.div
                         className="font-bold flex flex-col gap-2 text-5xl md:text-3xl lg:text-6xl"
@@ -89,13 +89,6 @@ export default function Slide1() {
                     </div>
                 </div>
             </Link>
-            {/* <svg className=" absolute top-0 z-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-                <path fill="#FF8800" fill-opacity="1" d="M0,224L48,234.7C96,245,192,267,288,261.3C384,256,480,224,576,197.3C672,171,768,149,864,149.3C960,149,1056,171,1152,181.3C1248,192,1344,192,1392,192L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
-            </svg> */}
-            {/* <svg className="absolute bottom-0 z-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-                <path fill="#FF8800" fill-opacity="1" d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-            </svg> */}
-            {/* <span className=" absolute top-1/2 w-screen bg-orange h-screen  left-1/7 "></span> */}
         </motion.div>
     )
 

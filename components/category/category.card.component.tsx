@@ -34,39 +34,45 @@ export default function CategoryCard({
             href={{ pathname, query }}
             className={`
                 origin-center
-                 ease-out
-                 group
-                  duration-300
-                  hover:scale-97
-        relative overflow-hidden
-        w-full aspect-square rounded-3xl bg-white p-4
-        transition-all
+                ease-out
+                group
+                duration-300
+                relative overflow-hidden
+                w-full aspect-square rounded-3xl bg-white p-4  lg:p-0
+                transition-all
+                font-semibold
+                z-30
+                 shadow-gray-3/75
+                  border-2
+                   border-transparent
+                 hover:border-gray-2
+                  active:scale-90
 
         ${index === 0
-                    ? "col-span-4 row-span-2 md:col-span-2 text-[24px]"
-                    : "col-span-2 md:col-span-1 text-[16px]"
+                    ? "col-span-4 row-span-2 md:col-span-2 text-[22px] md:text-[24px] lg:text-[28px] hover:shadow-xl/50 "
+                    : "col-span-2 md:col-span-1 text-[14px] lg:text-[14px] hover:shadow-xl/50 "
                 }
       `}
             variants={motionVariant.scale_up(0)}
         >
-            <div className="flex h-full flex-col">
+            <div className="flex h-full flex-col justify-center items-center ">
 
                 {/* image */}
-                <div className="flex-1 overflow-hidden flex items-center justify-center duration-300">
-                    {imageUrl && (
+                {imageUrl && (
+                    <div className=" h-full ">
                         <Image
-                            className="h-full w-full object-contain group-hover:lg:scale-125 duration-300 group-hover:delay-200"
+                            className=" w-full h-full aspect-video object-contain group-hover:lg:scale-115 duration-300 group-hover:delay-150"
                             src={imageUrl}
                             alt={name || ""}
-                            width={500}
-                            height={500}
+                            width={0}
+                            height={0}
                             unoptimized
                         />
-                    )}
-                </div>
+                    </div>
+                )}
 
                 {/* text */}
-                <div className="shrink-0 pt-3 text-center overflow-hidden  group-hover:scale-duration-300 font-semibold *:truncate">
+                <div className="shrink-0 text-center overflow-hidden  group-hover:scale-duration-300 *:truncate w-full p-2 z-10 bg-white/75">
                     <p className=""> {name} </p>
                     <p className="text-orange "> {name_en} </p>
                 </div>

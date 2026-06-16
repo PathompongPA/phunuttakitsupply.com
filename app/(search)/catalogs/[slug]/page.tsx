@@ -13,7 +13,7 @@ export default async function Page({ params }: Props) {
     return (
         <div className=" flex flex-col items-center w-full *:w-full h-screen" >
             <NavigationBar />
-            <div className="max-w-7xl w-full border ">
+            <div className="max-w-7xl w-full ">
                 <iframe
                     src={process.env.NEXT_PUBLIC_URL_HOST + "assets/" + catalog?.file}
                     className="w-full h-screen"

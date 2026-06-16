@@ -20,7 +20,7 @@ const motionVariant = {
                 show: {
                     opacity: 1,
                     x: 0,
-                    transition: { ease: "easeOut", duration: 0.6, delay },
+                    transition: { ease: "easeOut", duration: 0.5, delay },
                 },
                 viewport: {
                 }
@@ -34,7 +34,7 @@ const motionVariant = {
                 show: {
                     opacity: 1,
                     y: 0,
-                    transition: { ease: "easeOut", duration: 0.6, delay },
+                    transition: { ease: "easeOut", duration: 0.5, delay },
                 },
                 viewport: {
                 }
@@ -49,7 +49,7 @@ const motionVariant = {
                 show: {
                     opacity: 1,
                     x: 0,
-                    transition: { ease: "easeInOut", duration: 0.3, delay },
+                    transition: { ease: "easeInOut", duration: 0.5, delay },
                 },
                 viewport: {
                 }
@@ -63,7 +63,7 @@ const motionVariant = {
                 show: {
                     opacity: 1,
                     y: 0,
-                    transition: { ease: "easeInOut", duration: 0.3, delay },
+                    transition: { ease: "easeInOut", duration: 0.5, delay },
                 },
                 viewport: {
                 }
@@ -77,10 +77,9 @@ const motionVariant = {
                 show: {
                     opacity: 1,
                     scale: 1,
-                    transition: { ease: "easeInOut", duration: 0.3, delay },
+                    transition: { ease: "easeInOut", duration: 0.5, delay },
                 },
-                viewport: {
-                }
+                viewport: {}
             }
         )
     }
