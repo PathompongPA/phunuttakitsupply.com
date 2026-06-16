@@ -28,8 +28,7 @@ export default function CategoryCard({
 }: Props) {
 
     const pathname = "/products"
-    const base = process.env.NEXT_PUBLIC_URL_HOST_CLIENT ?? ""
-    const imageUrl = `${base}assets/${img}`
+    const imageUrl = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/" + img
     console.log(imageUrl);
     return (
         <MotionLink
