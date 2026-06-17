@@ -131,11 +131,11 @@ html {
 
   /* font-family: 'IBM Plex Sans Thai', sans-serif; */
   h1 {
-    @apply text-2xl lg:text-[36px] font-bold
+    @apply text-2xl lg:text-[32px] font-bold text-gray-5
   }
 
   h2 {
-    @apply text-[16px] lg:text-[20px] font-semibold
+    @apply text-[16px] lg:text-[20px] font-semibold text-gray-5
   }
 
   h3 {
