@@ -20,7 +20,7 @@ export default function LinkToUs() {
                     <span className=" text-gray-3">ติดต่อทีมงานของเราเพื่อสอบถามข้อมูลสินค้าขอใบเสนอราคาและรับคำแนะนำเพิ่มเติมได้ทันที</span>
                 </motion.div>
                 <motion.div variants={motionVariant.scale_up(.5)} >
-                    <Button className="text-gray-2" pathname="/">ติดต่อสอบถาม</Button>
+                    <Button className="text-gray-2" _blank={true} pathname="https://line.me/ti/p/NuDh2mAbCf">ติดต่อสอบถาม</Button>
                 </motion.div>
             </div>
         </motion.div>

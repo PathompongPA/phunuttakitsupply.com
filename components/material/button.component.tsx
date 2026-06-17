@@ -11,6 +11,7 @@ type prop = {
     className?: string,
     pathname?: string,
     query?: query
+    _blank?: boolean
 }
 const style = cva([
     "duration-300 ease-in-out cursor-pointer w-fit h-fit ",
@@ -21,10 +22,11 @@ const style = cva([
     "text-[12px] md:text-[10px] lg:text-[14px] font-semibold"
 ])
 
-export default function Button({ children, className, pathname, query }: prop) {
+export default function Button({ children, className, pathname, query, _blank = false }: prop) {
+    const target = _blank ? "_blank" : "_self"
     return (
-        <Link href={{ pathname, query }}>
-            <button className={style({ className })}>{children}</button>
+        <Link href={{ pathname, query }} target={target}>
+            <button className={style({ className })} >{children}</button>
         </Link>
     )
 };

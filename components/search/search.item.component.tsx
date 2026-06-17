@@ -84,7 +84,7 @@ export default async function ItemSearch({ searchParams }: Props) {
                                 brand={brand_id?.name}
                                 category={category_id?.name}
                                 type={type_id?.name}
-                                brandImage={brand_id.image}
+                                brandImage={brand_id?.image}
                             />
                         </Suspense>
                     )}
