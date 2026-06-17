@@ -4,41 +4,14 @@ import Link from "next/link"
 import { useSearchParams } from "next/navigation"
 
 type Props = {
-    name: string
+    name: string,
+    amount?: number
 }
 
-export default function SearchTypeButton({ name }: Props) {
-    // const router = useRouter()
+export default function SearchTypeButton({ name, amount }: Props) {
     const searchParams = useSearchParams()
-
     const brands = searchParams.getAll("type")
     const isActive = brands.includes(name)
-
-    // const toggleBrand = () => {
-    //     const params = new URLSearchParams(window.location.search)
-
-    //     const currentBrands = params.getAll("type")
-    //     const exists = currentBrands.includes(name)
-
-    //     params.delete("type")
-
-    //     if (exists) {
-    //         currentBrands
-    //             .filter((oldname) => oldname !== name)
-    //             .forEach((item) => {
-    //                 params.append("type", item)
-    //             })
-    //     } else {
-    //         currentBrands.forEach((item) => {
-    //             params.append("type", item)
-    //         })
-
-    //         params.append("type", name)
-    //     }
-
-    //     router.push(`/products?${params.toString()}`)
-    // }
-
     return (
         <Link href={{ query: { type: name } }}
 
@@ -55,7 +28,7 @@ export default function SearchTypeButton({ name }: Props) {
           ${isActive ? "text-gray-5" : "text-gray-500"}
         `}
             >
-                {decodeURIComponent(name).replace(/\s+/g, " ").trim()}
+                {decodeURIComponent(name).replace(/\s+/g, " ").trim()} {`(${amount})`}
             </span>
         </Link>
     )

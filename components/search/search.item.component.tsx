@@ -28,7 +28,7 @@ export default async function ItemSearch({ searchParams }: Props) {
     const search = searchParams?.search ?? ""
 
     if (categories.length) {
-        filter.category_id = {
+        filter.category = {
             name: {
                 _in: categories
             }
@@ -36,7 +36,7 @@ export default async function ItemSearch({ searchParams }: Props) {
     }
 
     if (brands.length) {
-        filter.brand_id = {
+        filter.brand = {
             name: {
                 _in: brands
             }
@@ -44,7 +44,7 @@ export default async function ItemSearch({ searchParams }: Props) {
     }
 
     if (types.length) {
-        filter.type_id = {
+        filter.type = {
             name: {
                 _in: types
             }
@@ -56,10 +56,10 @@ export default async function ItemSearch({ searchParams }: Props) {
             "id",
             "name",
             "thumbnail",
-            "brand_id.name",
-            "brand_id.image",
-            "category_id.name",
-            "type_id.name"
+            "brand.name",
+            "brand.image",
+            "category.name",
+            "type.name"
         ],
         filter,
         search: search
@@ -77,15 +77,15 @@ export default async function ItemSearch({ searchParams }: Props) {
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 h-fit gap-0 lg:gap-1 w-full">
                 {items?.length <= 0 ?
                     <NotFoundItem />
-                    : items?.map(({ id, name, thumbnail, brand_id, category_id, type_id }) =>
+                    : items?.map(({ id, name, thumbnail, brand, category, type }) =>
                         <Suspense key={id} fallback={<LoadingComponent />} >
                             <ProductCard
                                 name={name}
                                 thumbnail={thumbnail}
-                                brand={brand_id?.name}
-                                category={category_id?.name}
-                                type={type_id?.name}
-                                brandImage={brand_id?.image}
+                                brand={brand?.name}
+                                category={category?.name}
+                                type={type?.name}
+                                brandImage={brand?.image}
                             />
                         </Suspense>
                     )}
