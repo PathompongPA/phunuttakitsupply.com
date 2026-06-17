@@ -10,7 +10,7 @@ export default async function Footer() {
                 <BackLink pathname="/products" field="type" />
                 <BackLink pathname="/products" field="brand" />
             </nav>
-            <div className=" text-nowrap text-[10px] pb-4 text-orange ">Copyright© 2026 ภูณัฐกิจซัพพลายส์ จำกัด</div>
+            <div className=" text-nowrap text-[12px] pb-4 text-orange ">Copyright© 2026 ภูณัฐกิจซัพพลายส์ จำกัด</div>
         </footer>
     )
 
