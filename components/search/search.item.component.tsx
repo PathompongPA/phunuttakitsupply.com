@@ -53,6 +53,7 @@ export default async function ItemSearch({ searchParams }: Props) {
 
     const items = await getData("product", {
         fields: [
+            "id",
             "name",
             "thumbnail",
             "brand_id.name",
@@ -76,8 +77,8 @@ export default async function ItemSearch({ searchParams }: Props) {
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 h-fit gap-0 lg:gap-1 w-full">
                 {items?.length <= 0 ?
                     <NotFoundItem />
-                    : items?.map(({ name, thumbnail, brand_id, category_id, type_id }) =>
-                        <Suspense key={name} fallback={<LoadingComponent />} >
+                    : items?.map(({ id, name, thumbnail, brand_id, category_id, type_id }) =>
+                        <Suspense key={id} fallback={<LoadingComponent />} >
                             <ProductCard
                                 name={name}
                                 thumbnail={thumbnail}
