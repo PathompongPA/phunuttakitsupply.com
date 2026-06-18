@@ -16,6 +16,7 @@ export default async function SearchCategoryProduct() {
     })
     return (
         <div className=" flex  gap-2 lg:gap-4 overflow-x-scroll overflow-visible scrollbar-none scroll-smooth select-none ">
+            <SearchCategoryButton name="ทั้งหมด" />
             {category?.map(({ name }) => <SearchCategoryButton key={name} name={name} />)}
         </div>
     )

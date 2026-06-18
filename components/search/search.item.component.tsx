@@ -26,11 +26,14 @@ export default async function ItemSearch({ searchParams }: Props) {
     const brands = toArray(searchParams?.brand)
     const types = toArray(searchParams?.type)
     const search = searchParams?.search ?? ""
+    console.log("category : ", categories[0]);
 
     if (categories.length) {
-        filter.category = {
-            name: {
-                _in: categories
+        if (categories[0] !== "ทั้งหมด") {
+            filter.category = {
+                name: {
+                    _in: categories
+                }
             }
         }
     }

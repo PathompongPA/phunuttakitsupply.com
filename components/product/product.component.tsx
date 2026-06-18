@@ -118,7 +118,7 @@ export default async function Product({ product_name }: prop) {
                 <summary className=" text-[16px] lg:text-[20px] py-4 font-semibold select-none flex justify-between cursor-pointer  border-b border-gray-3">
                     ข้อมูลเพิ่มเติม <ChevronDown strokeWidth={3} />
                 </summary>
-                <div className=" px-2 py-4 md:p-2 lg:py-4 md:text-[12px] lg:text-[14px] bg-gray-1/50 text-gray-4" dangerouslySetInnerHTML={{ __html: product.description2 }} />
+                <div className=" px-2 py-4 md:p-2 lg:py-4 md:text-[12px] lg:text-[14px] bg-gray-1/50 text-gray-4" dangerouslySetInnerHTML={{ __html: description2 }} />
             </details>
         </div>
     )

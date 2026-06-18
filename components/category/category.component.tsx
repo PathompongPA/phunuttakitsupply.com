@@ -28,7 +28,7 @@ export default async function Category() {
                         <Title className="text-wrap">ครบทุกหมวดอุปกรณ์อุตสาหกรรม</Title>
                     </motion.div>
                     <motion.div variants={motionVariant.scale_up(.3)} >
-                        <Button pathname="/products">
+                        <Button pathname="/products" query={{ category: "ทั้งหมด" }}>
                             ทั้งหมด
                         </Button>
                     </motion.div>
