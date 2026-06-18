@@ -40,7 +40,7 @@ export default function Page() {
                                 </div> */}
                             </div>
                         </div>
-                        <iframe className=" w-full h-full aspect-video rounded-2xl border-2 border-gray-2/50 shadow-lg/20" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3874.7034536013102!2d100.62427347455944!3d13.79674189625249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311d620cf3bc9b01%3A0xf850f16a5a475506!2z4Lin4Lix4LiU4Lia4Li24LiH4LiX4Lit4LiH4Lir4Lil4Liy4LiH!5e0!3m2!1sth!2sth!4v1780298728992!5m2!1sth!2sth" width="0" height="0" loading="lazy" ></iframe>
+                        <iframe className=" w-full h-full aspect-video rounded-2xl border-2 border-gray-2/50 shadow-lg/20" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d242.1700578315279!2d100.63220522593434!3d13.795689759367948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311d63c259967879%3A0x1422f7a6c2489aaf!2z4LiI4Liy4Lij4Li44LmA4Lin4Lio4Lih4LmMIOC5geC4oeC4meC4iuC4seC5iOC4mQ!5e0!3m2!1sth!2sth!4v1781788167851!5m2!1sth!2sth" width="0" height="0" loading="lazy" ></iframe>
                     </div>
                 </div>
             </div>
