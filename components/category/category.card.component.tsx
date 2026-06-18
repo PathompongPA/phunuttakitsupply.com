@@ -4,6 +4,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { motionVariant } from "@/motion/motion"
+import { useEffect } from "react"
+import { usePathname } from "next/navigation"
 
 type QueryType = {
     category?: string
@@ -26,6 +28,10 @@ export default function CategoryCard({
     query,
     index = 0,
 }: Props) {
+
+    const _pathname = usePathname()
+    useEffect(() => {
+    }, [_pathname])
 
     const pathname = "/products"
     const imageUrl = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/" + img
