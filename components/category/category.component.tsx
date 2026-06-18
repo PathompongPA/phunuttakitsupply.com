@@ -34,15 +34,18 @@ export default async function Category() {
                     </motion.div>
                 </div>
                 <div className=" grid grid-cols-4 grid-rows-2  gap-4  md:gap-4">
-                    {category?.map(({ id, name, image, name_en }, index) =>
-                        <CategoryCard
+                    {category?.map(({ id, name, image, name_en }, index) => {
+                        const imageUrl = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/" + image
+                        return <CategoryCard
                             index={index}
                             key={id}
-                            img={image}
+                            img={imageUrl}
                             name={name}
                             name_en={name_en}
                             query={{ category: name }}
                         />
+                    }
+
                     )}
                 </div>
             </motion.div>

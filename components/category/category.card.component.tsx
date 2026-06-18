@@ -4,8 +4,6 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { motionVariant } from "@/motion/motion"
-import { useEffect } from "react"
-import { usePathname } from "next/navigation"
 
 type QueryType = {
     category?: string
@@ -29,15 +27,7 @@ export default function CategoryCard({
     index = 0,
 }: Props) {
 
-    const _pathname = usePathname()
-    useEffect(() => {
-    }, [_pathname])
-
     const pathname = "/products"
-    const imageUrl = new URL(
-        `assets/${img}`,
-        process.env.NEXT_PUBLIC_URL_HOST_CLIENT
-    ).toString()
     return (
         <MotionLink
             href={{ pathname, query }}
@@ -67,11 +57,11 @@ export default function CategoryCard({
             <div className="flex h-full flex-col justify-center items-center ">
 
                 {/* image */}
-                {imageUrl && (
+                {img && (
                     <div className=" h-full ">
                         <Image
                             className=" w-full h-full aspect-video object-contain group-hover:lg:scale-115 duration-300 group-hover:delay-150"
-                            src={imageUrl}
+                            src={img}
                             alt={name || ""}
                             width={0}
                             height={0}
