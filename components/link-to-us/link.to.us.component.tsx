@@ -14,7 +14,7 @@ export default function LinkToUs() {
         >
             <div className=" max-w-7xl p-8 py-16 gap-12 flex flex-col justify-center items-center text-center">
                 <motion.div variants={motionVariant.fade_up(0, 100)} >
-                    <Title className="text-gray-2 ">กำลังมองหาอะไหล่อุตสาหกรรมหรืออุปกรณ์สำหรับโรงงาน?</Title>
+                    <span className="text-gray-2 text-2xl lg:text-[32px] font-bold">กำลังมองหาอะไหล่อุตสาหกรรมหรืออุปกรณ์สำหรับโรงงาน?</span>
                 </motion.div>
                 <motion.div variants={motionVariant.fade_up(0, 100)} >
                     <span className=" text-gray-3">ติดต่อทีมงานของเราเพื่อสอบถามข้อมูลสินค้าขอใบเสนอราคาและรับคำแนะนำเพิ่มเติมได้ทันที</span>
