@@ -34,14 +34,14 @@ export default async function Category() {
                     </motion.div>
                 </div>
                 <div className=" grid grid-cols-4 grid-rows-2  gap-4  md:gap-4">
-                    {category?.map(({ name, image, name_en }, index) =>
+                    {category?.map(({ id, name, image, name_en }, index) =>
                         <CategoryCard
                             index={index}
+                            key={id}
                             img={image}
                             name={name}
                             name_en={name_en}
                             query={{ category: name }}
-                            key={index + name}
                         />
                     )}
                 </div>
