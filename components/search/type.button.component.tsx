@@ -1,7 +1,5 @@
 "use client"
-
-import Link from "next/link"
-import { useSearchParams } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
 
 type Props = {
     name: string,
@@ -12,8 +10,24 @@ export default function SearchTypeButton({ name, amount }: Props) {
     const searchParams = useSearchParams()
     const brands = searchParams.getAll("type")
     const isActive = brands.includes(name)
+    const router = useRouter()
+    const toggleType = () => {
+        const params = new URLSearchParams(window.location.search)
+        params.delete("brand")
+
+        const currentBrand = params.get("type")
+
+        if (currentBrand === name) {
+            params.delete("type")
+        } else {
+            params.set("type", name)
+        }
+
+        router.push(`/products?${params.toString()}`)
+    }
     return (
-        <Link href={{ query: { type: name } }}
+        <button
+            onClick={toggleType}
 
             className="flex items-center gap-2 cursor-pointer  active:scale-90 duration-300 "
             type="button"
@@ -28,9 +42,9 @@ export default function SearchTypeButton({ name, amount }: Props) {
           ${isActive ? "text-gray-5" : "text-gray-500"}
         `}
             >
-                {decodeURIComponent(name).replace(/\s+/g, " ").trim()} {`(${amount})`}
+                {decodeURIComponent(name).replace(/\s+/g, " ").trim()} {amount && `(${amount})`}
             </span>
-        </Link>
+        </button>
     )
 }
 

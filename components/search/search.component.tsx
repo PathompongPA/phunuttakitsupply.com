@@ -17,7 +17,7 @@ export default async function SearchProduct({ searchParams }: Props) {
             <div className=" max-w-7xl w-full h-fit p-4 lg:p-16 lg:py-4 flex flex-col gap-4 ">
                 <SearchCategoryProduct />
                 <div className=" flex flex-col md:flex-row gap-4 lg:gap-8">
-                    <SearchFilter />
+                    <SearchFilter searchParams={searchParams} />
                     <ItemSearch searchParams={params} />
                 </div>
             </div>
