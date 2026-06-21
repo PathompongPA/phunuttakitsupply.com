@@ -33,7 +33,7 @@ export default async function Category() {
                         </Button>
                     </motion.div>
                 </div>
-                <div className=" grid grid-cols-4 grid-rows-2  gap-4  md:gap-4">
+                <div className={` grid grid-cols-4 grid-rows-2  gap-4  md:gap-4`}>
                     {category?.map(({ id, name, image, name_en }, index) => {
                         const imageUrl = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/" + image
                         return <CategoryCard

@@ -41,11 +41,11 @@ export default function CategoryCard({
                 transition-all
                 font-semibold
                 z-30
-                 shadow-gray-3/75
-                  border-2
-                   border-transparent
-                 hover:border-gray-2
-                  active:scale-90
+                shadow-gray-3/75
+                border-2
+                border-transparent
+                hover:border-gray-2
+                active:scale-90
 
         ${index === 0
                     ? "col-span-4 row-span-2 md:col-span-2 text-[22px] md:text-[24px] lg:text-[28px] hover:shadow-xl/50 "
