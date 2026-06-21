@@ -1,7 +1,7 @@
 import { getData } from "@/utility"
 import { ChevronDown, Download, } from "lucide-react"
-import Image from "next/image"
 import Link from "next/link"
+import Gallery from "../gallery/gallery.component"
 
 type prop = {
     product_name: string
@@ -21,12 +21,9 @@ export default async function Product({ product_name }: prop) {
             "*",
             {
                 images: [
-                    "*",
                     {
                         directus_files_id: [
                             "id",
-                            "title",
-                            "filename_download"
                         ]
                     }
                 ],
@@ -37,7 +34,7 @@ export default async function Product({ product_name }: prop) {
         ]
     }
     const [product] = await getData("product", option)
-    const thumbnailUrl = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/" + product?.thumbnail
+    const images = product?.images
     const docPath = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/" + product?.document
     const brand = product?.brand?.name
     const category = product?.category?.name
@@ -65,13 +62,12 @@ export default async function Product({ product_name }: prop) {
 
     const urlEmail = `mailto:${email}?subject=${subject}&body=${body}`
 
+    console.log(product);
     return (
         <div className=" flex flex-col items-center pb-8">
-            <div className=" p-4 py-8 flex flex-col md:grid md:grid-cols-2  gap-4 lg:gap-8 lg:pt-16 lg:pb-8 lg:px-32 h-fit w-full max-w-7xl ">
-                <div className=" w-full">
-                    <Image className="w-full aspect-square object-cover " src={thumbnailUrl} alt="" width={0} height={0} unoptimized />
-                </div>
-                <div className="flex flex-col gap-4">
+            <div className=" p-4 py-8 flex flex-col md:grid md:grid-cols-2  gap-4 lg:p-0 lg:py-8 lg:gap-2   h-fit w-full max-w-6xl ">
+                <Gallery images={images} />
+                <div className="flex flex-col gap-4 py-8">
                     <div className=" flex w-full justify-between  *:text-gray-4 *:text-[12px]">
                         <div className=""> Brand :
                             <Link
