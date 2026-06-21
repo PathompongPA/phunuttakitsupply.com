@@ -66,7 +66,7 @@ export default async function Product({ product_name }: prop) {
     return (
         <div className=" flex flex-col items-center pb-8">
             <div className=" p-4 py-8 flex flex-col md:grid md:grid-cols-2  gap-4 lg:p-0 lg:py-8 lg:gap-2   h-fit w-full max-w-6xl ">
-                <Gallery images={images} />
+                <Gallery images={images} baseUrl={process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/"} />
                 <div className="flex flex-col gap-4 py-8">
                     <div className=" flex w-full justify-between  *:text-gray-4 *:text-[12px]">
                         <div className=""> Brand :

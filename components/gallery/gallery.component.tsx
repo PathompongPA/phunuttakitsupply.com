@@ -4,11 +4,12 @@ import { useState } from "react";
 
 type prop = {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    images: any[]
+    images: any[],
+    baseUrl: string
+
 }
-export default function Gallery({ images }: prop) {
+export default function Gallery({ images, baseUrl }: prop) {
     const [mainImage, setMainImage] = useState(images[0].directus_files_id.id)
-    const baseUrl = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/"
     const toggleImage = (newImage: string) => { setMainImage(newImage) }
     return (
         <div className=" w-full h-fit relative   gap-2 flex flex-col lg:flex-row ">
