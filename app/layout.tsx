@@ -4,11 +4,15 @@ import "./globals.css";
 import { Footer, Navbar } from "@/components";
 import { getData } from "@/utility";
 import { Prompt } from "next/font/google";
+import { generateSEO } from "@/utility/seo/seo";
 
-export const metadata: Metadata = {
+export const metadata = generateSEO({
   title: "ภูณัฐกิจ ซัพพลายส์ จำกัด",
-  description: " บริษัท ภูณัฐกิจ ซัพพลายส์ จำกัด จัดจำหน่าย สินค้าอะไหล่อตสาหกรรม",
-};
+  description: "",
+  keywords: [],
+  image: "",
+  url: ""
+})
 
 export const prompt = Prompt({
   subsets: ["thai", "latin"],
