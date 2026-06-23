@@ -1,6 +1,11 @@
 import { NavigationBar } from "@/components";
 import Title from "@/components/material/title.component";
+import { generateSEO } from "@/utility/seo/seo";
 
+export const metadata = generateSEO({
+    title: "เกี่ยวกับเรา บริษัท ภูณัฐกิจ ซัพพลาย จำกัด | ซัพพลายเออร์โรงงานอุตสาหกรรม",
+    description: "ทำความรู้จัก บริษัท ภูณัฐกิจ ซัพพลาย จำกัด ผู้เชี่ยวชาญด้านการจัดหาและจัดจำหน่ายอุปกรณ์โรงงาน เครื่องจักรกลอุตสาหกรรม มอเตอร์ ปั๊มน้ำ วาล์ว และระบบบาร์โค้ด ด้วยประสบการณ์ที่มุ่งมั่นส่งมอบสินค้าแท้มาตรฐานสากล",
+})
 export default function Page() {
     return (
         <div className=" w-full flex  flex-col  items-center">

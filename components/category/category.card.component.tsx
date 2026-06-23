@@ -23,14 +23,13 @@ export default function CategoryCard({
     name,
     name_en,
     img,
-    query,
     index = 0,
 }: Props) {
 
-    const pathname = "/products"
+    const pathname = `/products/${name}`
     return (
         <MotionLink
-            href={{ pathname, query }}
+            href={{ pathname }}
             className={`
                 origin-center
                 ease-out

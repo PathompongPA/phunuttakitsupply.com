@@ -1,12 +1,18 @@
 import { CatalogCard, NavigationBar, NotFoundItem } from "@/components";
 import Title from "@/components/material/title.component";
 import { getData } from "@/utility";
+import { generateSEO } from "@/utility/seo/seo";
 
 type Props = {
     searchParams: Promise<{
         search?: string
     }>
 }
+
+export const metadata = generateSEO({
+    title: "แคตตาล็อกสินค้า มอเตอร์ ปั๊ม บาร์โค้ด PDF | ภูณัฐกิจ ซัพพลาย",
+    description: "รวมไฟล์ดาวน์โหลดแคตตาล็อกสินค้า ภูณัฐกิจ ซัพพลาย เช็กสเปกมอเตอร์ไฟฟ้า 3 เฟส ปั๊มน้ำ วาล์วควบคุม และระบบบาร์โค้ดอุตสาหกรรม ดาวน์โหลดง่าย ได้ไฟล์คุณภาพสูง",
+})
 
 export default async function Page({ searchParams }: Props) {
     const catalog = await getData("catalog", { search: (await searchParams).search })

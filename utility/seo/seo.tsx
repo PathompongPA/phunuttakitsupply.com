@@ -17,7 +17,6 @@ export function generateSEO({
 }: SEOProps): Metadata {
     const siteName = "My Website"
     const baseUrl = process.env.NEXT_PUBLIC_URL_HOST_CLIENT
-
     return {
         title,
         description,

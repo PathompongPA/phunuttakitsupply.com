@@ -1,45 +1,17 @@
-"use client"
 import Link from "next/link"
-import { useSearchParams } from "next/navigation"
 
 type prop = {
     name: string
+    isActive: boolean
 }
 
-export default function SearchCategoryButton({ name }: prop) {
-    // const router = useRouter()
-    const searchParams = useSearchParams()
-
-    const categories = searchParams.getAll("category")
-    const isActive = categories.includes(name)
-
-    // const toggleCategory = (value: string) => {
-    //     const params = new URLSearchParams(searchParams)
-    //     const categories = params.getAll("category")
-    //     const exists = categories.includes(value)
-
-    //     params.delete("category")
-
-    //     if (exists) {
-    //         const filtered = categories.filter((item) => item !== value)
-
-    //         filtered.forEach((item) => {
-    //             params.append("category", item)
-    //         })
-    //     } else {
-    //         categories.forEach((item) => {
-    //             params.append("category", item)
-    //         })
-
-    //         params.append("category", value)
-    //     }
-
-    //     router.push(`/products?${params.toString()}`)
-    // }
-
+export default function SearchCategoryButton({ name, isActive = false }: prop) {
+    const basePath = "/products/"
+    const path = name === "ทั้งหมด" ? "/" : name
+    const pathname = basePath + path
     return (
         <Link
-            href={{ query: { category: name } }}
+            href={{ pathname }}
             className={`
                  cursor-pointer
                 active:scale-90

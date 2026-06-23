@@ -1,5 +1,4 @@
 export const dynamic = "force-dynamic";
-import type { Metadata } from "next";
 import "./globals.css";
 import { Footer, Navbar } from "@/components";
 import { getData } from "@/utility";
@@ -7,11 +6,8 @@ import { Prompt } from "next/font/google";
 import { generateSEO } from "@/utility/seo/seo";
 
 export const metadata = generateSEO({
-  title: "ภูณัฐกิจ ซัพพลายส์ จำกัด",
-  description: "",
-  keywords: [],
-  image: "",
-  url: ""
+  title: "ภูณัฐกิจ ซัพพลายส์ | อุปกรณ์และเครื่องจักรโรงงานอุตสาหกรรม ราคาส่ง",
+  description: "บริษัท ภูณัฐกิจ ซัพพลาย จำกัด ตัวแทนจำหน่ายและจัดหาสินค้าอุตสาหกรรม อุปกรณ์โรงงานครบวงจร มอเตอร์ไฟฟ้า ปั๊มน้ำ วาล์ว และปั๊มลม สินค้าแท้มาตรฐานโรงงาน ราคาส่ง พร้อมบริการจัดส่งทั่วประเทศ ติดต่อขอใบเสนอราคาได้ทันที",
 })
 
 export const prompt = Prompt({

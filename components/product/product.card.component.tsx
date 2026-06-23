@@ -8,10 +8,10 @@ type prop = {
     img?: string[]
     thumbnail?: string
     brandImage?: string
+    pathname?: string
 }
 
-export default function ProductCard({ name, thumbnail, brand, category, type, brandImage }: prop) {
-    const pathname = "/products/" + name
+export default function ProductCard({ name, thumbnail, brand, category, type, brandImage, pathname }: prop) {
     const urlThumbnail = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/" + thumbnail
     const urlBrand = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/" + brandImage
     return (

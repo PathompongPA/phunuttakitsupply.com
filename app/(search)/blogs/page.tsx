@@ -2,12 +2,19 @@ import { NavigationBar, NotFoundItem } from "@/components";
 import BlogCard from "@/components/blogs/blog.card.component";
 import Title from "@/components/material/title.component";
 import { getData } from "@/utility";
+import { generateSEO } from "@/utility/seo/seo";
 
 type Props = {
     searchParams: Promise<{
         search?: string
     }>
 }
+
+export const metadata = generateSEO({
+    title: "คู่มือและวิธีเลือกซื้ออุปกรณ์โรงงานอุตสาหกรรม | ภูณัฐกิจ ซัพพลาย",
+    description: "รวมวิธีเลือกซื้อและคู่มือบำรุงรักษาเครื่องจักรกลอุตสาหกรรม เทคนิคการประหยัดพลังงานมอเตอร์ไฟฟ้า การคำนวณสเปกปั๊มน้ำ วาล์ว และปั๊มลมโรงงาน อัปเดตล่าสุด",
+})
+
 export default async function Page({ searchParams }: Props) {
     const blogs = await getData("blog", { search: (await searchParams).search })
 

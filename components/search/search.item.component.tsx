@@ -6,38 +6,33 @@ import ProductCard from "../product/product.card.component"
 import { Suspense } from "react"
 import LoadingComponent from "../loading/loading.component"
 
-type Props = {
-    searchParams?: {
-        category?: string | string[]
-        brand?: string | string[]
-        type?: string | string[]
+type prop = {
+    params: Promise<{
+        category: string
+        type: string
+        brand: string
         search?: string
-    }
+    }>
 }
 
-export default async function ItemSearch({ searchParams }: Props) {
+export default async function ItemSearch({ params }: prop) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const filter: any = {}
-    const toArray = (value?: string | string[]) => {
-        if (!value) return []
-        return Array.isArray(value) ? value : [value]
-    }
-    const categories = toArray(searchParams?.category)
-    const brands = toArray(searchParams?.brand)
-    const types = toArray(searchParams?.type)
-    const search = searchParams?.search ?? ""
+    const { category, brand, type } = await params;
+    const categories = decodeURIComponent(category)
+    const types = decodeURIComponent(type)
+    const brands = decodeURIComponent(brand)
+    const search = (await params)?.search ?? ""
 
-    if (categories.length) {
-        if (categories[0] !== "ทั้งหมด") {
-            filter.category = {
-                name: {
-                    _in: categories
-                }
+    if (categories !== "undefined") {
+        filter.category = {
+            name: {
+                _in: categories
             }
         }
     }
 
-    if (brands.length) {
+    if (brands !== "undefined") {
         filter.brand = {
             name: {
                 _in: brands
@@ -45,7 +40,7 @@ export default async function ItemSearch({ searchParams }: Props) {
         }
     }
 
-    if (types.length) {
+    if (types !== "undefined") {
         filter.type = {
             name: {
                 _in: types
@@ -79,17 +74,22 @@ export default async function ItemSearch({ searchParams }: Props) {
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 h-fit gap-0 lg:gap-1 w-full">
                 {items?.length <= 0 ?
                     <NotFoundItem />
-                    : items?.map(({ id, name, thumbnail, brand, category, type }) =>
-                        <Suspense key={id} fallback={<LoadingComponent />} >
-                            <ProductCard
-                                name={name}
-                                thumbnail={thumbnail}
-                                brand={brand?.name}
-                                category={category?.name}
-                                type={type?.name}
-                                brandImage={brand?.image}
-                            />
-                        </Suspense>
+                    : items?.map(({ id, name, thumbnail, brand, category, type }) => {
+                        const pathname = `/products/${category.name}/${type.name}/${brand.name}/${name}`
+                        return (
+                            <Suspense key={id} fallback={<LoadingComponent />} >
+                                <ProductCard
+                                    pathname={pathname}
+                                    name={name}
+                                    thumbnail={thumbnail}
+                                    brand={brand?.name}
+                                    category={category?.name}
+                                    type={type?.name}
+                                    brandImage={brand?.image}
+                                />
+                            </Suspense>
+                        )
+                    }
                     )}
             </div>
         </div>
