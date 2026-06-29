@@ -15,7 +15,7 @@ type prop = {
 }
 
 export default function BlogCard({ id, title, subtitle, img, create_date, index }: prop) {
-    const urlImage = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/" + img
+    const urlImage = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/" + img + "FILE_ID?width=400&format=webp"
     const pathname = "/blogs/" + id
     const posted = dayjs(create_date).format("D MMMM YYYY")
     return (
