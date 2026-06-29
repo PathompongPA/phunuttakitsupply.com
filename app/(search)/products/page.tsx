@@ -7,6 +7,9 @@ type prop = {
         type: string
         brand: string
     }>
+    searchParams: Promise<{
+        search?: string
+    }>
 }
 
 export const metadata = generateSEO({
@@ -15,11 +18,11 @@ export const metadata = generateSEO({
     keywords: [""],
 })
 
-export default async function Page({ params }: prop) {
+export default async function Page({ params, searchParams }: prop) {
     return (
         <div className="flex w-full flex-col min-h-screen ">
             <NavigationBar search={true} />
-            <SearchProduct params={params} />
+            <SearchProduct params={params} searchParams={searchParams} />
         </div>
     )
 }

@@ -13,16 +13,20 @@ type prop = {
         brand: string
         search?: string
     }>
+    searchParams: Promise<{
+        search?: string
+    }>
 }
 
-export default async function ItemSearch({ params }: prop) {
+export default async function ItemSearch({ params, searchParams }: prop) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const filter: any = {}
     const { category, brand, type } = await params;
     const categories = decodeURIComponent(category)
     const types = decodeURIComponent(type)
     const brands = decodeURIComponent(brand)
-    const search = (await params)?.search ?? ""
+    const search = (await searchParams)?.search ?? ""
+    console.log(search);
 
     if (categories !== "undefined") {
         filter.category = {
