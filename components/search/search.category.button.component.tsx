@@ -29,7 +29,6 @@ export default function SearchCategoryButton({ name, isActive = false }: prop) {
                     ? "bg-orange text-white"
                     : "bg-gray-1 text-gray-5"}
             `}
-        // onClick={() => toggleCategory(name)}
         >
             {name}
         </Link>

@@ -25,7 +25,7 @@ export default async function SearchCategoryProduct({ params }: prop) {
     })
     return (
         <div className=" flex  gap-2 lg:gap-4 overflow-x-scroll overflow-visible scrollbar-none scroll-smooth select-none ">
-            {/* <SearchCategoryButton name="ทั้งหมด" isActive={!category} /> */}
+            <SearchCategoryButton name="ทั้งหมด" isActive={!category} />
             {categories?.map(({ name }) => <SearchCategoryButton key={name} name={name} isActive={decodeURIComponent(category) === name} />)}
         </div>
     )
