@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: prop) {
     }
 
     return generateSEO({
-        title: data[category].title,
+        title: data[category]?.title,
         description: "",
         keywords: [""],
     })

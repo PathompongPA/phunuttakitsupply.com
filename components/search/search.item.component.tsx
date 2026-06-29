@@ -64,6 +64,7 @@ export default async function ItemSearch({ params }: prop) {
 
     // const url = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/"
     const title = `ผลลัพธ์ ${items?.length ?? 0} รายการ`
+    console.log(items);
 
     return (
         <div className="flex flex-col gap-4 md:gap-2 w-full">
@@ -71,11 +72,11 @@ export default async function ItemSearch({ params }: prop) {
                 {title}
             </span>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 h-fit gap-0 lg:gap-1 w-full">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 h-fit gap-0 lg:gap-2 w-full">
                 {items?.length <= 0 ?
                     <NotFoundItem />
                     : items?.map(({ id, name, thumbnail, brand, category, type }) => {
-                        const pathname = `/products/${category.name}/${type.name}/${brand.name}/${name}`
+                        const pathname = `/products/${category?.name}/${type?.name}/${brand?.name}/${name}`
                         return (
                             <Suspense key={id} fallback={<LoadingComponent />} >
                                 <ProductCard
