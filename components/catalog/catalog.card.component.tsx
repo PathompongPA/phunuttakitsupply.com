@@ -7,7 +7,7 @@ type prop = {
     file: string
 }
 export default function CatalogCard({ name, thumbnail, file }: prop) {
-    const urlImage = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/" + thumbnail
+    const urlImage = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/" + thumbnail + "FILE_ID?width=200&format=webp"
     return (
         <a className=" p-1 lg:p-2 flex flex-col gap-2 w-full border-gray-2 border-2  aspect-3/4 rounded-lg"
             href={`${process.env.NEXT_PUBLIC_URL_HOST_CLIENT}assets/${file}`}
