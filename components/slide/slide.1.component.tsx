@@ -6,6 +6,7 @@ import * as motion from "motion/react-client"
 import { motionVariant } from "@/motion/motion";
 import bg1 from "../../public/slide/bg1.png"
 import motor from "../../public/slide/motor.png"
+
 export default function Slide1() {
     const basePath = "/slide/motor_logo/"
     const images = ["abb", "siemens", "hascon", "toshiba", "brook", "cmp", "mitsubishi", "weg"]

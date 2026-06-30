@@ -1,4 +1,4 @@
-import { About, Blog, Category, LinkToUs, Slide1 } from "@/components";
+import { About, Blog, Category, LinkToUs, Slide1, Slide2 } from "@/components";
 import AutoSlide from "@/components/slide/auto.slide.component"
 
 export default function Home() {
@@ -6,6 +6,7 @@ export default function Home() {
     <div className="flex flex-col items-center w-full min-h-full ">
       <AutoSlide>
         <Slide1 />
+        <Slide2 />
       </AutoSlide>
       <Category />
       <About />
