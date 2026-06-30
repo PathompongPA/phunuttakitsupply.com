@@ -6,9 +6,6 @@ export default function Home() {
     <div className="flex flex-col items-center w-full min-h-full ">
       <AutoSlide>
         <Slide1 />
-        <div className=" h-175 flex justify-center items-center text-4xl text-gray-3">Content Slide 2</div>
-        <Slide1 />
-        <div className=" h-175 flex justify-center items-center text-4xl text-gray-3">Content Slide 2</div>
       </AutoSlide>
       <Category />
       <About />

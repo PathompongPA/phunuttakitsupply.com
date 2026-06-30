@@ -37,7 +37,7 @@ export default function Navbar({ category }: prop) {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [lastScrollY]);
     return (
-        <nav className={`fixed lg:py-2 top-0 left-0 w-screen flex justify-center duration-600 ease-out ${lastScrollY === 0 ? " bg-white lg:bg-transparent " : "bg-white"}   data-[hidden=true]:-top-full z-50 `} aria-label="main navigation" data-hidden={hidden} data-position={lastScrollY} >
+        <nav className={`fixed lg:py-2 top-0 left-0 w-screen flex justify-center duration-600 ease-out ${lastScrollY === 0 ? " bg-transparent " : "bg-white"}   data-[hidden=true]:-top-full z-50 `} aria-label="main navigation" data-hidden={hidden} data-position={lastScrollY} >
             <div className="flex flex-col lg:flex-row justify-between lg:items-center w-full max-w-7xl lg:px-8 relative ">
                 <div className=" touch-none data-[hidden=true]:hidden hidden md:block md:bg-black/50 top-0 left-0  lg:hidden fixed w-screen h-screen z-0" data-hidden={!hamberger} onClick={toggleHamberger} > </div>
                 <div className="flex justify-between items-center py-6 px-4 lg:p-4 text-black">
