@@ -18,7 +18,7 @@ export default async function Category() {
                 initial="hidden"
                 whileInView="show"
                 whileTap="tap"
-                viewport={{ amount: .2, once: false }}
+                viewport={{ amount: .2, once: true }}
             >
                 <div className=" flex justify-between gap-8 ">
                     <motion.div
@@ -35,7 +35,7 @@ export default async function Category() {
                 </div>
                 <div className={` grid grid-cols-4 grid-rows-2  gap-4  md:gap-4`}>
                     {category?.map(({ id, name, image, name_en }, index) => {
-                        const imageUrl = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/" + image
+                        const imageUrl = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/" + image + "FILE_ID?width=400&format=webp"
                         return <CategoryCard
                             index={index}
                             key={id}

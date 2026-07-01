@@ -13,7 +13,7 @@ export default async function Blog() {
             variants={motionVariant.container()}
             initial="hidden"
             whileInView="show"
-            viewport={{ amount: .2, once: false }}
+            viewport={{ amount: .2, once: true }}
         >
             <div className=" w-full max-w-7xl flex flex-col p-4 py-8 gap-8 lg:p-16 lg:gap-4 ">
                 <div className=" flex justify-between" >

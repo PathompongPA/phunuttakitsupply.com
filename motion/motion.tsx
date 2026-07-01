@@ -1,5 +1,82 @@
 
 import { Variants } from "framer-motion";
+import * as motion from "motion/react-client"
+import { ReactNode } from "react"
+
+type Props = {
+    children: ReactNode
+    delay?: number
+    className?: string
+    once?: boolean
+}
+
+
+export function MotionFadeZoomOut({
+    children,
+    delay = 0,
+    once = true,
+    className,
+}: Props) {
+    return (
+        <motion.div
+            initial={{ opacity: 0, scale: .4 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once }}
+            transition={{
+                duration: 0.5,
+                delay: delay + .3,
+                ease: "easeOut"
+            }}
+            className={className}
+        >
+            {children}
+        </motion.div>
+    )
+}
+export function MotionFadeLeft({
+    children,
+    delay = 0,
+    once = true,
+    className,
+}: Props) {
+    return (
+        <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once }}
+            transition={{
+                duration: 0.5,
+                delay: delay + .3,
+                ease: "easeOut"
+            }}
+            className={className}
+        >
+            {children}
+        </motion.div>
+    )
+}
+export function MotionFadeUp({
+    children,
+    delay = 0,
+    className,
+    once = true
+}: Props) {
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once }}
+            transition={{
+                duration: 0.5,
+                delay: delay + .3,
+                ease: "easeOut"
+            }}
+            className={className}
+        >
+            {children}
+        </motion.div>
+    )
+}
 
 const motionVariant = {
     container: (): Variants => {

@@ -1,4 +1,4 @@
-import { About, Blog, Category, LinkToUs, Slide1, Slide2 } from "@/components";
+import { About, Blog, Category, LinkToUs, Slide1, Slide2, Slide3 } from "@/components";
 import AutoSlide from "@/components/slide/auto.slide.component"
 
 export default function Home() {
@@ -7,6 +7,7 @@ export default function Home() {
       <AutoSlide>
         <Slide1 />
         <Slide2 />
+        <Slide3 />
       </AutoSlide>
       <Category />
       <About />

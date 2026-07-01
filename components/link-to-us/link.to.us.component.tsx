@@ -9,7 +9,7 @@ export default function LinkToUs() {
             variants={motionVariant.container()}
             initial="hidden"
             whileInView="show"
-            viewport={{ amount: .2, once: false }}
+            viewport={{ amount: .2, once: true }}
         >
             <div className=" max-w-7xl p-8 py-16 gap-12 flex flex-col justify-center items-center text-center">
                 <motion.div variants={motionVariant.fade_up(0, 100)} >

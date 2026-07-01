@@ -14,7 +14,7 @@ export default function AutoSlide({ children, interval = 5000 }: prop) {
             setCounterNumber((prev) => (prev + 1) % items.length);
         }, interval);
         return () => clearInterval(timer);
-    }, [items.length, interval]);
+    }, [items.length, interval, counterNumber]);
 
     const count = items.map((item, _index) => {
         return (
@@ -27,11 +27,12 @@ export default function AutoSlide({ children, interval = 5000 }: prop) {
     })
 
     return (
-        <div className="flex justify-center w-full   lg:pt-0 h-fit md:h-fit md:min-h-[50vh] md:items-center  lg:h-screen  relative ">
+        <div className="flex justify-center w-full   lg:pt-0 h-fit md:h-fit md:min-h-[50vh] md:items-center  lg:h-screen  relative "
+        >
             {items[counterNumber]}
-            <div className=" flex flex-row gap-2 justify-center absolute bottom-[25vh] md:bottom-[20vh]  left-1/2 -translate-x-1/2 z-30 ">
+            <div className=" flex flex-row gap-2 justify-center absolute bottom-[25vh] md:bottom-[20vh]  left-1/2 -translate-x-1/2 z-30 " >
                 {count}
-            </div>
-        </div>
+            </div >
+        </div >
     )
 };

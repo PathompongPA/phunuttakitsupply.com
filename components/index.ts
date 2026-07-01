@@ -14,7 +14,9 @@ import ProductMore from "./product/product.more.component";
 import SearchProduct from "./search/search.component";
 import Slide1 from "./slide/slide.1.component";
 import Slide2 from "./slide/slide2.component";
+import Slide3 from "./slide/slide3.component";
 export {
+  Slide3,
   Slide2,
   Slide1,
   NotFoundItem,
