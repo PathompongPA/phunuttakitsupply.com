@@ -11,7 +11,6 @@ type prop = {
         category: string
         type: string
         brand: string
-        search?: string
     }>
     searchParams: Promise<{
         search?: string
