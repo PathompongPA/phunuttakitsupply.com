@@ -21,7 +21,7 @@ export default async function Blog() {
                         <Title>บทความสำหรับผู้สนใจ</Title>
                     </motion.div>
                     <motion.div variants={motionVariant.scale_up(.3)}>
-                        <Button pathname="/blogs">ทั้งหมด</Button>
+                        <Button pathname="/blogs">ดูบล็อค</Button>
                     </motion.div>
                 </div>
                 <div className="overflow-hidden lg:overflow-visible ">

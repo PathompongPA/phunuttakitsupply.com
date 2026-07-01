@@ -32,7 +32,7 @@ export default function About() {
                         </span>
                     </motion.p>
                     <motion.div variants={motionVariant.scale_up(.5)}>
-                        <Button pathname="/about">ข้อมูลเพิ่มเติม</Button>
+                        <Button pathname="/about">เกี่ยวกับเรา</Button>
                     </motion.div>
                 </div>
             </div>

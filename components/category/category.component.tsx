@@ -29,7 +29,7 @@ export default async function Category() {
                     </motion.div>
                     <motion.div variants={motionVariant.scale_up(.3)} >
                         <Button pathname="/products" >
-                            ทั้งหมด
+                            ดูสินค้า
                         </Button>
                     </motion.div>
                 </div>
