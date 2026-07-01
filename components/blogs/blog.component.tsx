@@ -25,7 +25,7 @@ export default async function Blog() {
                     </motion.div>
                 </div>
                 <div className="overflow-hidden lg:overflow-visible ">
-                    <div className="grid  grid-cols-1 md:grid-cols-3 lg:grid-cols-3 p-0 gap-4 md:gap-4 lg:gap-4 overflow-x-scroll lg:overflow-visible no-scrollbar ">
+                    <div className="grid  grid-cols-1 md:grid-cols-4 lg:grid-cols-4 p-0 gap-4 md:gap-2 lg:gap-4 overflow-x-scroll lg:overflow-visible no-scrollbar ">
                         {blogs?.map(({ id, title, subtitle, image, date_created }, index) =>
                             <BlogCard key={id} title={title} subtitle={subtitle} img={image} create_date={date_created} id={id} index={index} />
                         )}
