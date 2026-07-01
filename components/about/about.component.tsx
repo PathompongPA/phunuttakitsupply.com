@@ -14,7 +14,7 @@ export default function About() {
             whileInView="show"
             viewport={{ amount: .2, once: true }}
         >
-            <div className=" grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl md:gap-4 lg:gap-8 p-8 py-8 lg:p-16 lg:px-36 ">
+            <div className=" grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl md:gap-4 lg:gap-8 p-8 py-8 lg:p-16 lg:px-8 ">
                 <motion.div variants={motionVariant.fade_left(0, 200)}>
                     <Image className=" rounded-2xl z-10 " src={image} alt="" />
                 </motion.div>

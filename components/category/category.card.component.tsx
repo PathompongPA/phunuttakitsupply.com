@@ -34,21 +34,22 @@ export default function CategoryCard({
                 origin-center
                 ease-out
                 group
-                duration-300
-                relative overflow-hidden
-                w-full aspect-square rounded-3xl bg-white p-4  lg:p-0
+                overflow-hidden
+                w-full aspect-square 
+                 rounded-xl
+                lg:rounded-3xl
+                 bg-white p-0  lg:p-0
                 transition-all
-                font-semibold
                 z-30
+                 font-semibold
                 shadow-gray-3/75
-                border-2
-                border-transparent
-                hover:border-gray-2
                 active:scale-90
+                text-white
+                 relative
 
         ${index === 0
-                    ? "col-span-4 row-span-2 md:col-span-2 text-[22px] md:text-[24px] lg:text-[28px] hover:shadow-xl/50 "
-                    : "col-span-2 md:col-span-1 text-[14px] lg:text-[14px] hover:shadow-xl/50 "
+                    ? "col-span-4 row-span-2 md:col-span-2  text-[16px] md:text-[18px] lg:text-[22px] hover:shadow-xl/50 "
+                    : "col-span-2 md:col-span-1 text-[10px] md:text-[10px] lg:text-[14px] hover:shadow-xl/50 "
                 }
       `}
             variants={motionVariant.scale_up(0)}
@@ -57,9 +58,9 @@ export default function CategoryCard({
 
                 {/* image */}
                 {img && (
-                    <div className=" h-full ">
+                    <div className=" h-full  ">
                         <Image
-                            className=" w-full h-full aspect-video object-contain group-hover:lg:scale-115 duration-300 group-hover:delay-150"
+                            className=" w-full h-full object-contain group-hover:lg:scale-110 duration-300 group-hover:delay-100"
                             src={img}
                             alt={name || ""}
                             width={0}
@@ -70,7 +71,7 @@ export default function CategoryCard({
                 )}
 
                 {/* text */}
-                <div className="shrink-0 text-center overflow-hidden  group-hover:scale-duration-300 *:truncate w-full p-2 z-10 bg-white/75">
+                <div className=" absolute bottom-0 shrink-0 text-center overflow-hidden  group-hover:scale-110  duration-300 *:truncate w-full p-2 z-10 flex flex-col">
                     <p className=""> {name} </p>
                     <p className="text-orange "> {name_en} </p>
                 </div>
