@@ -23,7 +23,6 @@ export default function CategoryCard({
     name,
     name_en,
     img,
-    index = 0,
 }: Props) {
 
     const pathname = `/products/${name}`
@@ -35,8 +34,8 @@ export default function CategoryCard({
                 ease-out
                 group
                 overflow-hidden
-                w-full aspect-square 
-                 rounded-xl
+                w-full  
+                 rounded-2xl
                 lg:rounded-3xl
                  bg-white p-0  lg:p-0
                 transition-all
@@ -46,21 +45,17 @@ export default function CategoryCard({
                 active:scale-90
                 text-white
                  relative
-
-        ${index === 0
-                    ? "col-span-4 row-span-2 md:col-span-2  text-[16px] md:text-[18px] lg:text-[22px] hover:shadow-xl/50 "
-                    : "col-span-2 md:col-span-1 text-[10px] md:text-[10px] lg:text-[14px] hover:shadow-xl/50 "
-                }
-      `}
+                col-span-1 md:col-span-1 row-span-1 text-[16px] md:text-[10px] lg:text-[18px] hover:shadow-xl/50 
+`}
             variants={motionVariant.scale_up(0)}
         >
             <div className="flex h-full flex-col justify-center items-center ">
 
                 {/* image */}
                 {img && (
-                    <div className=" h-full  ">
+                    <div className=" h-full w-full ">
                         <Image
-                            className=" w-full h-full object-contain group-hover:lg:scale-110 duration-300 group-hover:delay-100"
+                            className=" w-full h-full object-cover group-hover:lg:scale-110 duration-300 group-hover:delay-100"
                             src={img}
                             alt={name || ""}
                             width={0}
@@ -71,7 +66,7 @@ export default function CategoryCard({
                 )}
 
                 {/* text */}
-                <div className=" absolute bottom-0 shrink-0 text-center overflow-hidden  group-hover:scale-110  duration-300 *:truncate w-full p-2 z-10 flex flex-col">
+                <div className=" absolute bottom-0 shrink-0 text-center overflow-hidden  group-hover:scale-110  duration-300 *:truncate w-full p-4 lg:p-4 z-10 flex flex-col">
                     <p className=""> {name} </p>
                     <p className="text-orange "> {name_en} </p>
                 </div>
