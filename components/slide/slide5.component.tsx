@@ -52,18 +52,19 @@ function Option({ children, label, delay = 0 }: { label?: string, children: Reac
 function ListProduct() {
     return (
         <div className=" row-span-2 absolute top-1/2 -translate-1/2 left-1/2 md:-translate-y-3/5  lg:translate-0 lg:static flex flex-row flex-wrap w-full -z-10 *:w-[50%] items-center pt-22 gap-0 justify-center h-fit ">
-            <Product delay={.1} src={product1} label="ระบบปั้ม" />
-            <Product delay={.1} src={product2} label="วาล์ว" />
-            <Product delay={.1} src={product3} label="ปั้ม" />
+            <Product delay={.1} src={product1} label="บูสเตอร์ปั๊มและทรานเฟอร์ปั๊ม" subLable="(Booster Pump & Transfer Pump) " />
+            <Product delay={.1} src={product2} label="ปั๊มน้ำแบบสปลิทเคส" subLable="(Split Casing Pump)" />
+            <Product delay={.1} src={product3} label="ปั๊มต่อยอยl" subLable="(Coupling)" />
         </div>
     )
 }
 
-function Product({ label, src, delay = 0 }: { src: StaticImport, label?: string, delay?: number }) {
+function Product({ label, subLable, src, delay = 0 }: { src: StaticImport, label?: string, subLable?: string, delay?: number }) {
     return (
         <MotionFadeZoomOut delay={delay} className=" flex flex-col justify-center items-center w-fit h-fit ">
             < Image className=" w-75 md:w-87.5 lg:w-[80%]" src={src} alt="" />
             <span className=" text-gray-4 text-[10px] md:text-[14px]">{label}</span>
+            <span className=" text-gray-4 text-[8px] md:text-[12px]">{subLable}</span>
         </MotionFadeZoomOut >
     )
 

@@ -39,17 +39,18 @@ function Title() {
 function ListOption() {
     return (
         <div className=" flex w-full justify-around">
-            <Option delay={.5} img={option1} label="ฉลากสินค้า" ></Option>
-            <Option delay={.7} img={option2} label="สติกเกอร์สินค้า" ></Option>
+            <Option delay={.5} img={option1} label="ฉลากสินค้า" subLabel="(LABEL PRINT COLOR)" />
+            <Option delay={.7} img={option2} label="สติกเกอร์สินค้า" subLabel="(LABEL BARCODE)" />
         </div>
     )
 
 }
-function Option({ img, label, delay = 0 }: { img: StaticImport, label: string, delay?: number }) {
+function Option({ img, label, subLabel, delay = 0 }: { img: StaticImport, label: string, subLabel?: string, delay?: number }) {
     return (
         <MotionFadeZoomOut delay={delay} className=" flex flex-col justify-center items-center">
             <Image className="w-50" src={img} alt="" unoptimized />
             <span className=" text-gray-4 text-[12px] lg:text-[16px]">{label}</span>
+            <span className=" text-gray-4 text-[8px] lg:text-[12px]">{subLabel}</span>
         </MotionFadeZoomOut>
     )
 
