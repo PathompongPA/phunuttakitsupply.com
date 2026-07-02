@@ -16,7 +16,9 @@ import Slide1 from "./slide/slide.1.component";
 import Slide2 from "./slide/slide2.component";
 import Slide3 from "./slide/slide3.component";
 import Slide4 from "./slide/slide4.component";
+import Slide5 from "./slide/slide5.component";
 export {
+  Slide5,
   Slide4,
   Slide3,
   Slide2,
