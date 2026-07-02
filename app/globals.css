@@ -34,7 +34,7 @@
   --animate-fade-up-infinite: fade-up .7s ease-out 2s infinite;
   --animate-fade-down: fade-down .3s ease-out;
   --animate-open: ani-open .3s ease-out;
-  --animate-loading: loading 6s ease-out;
+  --animate-loading: loading 10s ease-out;
 
   @keyframes open-down {
     0% {
