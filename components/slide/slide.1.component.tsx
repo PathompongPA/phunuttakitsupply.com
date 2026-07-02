@@ -2,7 +2,7 @@ import { ChartNoAxesCombined, CircleCheckBig, Settings, ShieldCheck, } from "luc
 import { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { MotionFadeUp, MotionFadeZoomOut } from "@/motion/motion";
+import { MotionFade, MotionFadeUp, MotionFadeZoomOut, } from "@/motion/motion";
 import motor from "../../public/slide/motor.png"
 
 export default function Slide1() {
@@ -60,7 +60,7 @@ const Property = () =>
     </div>
 
 const Property2 = () =>
-    <div className=" backdrop-blur-lg bg-white/75 absolute bottom-0 left-0 flex justify-center gap-4 gap-y-2 py-1 flex-wrap md:top-1/2  md:-translate-y-2/5 lg:-translate-y-2/5 md:flex-col md:left-8 lg:left-[15vw] md:gap-12 ">
+    <div className=" backdrop-blur-lg lg:backdrop-blur-none lg:bg-transparent bg-white/75 absolute bottom-0 left-0 flex justify-center gap-4 gap-y-2 py-1 flex-wrap md:top-1/2  md:-translate-y-2/5 lg:-translate-y-2/5 md:flex-col md:left-8 lg:left-[15vw] md:gap-12 ">
         <Card delay={.9} title="LOW MAINTENANCE" subtitle="บำรุงรักษาง่าย ลดต้นทุน" >
             <div className=" p-2 rounded-full scale-75">
                 <Settings className="text-orange" />
@@ -101,9 +101,27 @@ const Card = ({ title, subtitle, children, delay = 0 }: { title: string, subtitl
     </MotionFadeUp>
 
 const Background = () => (
-    <svg className=" absolute left-1/2 -translate-x-1/4 top-22 w-500 opacity-5 rotate-30 " xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 120'>
-        <rect className="" width='1000' height='120' />
-        <g fill='none' stroke='#FFFFFF' strokeWidth='10' stopOpacity='1'><path d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30' /><path d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30' /><path d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30' /><path d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30' /><path d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30' />
+    <MotionFade className="">
+        <Pattern className=" absolute left-1/2 -translate-x-1/3 top-22 w-500 opacity-25 rotate-30 " />
+        <Pattern className=" absolute left-1/2 -translate-x-1/4 top-22 w-500 opacity-50 rotate-30 " />
+        <Pattern className=" absolute left-1/2 -translate-x-1/6 top-22 w-500 opacity-50 rotate-30 " />
+        <Pattern className=" absolute left-1/2 -translate-x-1/12 top-22 w-500 opacity-50 rotate-30 " />
+        {/* <Pattern className=" absolute left-1/2 -translate-x-1/4 top-22 w-500 rotate-30 " /> */}
+        <Pattern className=" absolute -left-6/10 -translate-x-1/14  bottom-8 w-900 opacity-25 rotate-41 -z-2 " />
+        <Pattern className=" absolute -left-6/10 -translate-x-1/8  bottom-8 w-900 opacity-25 rotate-38 -z-2 " />
+        <Pattern className=" absolute -left-6/10 -translate-x-1/6 bottom-8 w-900 opacity-75 rotate-30  -z-3" />
+        <Pattern className=" absolute -left-6/10 -translate-x-1/4 bottom-8 w-900 opacity-100 rotate-30  -z-3" />
+    </MotionFade>
+)
+const Pattern = ({ className }: { className?: string }) => (
+    <svg className={className} xmlns='http://www.w3.org/2000/svg' width='1263' height='151.6' viewBox='0 0 1000 120'>
+        <rect fill='#FFFFFF' width='2000' height='120' />
+        <g fill='none' stroke='#FF8800' strokeWidth='15' strokeOpacity='0.50'>
+            <path d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30' />
+            <path d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30' />
+            <path d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30' />
+            <path d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30' />
+            <path d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30' />
             <path d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30' />
         </g>
     </svg>
