@@ -10,6 +10,28 @@ type Props = {
     once?: boolean
 }
 
+export function MotionRotateZ({
+    children,
+    delay = 0,
+    once = true,
+    className,
+}: Props) {
+    return (
+        <motion.div
+            initial={{ opacity: 0, rotateZ: 25 }}
+            whileInView={{ opacity: 1, rotateZ: 0 }}
+            viewport={{ once }}
+            transition={{
+                duration: 0.5,
+                delay: delay + .3,
+                ease: "easeOut"
+            }}
+            className={className}
+        >
+            {children}
+        </motion.div>
+    )
+}
 export function MotionRotateY({
     children,
     delay = 0,
@@ -18,7 +40,7 @@ export function MotionRotateY({
 }: Props) {
     return (
         <motion.div
-            initial={{ opacity: 0, rotateY: 90 }}
+            initial={{ opacity: 0, rotateY: -20 }}
             whileInView={{ opacity: 1, rotateY: 0 }}
             viewport={{ once }}
             transition={{
