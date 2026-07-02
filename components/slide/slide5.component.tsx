@@ -1,4 +1,4 @@
-import { MotionFadeUp, MotionFadeZoomOut } from "@/motion/motion"
+import { MotionFade, MotionFadeUp, MotionFadeZoomOut } from "@/motion/motion"
 import { Droplets, Shield, TrendingUp, Trophy } from "lucide-react"
 import { StaticImport } from "next/dist/shared/lib/get-img-props"
 import Image from "next/image"
@@ -9,12 +9,15 @@ import product3 from "../../public/slide/slide5/prop3.png"
 
 export default function Slide5() {
     return (
-        <div className=" grid grid-cols-1 lg:grid-cols-2 h-screen pt-22 lg:pt-0 max-w-7xl justify-center items-center *:row-span-1">
-            <ListProduct />
-            <div className="flex flex-col gap-8 p-4 justify-between lg:justify-center h-full ">
-                <Title />
-                <Property />
+        <div className=" relative w-full h-full flex justify-center ">
+            <div className=" grid grid-cols-1 lg:grid-cols-2 h-screen pt-22 lg:pt-0 max-w-7xl justify-center items-center *:row-span-1 ">
+                <ListProduct />
+                <div className="flex flex-col gap-8 p-4 justify-between lg:justify-center h-full ">
+                    <Title />
+                    <Property />
+                </div>
             </div>
+            <Background />
         </div>
     )
 };
@@ -66,6 +69,14 @@ function Product({ label, subLable, src, delay = 0 }: { src: StaticImport, label
             <span className=" text-gray-4 text-[10px] md:text-[14px]">{label}</span>
             <span className=" text-gray-4 text-[8px] md:text-[12px]">{subLable}</span>
         </MotionFadeZoomOut >
+    )
+
+}
+function Background() {
+    return (
+        <MotionFade className=" *:absolute *:top-0 *:left-0 *:w-full *:h-full -z-20">
+            <svg className=" scale-140 w-full h-full opacity-30 lg:opacity-10" xmlns='http://www.w3.org/2000/svg' width='276' height='276' viewBox='0 0 800 800'><rect fill='#FFFFFF' width='800' height='800' /><g fill='none' stroke='#000844' stroke-width='1.5'><path d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63' /><path d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764' /><path d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880' /><path d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382' /><path d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269' /></g><g fill='#090955'><circle cx='769' cy='229' r='5' /><circle cx='539' cy='269' r='5' /><circle cx='603' cy='493' r='5' /><circle cx='731' cy='737' r='5' /><circle cx='520' cy='660' r='5' /><circle cx='309' cy='538' r='5' /><circle cx='295' cy='764' r='5' /><circle cx='40' cy='599' r='5' /><circle cx='102' cy='382' r='5' /><circle cx='127' cy='80' r='5' /><circle cx='370' cy='105' r='5' /><circle cx='578' cy='42' r='5' /><circle cx='237' cy='261' r='5' /><circle cx='390' cy='382' r='5' /></g></svg>
+        </MotionFade>
     )
 
 }
