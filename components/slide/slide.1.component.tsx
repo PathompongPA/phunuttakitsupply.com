@@ -10,7 +10,8 @@ export default function Slide1() {
     const images = ["abb", "siemens", "hascon", "toshiba", "brook", "cmp", "mitsubishi", "weg"]
     const pathImages: string[] = images.map((item) => basePath + item + ".png")
     return (
-        <div className="relative h-fit min-h-screen w-full text-black md:pt-30 " >
+        <div className="relative h-screen w-full text-black md:pt-30  overflow-hidden" >
+            <Background />
             <Link className=" z-30 left-0 top-0 pt-22 gap-0 md:pt-0 p-4 py-8 flex flex-col justify-between  h-full md:h-fit w-full max-w-7xl  " href={{ pathname: "/products" }} >
                 <Title />
                 <Property />
@@ -98,3 +99,12 @@ const Card = ({ title, subtitle, children, delay = 0 }: { title: string, subtitl
             <span className="">{subtitle}</span>
         </div>
     </MotionFadeUp>
+
+const Background = () => (
+    <svg className=" absolute left-1/2 -translate-x-1/4 top-22 w-500 opacity-5 rotate-30 " xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 120'>
+        <rect className="" width='1000' height='120' />
+        <g fill='none' stroke='#FFFFFF' strokeWidth='10' stopOpacity='1'><path d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30' /><path d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30' /><path d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30' /><path d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30' /><path d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30' />
+            <path d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30' />
+        </g>
+    </svg>
+)

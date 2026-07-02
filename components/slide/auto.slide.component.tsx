@@ -27,10 +27,10 @@ export default function AutoSlide({ children, interval = 5000 }: prop) {
     })
 
     return (
-        <div className="flex justify-center w-full   lg:pt-0 h-fit md:h-fit md:min-h-[50vh] md:items-center  lg:h-screen  relative "
+        <div className="flex justify-center w-full   lg:pt-0 h-fit md:h-fit md:min-h-[50vh] md:items-center  lg:h-screen  relative overflow-hidden "
         >
             {items[counterNumber]}
-            <div className=" flex flex-row gap-2 justify-center absolute bottom-[25vh] md:bottom-[20vh]  left-1/2 -translate-x-1/2 z-30 " >
+            <div className=" flex flex-row gap-2 justify-center absolute bottom-[10vh] md:bottom-[20vh]  left-1/2 -translate-x-1/2 z-30 " >
                 {count}
             </div >
         </div >
