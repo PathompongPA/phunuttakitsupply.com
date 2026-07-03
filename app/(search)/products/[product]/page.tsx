@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             `รายละเอียดสินค้า ${description}`,
         keywords: [item.name],
         image: item?.thumbnail,
-        url: `/product/${product}`,
+        url: `/product/${item?.name}`,
     })
 }
 
