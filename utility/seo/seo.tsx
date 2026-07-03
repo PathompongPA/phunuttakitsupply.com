@@ -8,6 +8,12 @@ type SEOProps = {
     url?: string
 }
 
+function toAbsoluteUrl(path: string, baseUrl: string) {
+    if (!path) return baseUrl
+    if (path.startsWith("http://") || path.startsWith("https://")) return path
+    return `${baseUrl}${path.startsWith("/") ? path : `/${path}`}`
+}
+
 export function generateSEO({
     title,
     description,
@@ -16,7 +22,11 @@ export function generateSEO({
     url = "",
 }: SEOProps): Metadata {
     const siteName = "ภูณัฐกิจ ซัพพลายส์ จำกัด"
-    const baseUrl = process.env.NEXT_PUBLIC_URL_HOST_CLIENT
+    const baseUrl = process.env.NEXT_PUBLIC_URL_HOST_CLIENT || ""
+
+    const fullUrl = toAbsoluteUrl(url, baseUrl)
+    const fullImage = toAbsoluteUrl(image, baseUrl)
+
     return {
         title,
         description,
@@ -25,13 +35,14 @@ export function generateSEO({
         openGraph: {
             title,
             description,
-            url: `${baseUrl}${url}`,
+            url: fullUrl,
             siteName,
             images: [
                 {
-                    url: image,
+                    url: fullImage,
                     width: 1200,
                     height: 630,
+                    alt: title,
                 },
             ],
             locale: "th_TH",
@@ -42,11 +53,11 @@ export function generateSEO({
             card: "summary_large_image",
             title,
             description,
-            images: [image],
+            images: [fullImage],
         },
 
         alternates: {
-            canonical: `${baseUrl}${url}`,
+            canonical: fullUrl,
         },
 
         robots: {

@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return generateSEO({
         title: `${item.name} ${item.category.name} ${item.type.name} | ภูณัฐกิจ ซัพพลาย`,
         description:
-            item.description ||
+            description ||
             `รายละเอียดสินค้า ${description}`,
         keywords: [item.name],
         image: item?.thumbnail,
