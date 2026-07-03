@@ -47,7 +47,6 @@ export default async function SearchBrand({ searchParams }: Props) {
         sort: ["sort"],
         filter
     })
-    // console.log("brand : ", type, brand);
     return (
         brand.length !== 0 &&
         <div className=" flex flex-col gap-4 px-4 py-2 ">

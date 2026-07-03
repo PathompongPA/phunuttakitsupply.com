@@ -9,7 +9,7 @@ type prop = {
 
 }
 export default function Gallery({ images, baseUrl }: prop) {
-    const [mainImage, setMainImage] = useState(images[0].directus_files_id.id)
+    const [mainImage, setMainImage] = useState(images[0]?.directus_files_id.id)
     const toggleImage = (newImage: string) => { setMainImage(newImage) }
     return (
         <div className=" w-full h-fit relative   gap-2 flex flex-col lg:flex-row ">

@@ -2,6 +2,7 @@ import { getData } from "@/utility"
 import { ChevronDown, Download, } from "lucide-react"
 import Link from "next/link"
 import Gallery from "../gallery/gallery.component"
+import { notFound } from "next/navigation"
 
 type prop = {
     product_name: string
@@ -9,12 +10,10 @@ type prop = {
 }
 export default async function Product({ product_name }: prop) {
     const _name = decodeURIComponent(product_name)
-
     const option = {
         filter: {
-            name:
-            {
-                _icontains: _name
+            name: {
+                _eq: _name
             }
         },
         fields: [
@@ -34,6 +33,7 @@ export default async function Product({ product_name }: prop) {
         ]
     }
     const [product] = await getData("product", option)
+    if (!product) { notFound() }
     const images = product?.images
     const docPath = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/" + product?.document
     const brand = product?.brand?.name
@@ -61,7 +61,6 @@ export default async function Product({ product_name }: prop) {
 
     const urlEmail = `mailto:${email}?subject=${subject}&body=${body}`
 
-    console.log(product);
     return (
         <div className=" flex flex-col items-center pb-8">
             <div className=" p-4 py-8 flex flex-col md:grid md:grid-cols-2  gap-4 lg:p-0 lg:py-8 lg:gap-2   h-fit w-full max-w-6xl ">

@@ -37,7 +37,6 @@ export default async function SearchTypeProduct({ searchParams }: Props) {
         sort: ["sort"],
         filter
     })
-    console.log("type : ", typeProduct);
 
     return (
         typeProduct.length !== 0 &&

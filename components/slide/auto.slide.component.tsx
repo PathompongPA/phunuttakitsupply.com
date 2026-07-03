@@ -8,7 +8,6 @@ type prop = {
 export default function AutoSlide({ children, interval = 8000 }: prop) {
     const [counterNumber, setCounterNumber] = useState(0);
     const items = Array.isArray(children) ? children : [children];
-    console.log(counterNumber, interval);
 
     useEffect(() => {
         const timer = setInterval(() => {
