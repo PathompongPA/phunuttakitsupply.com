@@ -12,10 +12,10 @@ export function generateSEO({
     title,
     description,
     keywords = [],
-    image = "/og-image.jpg",
+    image = "/image/logo.jpg",
     url = "",
 }: SEOProps): Metadata {
-    const siteName = "My Website"
+    const siteName = "ภูณัฐกิจ ซัพพลายส์ จำกัด"
     const baseUrl = process.env.NEXT_PUBLIC_URL_HOST_CLIENT
     return {
         title,
