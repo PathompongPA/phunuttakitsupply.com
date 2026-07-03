@@ -35,7 +35,7 @@ export default async function ProductMore() {
                                 category={category?.name}
                                 type={type?.name}
                                 brandImage={brand?.image}
-                                pathname={`/products/${category?.name}/${type?.name}/${brand?.name}/${name}`}
+                                pathname={`/products/${name}`}
                             />
                         )}
                     </div>

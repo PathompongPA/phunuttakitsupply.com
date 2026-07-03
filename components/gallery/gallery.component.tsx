@@ -13,7 +13,7 @@ export default function Gallery({ images, baseUrl }: prop) {
     const toggleImage = (newImage: string) => { setMainImage(newImage) }
     return (
         <div className=" w-full h-fit relative   gap-2 flex flex-col lg:flex-row ">
-            <Image className=" shadow-lg/50 shadow-gray-3/25 border border-gray-1 rounded-lg p-4 w-full md:w-112.5 aspect-square object-cover duration-300 " src={baseUrl + mainImage} alt="" width={0} height={0} unoptimized />
+            <Image className=" shadow-lg/50 shadow-gray-3/25 border border-gray-1 rounded-lg p-4 w-full md:w-112.5 aspect-square object-cover duration-300 " src={baseUrl + mainImage} alt="" width={0} height={0} unoptimized priority />
             <div className=" flex gap-2 w-fit md:flex-row  lg:flex-col  ">
                 {images?.map(({ directus_files_id }) => {
                     const image = directus_files_id.id

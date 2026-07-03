@@ -3,16 +3,16 @@ import SearchTypeProduct from "./search.type.component";
 import SearchBrand from "./search.brand.component";
 import Link from "next/link";
 
-type prop = {
-    params: Promise<{
-        category: string
-        type: string
-        brand: string
+type Props = {
+    searchParams: Promise<{
+        category?: string | string[]
+        brand?: string | string[]
+        type?: string | string[]
+        search?: string
     }>
 }
 
-
-export default function SearchFilter({ params }: prop) {
+export default function SearchFilter({ searchParams }: Props) {
     return (
         <div className=" flex flex-col select-none p-2 md:p-4 rounded-3xl bg-gray-2 md:bg-transparent lg:h-fit md:w-62.5 truncate ">
             <input className="peer/filter" type="checkbox" id="filter" hidden defaultChecked />
@@ -21,8 +21,8 @@ export default function SearchFilter({ params }: prop) {
                 <ChevronDown className=" peer-checked:rotate-180  w-4 lg:w-4" strokeWidth={4} />
             </label>
             <div className=" flex flex-col max-h-0 scale-y-0 gap-2  origin-bottom ease-in-out peer-checked/filter:max-h-screen peer-checked/filter:scale-y-100 overflow-hidden duration-700 ">
-                <SearchTypeProduct params={params} />
-                <SearchBrand params={params} />
+                <SearchTypeProduct searchParams={searchParams} />
+                <SearchBrand searchParams={searchParams} />
                 <Link className=" active:scale-90  duration-300 ease-out w-full  text-gray-4 md:text-gray-6 rounded-3xl py-2 text-center text-[12px] underline lg:py-1 md:text-[10px] font-bold" href={{ pathname: "/products" }}>ล้างการค้นหา</Link>
             </div>
         </div >

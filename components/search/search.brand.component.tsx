@@ -1,19 +1,16 @@
 import { getData } from "@/utility"
 import SearchBrandButton from "./brand.button.component"
 
-type prop = {
-    params: Promise<{
-        category: string
-        type: string
-        brand: string
+type Props = {
+    searchParams: Promise<{
+        category?: string | string[]
+        brand?: string | string[]
+        type?: string | string[]
+        search?: string
     }>
 }
-export default async function SearchBrand({ params }: prop) {
-    let { category, type, brand } = await params;
-
-    category = decodeURIComponent(category)
-    type = decodeURIComponent(type)
-    brand = decodeURIComponent(brand)
+export default async function SearchBrand({ searchParams }: Props) {
+    const { category, type } = await searchParams;
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const filter: any = {}
@@ -25,7 +22,7 @@ export default async function SearchBrand({ params }: prop) {
         }
     }
 
-    if (category !== "undefined") {
+    if (category !== "ทั้งหมด") {
         filter.product = {
             category: {
                 name: {
@@ -35,7 +32,7 @@ export default async function SearchBrand({ params }: prop) {
         }
     }
 
-    if (type !== "undefined") {
+    if (type) {
         filter.product = {
             type: {
                 name: {
@@ -45,23 +42,19 @@ export default async function SearchBrand({ params }: prop) {
         }
     }
 
-    const brands = await getData("brand", {
+    const brand = await getData("brand", {
         fields: ["*", "type.type_id.*", "product.*.*"],
         sort: ["sort"],
         filter
     })
-
-    return (brands.length !== 0 && type !== "undefined" &&
+    // console.log("brand : ", type, brand);
+    return (
+        brand.length !== 0 &&
         <div className=" flex flex-col gap-4 px-4 py-2 ">
             <span className=" underline text-[12px] md:text-[12px] text-gray-5">แบรนด์</span>
             <div className=" flex gap-4  md:flex-col items-start flex-wrap">
-                {brands?.map(({ id, name, product }) => {
-                    const _category = category === "undefined" ? product[0]?.category?.name : category
-                    const _type = type === "undefined" ? product[0]?.type?.name : type
-                    const pathname = `/products/${_category}/${_type}/${name}`
-                    const isActive = name.replace(/\s/g, '') === brand
-                    return <SearchBrandButton key={id} name={name} pathname={pathname} isActive={isActive} />
-                }
+                {brand?.map(({ id, name }) =>
+                    <SearchBrandButton key={id} name={name} />
                 )}
             </div>
         </div>
