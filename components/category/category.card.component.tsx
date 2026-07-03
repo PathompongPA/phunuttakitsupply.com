@@ -56,7 +56,7 @@ export default function CategoryCard({
                 {img && (
                     <div className=" h-full w-full ">
                         <Image
-                            className=" w-full h-full object-cover group-hover:lg:scale-110 duration-300 group-hover:delay-100"
+                            className=" w-full h-full object-cover group-hover:lg:scale-110 ease-in-expo duration-150 group-hover:delay-100"
                             src={img}
                             alt={name || ""}
                             width={0}

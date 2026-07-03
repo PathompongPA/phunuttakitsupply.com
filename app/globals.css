@@ -35,6 +35,9 @@
   --animate-fade-down: fade-down .3s ease-out;
   --animate-open: ani-open .3s ease-out;
   --animate-loading: loading 10s ease-out;
+  --ease-in-expo: cubic-bezier(0.75, 0.6, 0.795, 0.95);
+  --ease-in-nav: cubic-bezier(0.025, 0.075, 0.075, 0.075);
+
 
   @keyframes open-down {
     0% {
