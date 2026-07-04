@@ -15,7 +15,7 @@ export default async function Blog() {
             whileInView="show"
             viewport={{ amount: .2, once: true }}
         >
-            <div className=" w-full max-w-7xl flex flex-col p-4 py-8 gap-8 lg:p-16 lg:gap-4 ">
+            <div className=" w-full max-w-7xl flex flex-col p-4 py-8 gap-8 lg:p-4 lg:gap-4 ">
                 <div className=" flex justify-between" >
                     <motion.div variants={motionVariant.fade_up(0, 50)}>
                         <Title>บทความสำหรับผู้สนใจ</Title>
