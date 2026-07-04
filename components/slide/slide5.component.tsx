@@ -9,30 +9,28 @@ import product3 from "../../public/slide/slide5/prop3.png"
 
 export default function Slide5() {
     return (
-        <div className=" relative w-full h-full flex justify-center ">
-            <div className=" grid grid-cols-1 lg:grid-cols-2 h-screen pt-22 lg:pt-0 max-w-7xl justify-center items-center *:row-span-1 ">
+        <div className=" w-full flex justify-center h-screen lg:max-h-192 lg:h-full">
+            <div className="relative  flex flex-col justify-around w-full h-screen lg:h-full pt-22 lg:pt-0 max-w-7xl items-center *:row-span-1  ">
+                <Title />
                 <ListProduct />
-                <div className="flex flex-col gap-8 p-4 justify-between lg:justify-center h-full ">
-                    <Title />
-                    <Property />
-                </div>
+                <Property />
             </div>
             <Background />
-        </div>
+        </div >
     )
 };
 
 function Title() {
     return (
-        <div className=" text-center lg:text-end">
-            <MotionFadeUp className=" text-[36px] md:text-[48px] font-bold">ปั๊มน้ำอุตสาหกรรมคุณภาพสูง </MotionFadeUp>
+        <div className=" text-center lg:text-end lg:absolute top-[15%] right-[3%]">
+            <MotionFadeUp className=" text-[38px] md:text-[48px] font-bold">ปั๊มน้ำอุตสาหกรรมคุณภาพสูง </MotionFadeUp>
             <MotionFadeUp delay={.2} className=" text-[20px] md:text-[40px]">ขับเคลื่อนทุกระบบอย่างมั่นใจ</MotionFadeUp>
         </div>
     )
 }
 function Property() {
     return (
-        <div className=" flex flex-col p-4 lg:gap-2 px-8 md:p-8 md:px-18 md:gap-4 lg:px-8 backdrop-blur-xl lg:backdrop-blur-none">
+        <div className=" grid grid-cols-2 flex-wrap lg:flex-col p-4 lg:gap-2  md:p-8 md:px-18 md:gap-4 lg:px-8 backdrop-blur-xl lg:backdrop-blur-none lg:absolute lg:grid-cols-1 lg:top-[45%] lg:right-[3%]">
             <Option delay={.2} label="โซลูชันปั๊มน้ำที่คุ้มค่า เพื่อทุกธุรกิจ"> <Droplets /></Option>
             <Option delay={.3} label="ครบทุกความต้องการด้านปั๊มน้ำอุตสาหกรรม"> <Shield /></Option>
             <Option delay={.4} label="คุณภาพมาตรฐาน พร้อมบริการโดยผู้เชี่ยวชาญ"> <Trophy /> </Option>
@@ -43,9 +41,9 @@ function Property() {
 
 function Option({ children, label, delay = 0 }: { label?: string, children: ReactNode, delay?: number }) {
     return (
-        <MotionFadeUp delay={delay} className=" flex items-center  text-end justify-end gap-4 ">
-            <span className=" text-gray-4 text-[12px] md:text-[18px] lg:text-[14px]">{label}</span>
-            <div className=" w-fit p-2 rounded-full text-white bg-orange scale-75 lg:scale-90">
+        <MotionFadeUp delay={delay} className=" flex items-center  text-end justify-end gap-2 md:gap-4 ">
+            <span className=" text-gray-4 text-[8px] md:text-[18px] lg:text-[14px]">{label}</span>
+            <div className=" w-fit p-1 md:p-2 rounded-full text-white bg-orange  md:scale-90 scale-50">
                 {children}
             </div>
         </MotionFadeUp >
@@ -54,7 +52,7 @@ function Option({ children, label, delay = 0 }: { label?: string, children: Reac
 
 function ListProduct() {
     return (
-        <div className=" row-span-2 absolute top-1/2 -translate-1/2 left-1/2 md:-translate-y-3/5  lg:translate-0 lg:static flex flex-row flex-wrap w-full -z-10 *:w-[50%] items-center pt-22 gap-0 justify-center h-fit ">
+        <div className=" row-span-2 w-[80%] flex flex-row flex-wrap -z-10 *:w-[50%] items-center gap-0 justify-center h-fit md:w-[80%] lg:absolute  lg:w-[50%] lg:left-[5%]  lg:top-1/2 lg:-translate-y-2/5 ">
             <Product delay={.1} src={product1} label="บูสเตอร์ปั๊มและทรานเฟอร์ปั๊ม" subLable="(Booster Pump & Transfer Pump) " />
             <Product delay={.1} src={product2} label="ปั๊มน้ำแบบสปลิทเคส" subLable="(Split Casing Pump)" />
             <Product delay={.1} src={product3} label="ปั๊มต่อยอยl" subLable="(Coupling)" />
