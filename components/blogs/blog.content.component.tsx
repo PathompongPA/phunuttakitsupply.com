@@ -18,7 +18,7 @@ export default async function BlogContent({ id }: prop) {
     })
     const createAt = dayjs(blog?.data_create).format("MMMM YYYY")
     return (
-        <div className=" w-screen min-h-screen  flex flex-col items-center ">
+        <div className=" w-screen min-h-screen  flex flex-col items-center overflow-hidden ">
             <div className=" max-w-5xl min-h-screen bg-gry-1 flex flex-col gap-8 w-full md:px-4 ">
                 <div className=" flex flex-col gap-4 lg:gap-8 p-8 lg:p-8 items-center bg-gray-50 ">
                     <div className=" w-full  text-[14px] md:text-[12px] lg:text-[16px] prose max-w-none " dangerouslySetInnerHTML={{ __html: blog?.content }}></div>
