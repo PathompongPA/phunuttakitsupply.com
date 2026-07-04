@@ -132,7 +132,7 @@ export function MotionFadeUp({
         <motion.div
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once }}
+            viewport={{ once, amount: .1 }}
             transition={{
                 duration: 0.5,
                 delay: delay + .3,
