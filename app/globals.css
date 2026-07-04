@@ -135,7 +135,7 @@ html {
 
   /* font-family: 'IBM Plex Sans Thai', sans-serif; */
   h1 {
-    @apply text-2xl lg:text-[32px] font-bold text-gray-5
+    @apply text-2xl lg:text-[36px] font-bold text-gray-5
   }
 
   h2 {
