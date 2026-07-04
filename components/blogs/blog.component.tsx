@@ -9,13 +9,13 @@ export default async function Blog() {
     const blogs = await getData("blog", {})
     return (
         <motion.div
-            className=" w-full flex justify-center lg:overflow-visible p-4"
+            className=" w-full flex justify-center lg:overflow-visible "
             variants={motionVariant.container()}
             initial="hidden"
             whileInView="show"
             viewport={{ amount: .2, once: true }}
         >
-            <div className=" w-full max-w-7xl flex flex-col p-4 py-8 gap-8 lg:p-4 lg:gap-4 ">
+            <div className=" w-full max-w-7xl flex flex-col p-4 py-8 gap-8 lg:p-16 lg:px-4 lg:gap-8 ">
                 <div className=" flex justify-between" >
                     <motion.div variants={motionVariant.fade_up(0, 50)}>
                         <Title>บทความสำหรับผู้สนใจ</Title>
