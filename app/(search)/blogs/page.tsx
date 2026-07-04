@@ -21,7 +21,7 @@ export default async function Page({ searchParams }: Props) {
     return (
         <div className=" w-full flex h-fit min-h-screen flex-col items-center ">
             <NavigationBar search={true} />
-            <div className="w-full max-w-7xl flex flex-col p-8 gap-8 lg:px-16 lg:py-4">
+            <div className="w-full max-w-7xl flex flex-col p-4 gap-8 lg:px-4 lg:py-8">
                 <Title>บทความทั้งหมด</Title>
                 <div className=" grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 lg:gap-4">
                     {blogs?.length > 0 ? blogs?.map(({ id, title, subtitle, image }, index) => <BlogCard index={index} id={id} title={title} subtitle={subtitle} img={image} key={id} />) : <NotFoundItem />}

@@ -4,7 +4,7 @@ import Link from "next/link"
 
 export default function QrContact() {
     return (
-        <div className=" text-orange text-center flex flex-col gap-2 font-bold  w-full md:w-fit justify-center items-center">
+        <div className=" text-orange text-center flex flex-col gap-2 font-bold  w-full md:w-fit justify-center items-center lg:py-8 rounded-3xl aspect-3/4 border-2 border-orange/20 bg-orange/5 ">
             <Image className=" w-full  max-w-50 lg:max-w-45" src={imageQrLine} alt="qr-line" width={0} height={0} unoptimized />
             <Link className="  text-orange text-lg  md:text-[16px] lg:text-[15px] " target="_blank" href={{ pathname: "https://line.me/ti/p/NuDh2mAbCf" }} >
                 @phunattakit_supply
