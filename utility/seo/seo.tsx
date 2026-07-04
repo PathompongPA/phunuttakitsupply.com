@@ -24,7 +24,7 @@ export function generateSEO({
     const siteName = "ภูณัฐกิจ ซัพพลายส์ จำกัด"
     const baseUrl = process.env.NEXT_PUBLIC_URL_HOST_CLIENT || ""
 
-    const fullUrl = toAbsoluteUrl(url, baseUrl)
+    const fullUrl = url
     const fullImage = toAbsoluteUrl(image, baseUrl)
 
     return {

@@ -13,7 +13,7 @@ type Props = {
 function htmlToText(html: string) {
     return convert(html, {
         wordwrap: false,
-    })
+    }).replace(/\s+/g, " ").trim()
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -46,12 +46,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const item = data?.[0]
     const description = htmlToText(item?.description)
     if (!item) notFound()
+    const baseUrl = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/"
+    const image = baseUrl + item.thumbnail
 
     return generateSEO({
         title: `${item.name} ${item.category.name} ${item.type.name} | ภูณัฐกิจ ซัพพลาย`,
         description: description || `รายละเอียดสินค้า ${description}`,
         keywords: [item.name],
-        image: process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/" + item?.thumbnail,
+        image,
         url: `/product/${item?.name}`,
     })
 }
