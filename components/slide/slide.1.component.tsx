@@ -7,7 +7,7 @@ import motor from "../../public/slide/motor.png"
 
 export default function Slide1() {
     const basePath = "/slide/motor_logo/"
-    const images = ["abb", "siemens", "hascon", "toshiba", "brook", "cmp", "mitsubishi", "weg"]
+    const images = ["abb", "siemens", "hascon", "toshiba", "brook", "mitsubishi", "cmp", "weg", "wat"]
     const pathImages: string[] = images.map((item) => basePath + item + ".png")
     return (
         <div className="h-screen lg:h-full lg:max-h-192 w-full text-black   overflow-hidden flex justify-center items-center" >
@@ -32,9 +32,9 @@ export default function Slide1() {
 
 
 const Title = () =>
-    <div className=" z-30 text-center flex flex-col justify-center items-center lg:justify-start lg:items-end gap-4 lg:absolute lg:right-[5%] lg:top-[15%] lg:gap-4  "   >
+    <div className=" z-30 text-center flex flex-col justify-center items-center lg:justify-start lg:items-end gap-4 lg:absolute lg:right-[5%] lg:top-[13%] lg:gap-4  "   >
         <div className=" flex flex-col gap-1 lg:gap-0 ">
-            <MotionFadeUp className=" text-[30px] md:text-[38px] lg:text-[40px] lg:text-end font-bold text-gray-5"  > ขับเคลื่อนธุรกิจของคุณด้วยพลังที่เหลือกว่า</MotionFadeUp>
+            <MotionFadeUp className=" text-[30px] md:text-[38px] lg:text-[40px] lg:text-end font-bold text-gray-5"  > ขับเคลื่อนธุรกิจของคุณด้วยพลังที่เหนือกว่า</MotionFadeUp>
             <MotionFadeUp delay={.3} className=" text-[12px] md:text-[20px] lg:text-[16px] lg:text-end text-gray-4 px-5 lg:p-0 " > Drive your business forward with superior power </MotionFadeUp>
         </div>
         <MotionFadeUp delay={.6} className=" bg-orange p-4 py-2 w-fit rounded-xl text-white font-bold  text-[22px] md:text-[32px] "  > POWER MOTOR </MotionFadeUp>
@@ -46,8 +46,8 @@ const Property = () =>
     <div className=" col-span-4 md:col-span-5 flex  flex-col w-fit h-full justify-center lg:flex-row  relative gap-2 lg:h-full lg:right-8  lg:static lg:w-full " >
         <div className=" w-fit h-full text-gray-5 gap-2 right-0 px-4 flex flex-col justify-around md:justify-center md:gap-8 lg:gap-4 lg:absolute lg:h-fit  lg:right-[7%] lg:top-1/2 lg:-translate-y-1/6 z-30">
             <MotionFadeUp delay={.5} className=" flex flex-col justify-center lg:justify-start text-end "  >
-                <span className=" text-[14px] md:text-[16px] font-bold" >ปรับแต่งได้ตามความต้องการ</span>
-                <span className=" text-[8px] md:text-[10px]"> FULLY CUSTOMIZABLE </span>
+                <span className=" text-[14px] md:text-[16px] font-bold" >เลือกสเปคได้ตามความต้องการ</span>
+                <span className=" text-[8px] md:text-[10px]">CHOOSE CUSTOMIZABLE </span>
             </MotionFadeUp>
             <div className=" flex flex-col justify-end items-end gap-2 md:gap-4  ">
                 <Card delay={.9} title="Power" subtitle="0.37 - 315 kW" >
@@ -65,7 +65,7 @@ const Property = () =>
 
 const ImageMotor = () =>
     <MotionFadeZoomOut className=" col-span-8 md:col-span-7  lg:w-[35%] lg:absolute lg:top-1/2 lg:-translate-y-2/5 lg:left-1/2 lg:-translate-x-1/2 overflow-visible "  >
-        <Image className=" scale-120 lg:scale-135 w-full h-full  object-cover rotate-y-180" src={motor} alt="" width={0} />
+        <Image className=" scale-120 lg:scale-130 w-full h-full  object-cover rotate-y-180" src={motor} alt="" width={0} />
     </MotionFadeZoomOut>
 
 const Property2 = () =>
@@ -75,7 +75,7 @@ const Property2 = () =>
                 <Settings className="text-orange" />
             </div>
         </Card>
-        <Card delay={.6} title="RELIABLE & DURABLE" subtitle="ทนทาน เชื่อถือได้" >
+        <Card delay={.6} title="RELIABLE & STANDRAD" subtitle="ทนทานและได้มาตรฐาน" >
             <div className="  p-2 rounded-full scale-75">
                 <ShieldCheck className="text-orange" />
             </div>
@@ -88,7 +88,7 @@ const Property2 = () =>
     </div>
 
 const LogoList = ({ pathImages }: { pathImages: string[] }) =>
-    <MotionFadeUp delay={.3} className="w-full  *:place-items-center px-4 gap-4 gap-y-2 grid grid-cols-4  lg:grid-cols-8 md:gap-4  justify-center  p-2 rounded-lg backdrop-blur-sm lg:absolute lg:bottom-[2%] lg:left-1/2 lg:-translate-x-1/2 lg:w-[80%]">
+    <MotionFadeUp delay={.3} className="w-full  *:place-items-center px-4 gap-4 gap-y-2 grid grid-cols-4  lg:grid-cols-9 md:gap-4  justify-center  p-2 rounded-lg backdrop-blur-sm lg:absolute lg:bottom-[2%] lg:left-1/2 lg:-translate-x-1/2 lg:w-[90%]">
         {pathImages?.map((path) =>
             <Image className=" object-cover w-12.5 md:w-25" src={path} alt="" width={0} height={0} unoptimized key={path} />
         )}
