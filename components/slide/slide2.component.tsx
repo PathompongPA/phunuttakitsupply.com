@@ -35,7 +35,7 @@ function Property() {
     return <div className=" flex flex-col gap-4 md:gap-8 ">
         <List a="เพิ่มประสิทธิภาพการพิมพ์ฉลากเพื่อธุรกิจที่เติบโต" b="Efficiency to Support Business Growth" />
         <List a="พิมพ์คมชัด รวดเร็ว ทุกงานบาร์โค้ด" b="Sharp Prints, Fast Performance" />
-        <List a="ทนทาน แม่นยำ พร้อมรองรับทุอุตสาหกรรม" b="Precision for Every Industry" />
+        <List a="ทนทาน แม่นยำ พร้อมรองรับทุกอุตสาหกรรม" b="Precision for Every Industry" />
     </div>
 
 }
