@@ -39,8 +39,8 @@ function Title() {
 function ListOption() {
     return (
         <div className=" flex w-full justify-around">
-            <Option delay={.5} img={option2} label="สติกเกอร์สินค้า" subLabel="(LABEL BARCODE)" />
-            <Option delay={.7} img={option1} label="ฉลากสินค้า" subLabel="(LABEL PRINT COLOR)" />
+            <Option delay={.5} img={option2} label="ฉลากสินค้า" subLabel="(LABEL PRINT COLOR)" />
+            <Option delay={.7} img={option1} label="สติกเกอร์สินค้า" subLabel="(LABEL BARCODE)" />
         </div>
     )
 
