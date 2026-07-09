@@ -13,7 +13,7 @@ export default function Slide1() {
         <div className="h-screen lg:h-full lg:max-h-192 w-full text-black   overflow-hidden flex justify-center items-center" >
             <div className="relative  max-w-7xl w-full h-full md:pt-[20%]">
                 <Background />
-                <Link className=" z-30 left-0 top-0 pt-22 gap-0 md:pt-0 p-4 py-8 flex flex-col justify-around  items-center  h-full  w-full max-w-7xl  " href={{ pathname: "/products" }} >
+                <Link className=" z-30 left-0 top-0 pt-22 gap-0 md:pt-0 p-4 py-8 flex flex-col justify-around  items-center  h-full  w-full max-w-7xl  " href={{ pathname: "/products", query: { category: "มอเตอร์ไฟฟ้า" } }} >
                     <Title />
                     <div className=" grid grid-cols-12 items-center justify-around *:place-items-center ">
                         <ImageMotor />

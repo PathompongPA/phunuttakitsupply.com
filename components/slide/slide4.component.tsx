@@ -8,18 +8,23 @@ import brand3 from "../../public/slide/slide4/logo3.png"
 import brand4 from "../../public/slide/slide4/logo4.png"
 import bg from "../../public/slide/slide4/bg.png"
 import { StaticImport } from "next/dist/shared/lib/get-img-props"
+import Link from "next/link"
 
 export default function Slide4() {
     return (
         <div className=" relative w-full flex justify-center h-full">
-            <div className=" relative grid lg:grid-cols-2 pt-22 px-8 h-screen overflow-visible max-w-7xl">
+            <Link className=" relative grid lg:grid-cols-2 pt-22 px-8 h-screen overflow-visible max-w-7xl" href={{
+                pathname: "/products/", query: {
+                    type: "LABEL"
+                }
+            }}>
                 <div className=" flex flex-col justify-around ">
                     <Title />
                     <ListOption />
                     <ListBrand />
                 </div>
                 <Background />
-            </div>
+            </Link>
             <Background2 />
         </div>
     )

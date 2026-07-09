@@ -6,15 +6,20 @@ import { ReactNode } from "react"
 import product1 from "../../public/slide/slide5/prop1.png"
 import product2 from "../../public/slide/slide5/prop2.png"
 import product3 from "../../public/slide/slide5/prop3.png"
+import Link from "next/link"
 
 export default function Slide5() {
     return (
         <div className=" w-full flex justify-center h-screen lg:max-h-192 lg:h-full">
-            <div className="relative  flex flex-col justify-around w-full h-screen lg:h-full pt-22 lg:pt-0 max-w-7xl items-center *:row-span-1  ">
+            <Link className="relative  flex flex-col justify-around w-full h-screen lg:h-full pt-22 lg:pt-0 max-w-7xl items-center *:row-span-1  " href={{
+                pathname: "/products/", query: {
+                    type: "WATER PUMP"
+                }
+            }}>
                 <Title />
                 <ListProduct />
                 <Property />
-            </div>
+            </Link>
             <Background />
         </div >
     )

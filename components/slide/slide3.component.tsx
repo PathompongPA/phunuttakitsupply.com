@@ -2,12 +2,17 @@ import Image from "next/image";
 import bg from "../../public/slide/slide3/img1.png"
 import brands from "../../public/slide/slide3/img2.png"
 import { MotionFade, MotionFadeLeft, MotionFadeUp } from "@/motion/motion";
+import Link from "next/link";
 
 
 export default function Slide3() {
     return (
         <div className=" p-4 pt-22 h-screen relative w-full flex justify-center " >
-            <div className=" max-w-7xl flex  justify-center items-center lg:px-16  ">
+            <Link className=" max-w-7xl flex  justify-center items-center lg:px-16  " href={{
+                pathname: "/products/", query: {
+                    type: "RIBBON"
+                }
+            }}>
                 <MotionFadeLeft className=" absolute w-[80%] top-1/2 -translate-y-1/3 left-1/2 -translate-x-1/2 z-0 lg:translate-0 md:w-[60%] lg:static  lg:w-full">
                     <Image src={bg} width={0} height={0} alt="" />
                 </MotionFadeLeft>
@@ -29,7 +34,7 @@ export default function Slide3() {
                         <Image src={brands} width={0} height={0} alt="" />
                     </MotionFadeUp>
                 </div>
-            </div>
+            </Link>
             <Background />
         </div>
     )

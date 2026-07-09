@@ -7,7 +7,11 @@ import Link from "next/link";
 export default function Slide2() {
     return (
         <div className="w-full flex justify-center overflow-hidden h-screen relative" >
-            <Link className=" max-w-7xl grid grid-cols-1 lg:grid-cols-2 pt-22 p-4 md:px-8 lg:px-16 items-center " href={{ pathname: "products/" }}>
+            <Link className=" max-w-7xl grid grid-cols-1 lg:grid-cols-2 pt-22 p-4 md:px-8 lg:px-16 items-center " href={{
+                pathname: "products/", query: {
+                    type: "Printer Barcode"
+                }
+            }}>
                 <div className=" flex flex-col gap-4 md:gap-8 justify-center items-center lg:items-start ">
                     <Title />
                     <Property />
