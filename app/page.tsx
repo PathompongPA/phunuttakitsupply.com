@@ -5,10 +5,10 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center w-full min-h-full ">
       <AutoSlide >
-        <Slide1 />
+        {/* <Slide1 />
         <Slide2 />
         <Slide3 />
-        <Slide4 />
+        <Slide4 /> */}
         <Slide5 />
       </AutoSlide>
       <Category />
