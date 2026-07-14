@@ -38,28 +38,9 @@ export default async function Product({ product_name }: prop) {
     const docPath = process.env.NEXT_PUBLIC_URL_HOST_CLIENT + "assets/" + product?.document
     const brand = product?.brand?.name
     const category = product?.category?.name
-    // const name = product?.name
     const description = product?.description
     const description2 = product?.description2
     const urlLine = "https://line.me/ti/p/NuDh2mAbCf"
-    const email = "sales@example.com"
-    const subject = encodeURIComponent(
-        `Request for Quotation (RFQ) - ${product?.name ?? ""}`
-    )
-
-    const body = encodeURIComponent(`
-        เรียน ฝ่ายขาย
-
-        ขอใบเสนอราคาสำหรับสินค้ารายการดังต่อไปนี้
-        
-        ชื่อสินค้า: ${decodeURIComponent(product?.name) ?? "-"}
-
-        กรุณาส่งใบเสนอราคา พร้อมรายละเอียดเงื่อนไขการชำระเงิน ระยะเวลาจัดส่ง และข้อมูลที่เกี่ยวข้องกลับมายังอีเมลนี้
-        ขอแสดงความนับถือ
-
-        `.trim())
-
-    const urlEmail = `mailto:${email}?subject=${subject}&body=${body}`
 
     return (
         <div className=" flex flex-col items-center pb-8">
@@ -104,7 +85,7 @@ export default async function Product({ product_name }: prop) {
                     </div>
                     <div className=" flex flex-col md:flex-row gap-4 justify-center items-center *:shadow-xl/50 *:shadow-gray-3/50">
                         <a className="  text-[16px] w-full   text-center p-4 rounded-3xl bg-gray-2  lg:hover:scale-95 duration-300 text-lime-500 font-bold" type="button" href={urlLine} target="_black">ADD LINE</a>
-                        <a className=" text-[16px]  text-center w-full rounded-3xl font-bold p-4 bg-orange text-white active:scale-75 cursor-pointer lg:hover:scale-95 duration-300 ease-in-out" type="button" href={urlEmail} > ขอใบเสนอราคา</a>
+                        <Link className=" text-[16px]  text-center w-full rounded-3xl font-bold p-4 bg-orange text-white active:scale-75 cursor-pointer lg:hover:scale-95 duration-300 ease-in-out" href={{ pathname: "/about" }}> ขอใบเสนอราคา</Link>
                     </div>
                 </div>
             </div>

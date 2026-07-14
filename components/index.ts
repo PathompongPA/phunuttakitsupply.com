@@ -4,6 +4,7 @@ import BlogContent from "./blogs/blog.content.component";
 import CatalogCard from "./catalog/catalog.card.component";
 import Category from "./category/category.component";
 import Footer from "./footer/footer.component";
+import Quotation from "./from/quotation/quotation.component";
 import LinkToUs from "./link-to-us/link.to.us.component";
 import LoadingComponent from "./loading/loading.component";
 import NotFoundItem from "./material/not.found.item";
@@ -18,6 +19,7 @@ import Slide3 from "./slide/slide3.component";
 import Slide4 from "./slide/slide4.component";
 import Slide5 from "./slide/slide5.component";
 export {
+  Quotation,
   Slide5,
   Slide4,
   Slide3,
