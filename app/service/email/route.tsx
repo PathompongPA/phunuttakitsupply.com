@@ -77,7 +77,7 @@ export async function POST(req: Request) {
     const info =
         await transporter.sendMail({
             from: process.env.SMTP_USER,
-            to: "pathompong.litk@gmail.com",
+            to: process.env.SMTP_TARGET,
             subject: "ขอใบเสนอราคา",
             html,
         });
