@@ -88,9 +88,11 @@ const Property2 = () =>
     </div>
 
 const LogoList = ({ pathImages }: { pathImages: string[] }) =>
-    <MotionFadeUp delay={.3} className="w-full  *:place-items-center px-4 gap-4 gap-y-2 grid grid-cols-5  lg:grid-cols-9 md:gap-4  justify-center  p-2 rounded-lg backdrop-blur-sm lg:absolute lg:bottom-[2%] lg:left-1/2 lg:-translate-x-1/2 lg:w-[90%]">
+    <MotionFadeUp delay={.3} className="w-full *:place-items-center px-4 gap-2 gap-y-1 md:gap-x-8 flex flex-row flex-wrap lg:grid   lg:grid-cols-9 md:gap-4  justify-center  p-2 rounded-lg backdrop-blur-sm lg:absolute lg:bottom-[2%] lg:left-1/2 lg:-translate-x-1/2 lg:w-[90%]">
         {pathImages?.map((path) =>
-            <Image className=" object-cover w-12.5 md:w-25" src={path} alt="" width={0} height={0} unoptimized key={path} />
+            <div className=" w-12.5 md:w-25 " key={path}>
+                <Image className="object-cover w-full h-full" loading="eager" width={0} height={0} src={path} alt="" unoptimized />
+            </div>
         )}
     </MotionFadeUp>
 
