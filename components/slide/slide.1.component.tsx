@@ -7,7 +7,7 @@ import motor from "../../public/slide/motor.png"
 
 export default function Slide1() {
     const basePath = "/slide/motor_logo/"
-    const images = ["abb", "siemens", "hascon", "toshiba", "brook", "mitsubishi", "cmp", "weg", "wat"]
+    const images = ["abb", "siemens", "hascon", "toshiba", "brook", "mitsubishi", "cmp", "weg", "Wat"]
     const pathImages: string[] = images.map((item) => basePath + item + ".png")
     return (
         <div className="h-screen lg:h-full lg:max-h-192 w-full text-black   overflow-hidden flex justify-center items-center" >
