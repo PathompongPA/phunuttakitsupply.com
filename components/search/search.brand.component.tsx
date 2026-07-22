@@ -50,7 +50,7 @@ export default async function SearchBrand({ searchParams }: Props) {
     return (
         brand.length !== 0 &&
         <div className=" flex flex-col gap-4 px-4 py-2 ">
-            <span className=" underline text-[12px] md:text-[12px] text-gray-5">แบรนด์</span>
+            <span className=" underline text-[12px] md:text-[12px] text-gray-5 font-bold">แบรนด์</span>
             <div className=" flex gap-4  md:flex-col items-start flex-wrap">
                 {brand?.map(({ id, name }) =>
                     <SearchBrandButton key={id} name={name} />

@@ -23,7 +23,7 @@ export default function SearchFilter({ searchParams }: Props) {
             <div className=" flex flex-col max-h-0 scale-y-0 gap-2  origin-bottom ease-in-out peer-checked/filter:max-h-screen peer-checked/filter:scale-y-100 overflow-hidden duration-700 ">
                 <SearchTypeProduct searchParams={searchParams} />
                 <SearchBrand searchParams={searchParams} />
-                <Link className=" active:scale-90  duration-300 ease-out w-full  text-gray-4 md:text-gray-6 rounded-3xl py-2 text-center text-[12px] underline lg:py-1 md:text-[10px] font-bold" href={{ pathname: "/products" }}>ล้างการค้นหา</Link>
+                <Link className=" active:scale-90  duration-300 ease-out w-full  text-gray-5 md:text-gray-6 rounded-3xl py-2 text-center text-[12px] underline lg:py-1 md:text-[10px] font-bold" href={{ pathname: "/products" }}>ล้างการค้นหา</Link>
             </div>
         </div >
     )

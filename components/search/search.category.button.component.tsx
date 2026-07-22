@@ -52,7 +52,7 @@ export default function SearchCategoryButton({ name }: prop) {
                 p-2
                 rounded-3xl
                 font-semibold
-                md:text-xs
+                md:text-[14px]
                 ${isActive
                     ? "bg-orange text-white"
                     : "bg-gray-1 text-gray-5"}

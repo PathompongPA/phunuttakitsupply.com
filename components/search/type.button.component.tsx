@@ -33,13 +33,13 @@ export default function SearchTypeButton({ name, amount }: Props) {
             type="button"
         >
             <div
-                className={` w-3 h-3 md:w-2.5 md:h-2.5 border-2 border-gray-2 peer-checked/type:bg-orange  ease-in-out ${isActive ? "bg-orange" : "border-gray-300"} `}
+                className={` w-3 h-3 md:w-2.5 md:h-2.5 border-2 border-gray-3 peer-checked/type:bg-orange  ease-in-out ${isActive ? "bg-orange border-orange" : "border-gray-3"} `}
             />
 
             <span
                 className={`
-                text-[10px] font-semibold md:text-[10px] text-gray-3 text-start text-nowrap  select-none  hover:cursor-pointer  
-          ${isActive ? "text-gray-5" : "text-gray-500"}
+                text-[10px] font-semibold md:text-[10px] text-gray-5 text-start text-nowrap  select-none  hover:cursor-pointer  
+          ${isActive ? "text-gray-5" : "text-gray-5"}
         `}
             >
                 {decodeURIComponent(name).replace(/\s+/g, " ").trim()} {amount && `(${amount})`}
